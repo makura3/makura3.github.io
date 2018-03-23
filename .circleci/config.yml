@@ -22,7 +22,7 @@ jobs:
     steps:
       - run:
           name: run deploy
-          command:  git config --global user.name "cakura3"
+          command:  git config --global user.name "makura3"
                     git config --global user.email "makumaku300@gmail.com"
                     git submodule init
                     git submodule update
