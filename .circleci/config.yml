@@ -1,31 +1,62 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/development
+    docker:
+      - image: circleci/node:8
+
+    steps:
+      - checkout
+      - run:    npm install
+##                hexo generate
+      - deploy:
+          name: Production Deploy
+          command: git config --global user.name "cakura3"
+                   git config --global user.email "makumaku300@gmail.com"
+                   git submodule init
+                   git submodule update
+                   hexo clean
+                   hexo generate
+                   hexo deploy
+  
+  test:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run: echo "* *--   skip test   -- * *"
+
+## run jobs
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
+
 ## build taeget
-general:
-  branches:
-    ignore:
-      - master
+##general:
+##  branches:
+##    ignore:
+##      - master
     ##only:
     ##  - development
 
-machine:
-  timezone:
-    Asia/Tokyo
-  node:
-    version: 8.9.4
-
 ## skip test
-test:
-  override:
-    - echo "* *--   skip test   -- * *"
+##test:
+##  override:
+##    - echo "* *--   skip test   -- * *"
 
 ## deploy setting
-deployment:
-  deploy:
-    branch: development
-    commands:
-      - git config --global user.name "cakura3"
-      - git config --global user.email "makumaku300@gmail.com"
-      - git submodule init
-      - git submodule update
-      - hexo clean
-      - hexo generate
-      - hexo deploy
+##deployment:
+##  deploy:
+##    branch: development
+##    commands:
+##      - git config --global user.name "cakura3"
+##      - git config --global user.email "makumaku300@gmail.com"
+##      - git submodule init
+##      - git submodule update
+##      - hexo clean
+##      - hexo generate
+##      - hexo deploy
