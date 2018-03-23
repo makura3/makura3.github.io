@@ -1,0 +1,31 @@
+## build taeget
+general:
+  branches:
+    ignore:
+      - master
+    ##only:
+    ##  - development
+
+machine:
+  timezone:
+    Asia/Tokyo
+  node:
+    version: 8.9.4
+
+## skip test
+test:
+  override:
+    - echo "* *--   skip test   -- * *"
+
+## deploy setting
+deployment:
+  deploy:
+    branch: development
+    commands:
+      - git config --global user.name "cakura3"
+      - git config --global user.email "makumaku300@gmail.com"
+      - git submodule init
+      - git submodule update
+      - hexo clean
+      - hexo generate
+      - hexo deploy
