@@ -5,27 +5,30 @@ jobs:
     working_directory: ~/development
     docker:
       - image: circleci/node:8
-
     steps:
       - checkout
-      - run:    npm install
-##                hexo generate
-      - deploy:
-          name: Production Deploy
-          command: git config --global user.name "cakura3"
-                   git config --global user.email "makumaku300@gmail.com"
-                   git submodule init
-                   git submodule update
-                   hexo clean
-                   hexo generate
-                   hexo deploy
-  
+      - run: npm install
+
   test:
     docker:
       - image: circleci/node:8
     steps:
       - checkout
       - run: echo "* *--   skip test   -- * *"
+
+  deploying:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - run:
+          name: run deploy
+          command:  git config --global user.name "cakura3"
+                    git config --global user.email "makumaku300@gmail.com"
+                    git submodule init
+                    git submodule update
+                    hexo clean
+                    hexo generate
+                    hexo deploy
 
 ## run jobs
 workflows:
@@ -34,6 +37,10 @@ workflows:
     jobs:
       - build
       - test
+      - deploy:
+          requires:
+            - deploying
+
 
 ## build taeget
 ##general:
