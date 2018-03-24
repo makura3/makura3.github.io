@@ -10,7 +10,7 @@ jobs:
           name: install
           command: |
             npm install
-            npm install hexo-cli
+            npm install hexo-cli -D
 
   test:
     docker:
