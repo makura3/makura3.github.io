@@ -8,7 +8,9 @@ jobs:
       - checkout
       - run: 
           name: install
-          command: npm install
+          command: |
+            npm install
+            npm install hexo-cli -g
 
   test:
     docker:
