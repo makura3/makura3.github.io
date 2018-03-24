@@ -2,7 +2,6 @@ version: 2
 
 jobs:
   build:
-    working_directory: ~/development
     docker:
       - image: circleci/node:8
     steps:
@@ -19,7 +18,6 @@ jobs:
       - run: echo "* *--   skip test   -- * *"
 
   deploy:
-    working_directory: ~/development
     docker:
       - image: circleci/node:8
     steps:
