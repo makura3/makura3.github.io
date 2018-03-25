@@ -12,6 +12,7 @@ jobs:
           command: |
             npm install
             npm install hexo-cli -D
+            npm install hexo --save
 
   test:
     working_directory: ~/blog
