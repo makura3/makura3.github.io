@@ -2,6 +2,7 @@ version: 2
 
 jobs:
   build:
+    working_directory: ~/blog
     docker:
       - image: circleci/node:8
     steps:
@@ -9,10 +10,11 @@ jobs:
       - run: 
           name: install
           command: |
-            npm install hexo-cli -D
             npm install
+            npm install hexo-cli -D
 
   test:
+    working_directory: ~/blog
     docker:
       - image: circleci/node:8
     steps:
@@ -20,6 +22,7 @@ jobs:
       - run: echo "* *--   skip test   -- * *"
 
   deploy:
+    working_directory: ~/blog
     docker:
       - image: circleci/node:8
     steps:
