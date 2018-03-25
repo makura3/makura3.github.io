@@ -16,7 +16,7 @@ jobs:
       - save_cache:
           key: blog-{{ epoch }}
           paths:
-            - ~/makura3.github.io/blog
+            - ~/makura3.github.io
 
   test:
     docker:
@@ -25,7 +25,7 @@ jobs:
       - run: echo "* *--   skip test   -- * *"
 
   deploy:
-    working_directory: ~/makura3.github.io/blog
+    working_directory: ~/makura3.github.io
     - restore_cache:
         keys:
           - blog
