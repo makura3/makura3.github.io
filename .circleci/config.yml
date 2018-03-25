@@ -26,6 +26,8 @@ jobs:
 
   deploy:
     working_directory: ~/makura3.github.io
+    docker:
+      - image: circleci/node:8
     steps:
       - restore_cache:
           keys:
