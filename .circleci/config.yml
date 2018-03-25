@@ -16,7 +16,7 @@ jobs:
       - save_cache:
           key: makura3.github.io-blog-{{ .Branch }}
           paths:
-            - ~/makura3.github.io/node_modules
+            - ~/makura3.github.io
 
   test:
     docker:
