@@ -26,10 +26,10 @@ jobs:
 
   deploy:
     working_directory: ~/makura3.github.io
+    steps:
     - restore_cache:
         keys:
           - blog
-    steps:
       - run:
           name: run deploy
           command: |
