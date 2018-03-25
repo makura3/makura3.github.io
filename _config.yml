@@ -82,4 +82,6 @@ deploy:
   type: git
   repo: git@github.com:makura3/makura3.github.io.git
   branch: master
+  name: makura3
+  email: 37650810+makura3@users.noreply.github.com
   skip_render: README.md
