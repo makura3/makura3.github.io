@@ -2,7 +2,7 @@ version: 2
 
 jobs:
   build:
-    working_directory: ~/blog
+    working_directory: ~/makura3.github.io
     docker:
       - image: circleci/node:8
     steps:
@@ -13,18 +13,22 @@ jobs:
             npm install
             npm install hexo-cli -D
             npm install hexo --save
+      - save_cache:
+          key: blog-{{ epoch }}
+          paths:
+            - ~/makura3.github.io/blog
 
   test:
-    working_directory: ~/blog
     docker:
       - image: circleci/node:8
     steps:
       - run: echo "* *--   skip test   -- * *"
 
   deploy:
-    working_directory: ~/blog
-    docker:
-      - image: circleci/node:8
+    working_directory: ~/makura3.github.io/blog
+    - restore_cache:
+        keys:
+          - blog
     steps:
       - run:
           name: run deploy
