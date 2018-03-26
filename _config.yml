@@ -80,8 +80,9 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
+  message: ci skip
   repo: git@github.com:makura3/makura3.github.io.git
-  branch: test-deploy
+  branch: master
   name: makura3
   email: 37650810+makura3@users.noreply.github.com
   skip_render: README.md
