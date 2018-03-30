@@ -1,10 +1,12 @@
 @charset "UTF-8";
 
 //import
+@import "normalize/import-now";
 @import "./_parts/_variable.scss";
 
-@import "normalize";
-
-.container {
+.footer {
   background-color: $c_black;
+  color: $c_white;
+  padding: 40px 0;
+  text-align: center;
 }
