@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+//import
+@import "./_parts/_variable.scss";
+
+@import "normalize";
+
+.container {
+  background-color: $c_black;
+}

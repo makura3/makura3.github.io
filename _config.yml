@@ -75,6 +75,13 @@ pagination_dir: page
 ## Themes
 theme: landscape
 
+node_sass:
+  debug: false
+  outputStyle: compressed
+  precision: 5
+  sourceComments: false
+  includePaths: ['./node_modules/normalize-scss/sass/']
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
