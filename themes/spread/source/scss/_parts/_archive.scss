@@ -1,0 +1,10 @@
+.post {
+  background-color: $c_white;
+  margin: 0px 100px 50px 100px;
+  overflow: hidden;
+  .post-link {
+    color: $c_black;
+    display: block;
+    text-decoration: none;
+  }
+}

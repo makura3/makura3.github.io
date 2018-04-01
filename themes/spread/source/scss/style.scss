@@ -4,9 +4,20 @@
 @import "normalize/import-now";
 @import "./_parts/_variable.scss";
 
-.footer {
-  background-color: $c_black;
-  color: $c_white;
-  padding: 40px 0;
-  text-align: center;
+//fonts
+@import "https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css";
+
+@import "./_parts/_header.scss";
+@import "./_parts/_footer.scss";
+
+@import "./_parts/archive.scss";
+
+body {
+  font-family: $font;
+}
+
+.contents {
+  background-color: $c_base;
+  height: 100%;
+  width: 100%;
 }

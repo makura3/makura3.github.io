@@ -1,0 +1,22 @@
+.page-header {
+  background-color: $c_gray;
+  .header-list {
+    background-color: $c_white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  .header-title {
+    color: $c_black;
+    padding: 100px 0px;
+    text-align: center;
+    .title {
+      text-decoration: none;
+    }
+  }
+}
+
+.header-nav-link {
+  margin-right: 10px;
+  text-decoration: none;
+}

@@ -36,7 +36,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: true;
+post_asset_folder: true # image post
 relative_link: false
 future: true
 highlight:
@@ -74,6 +74,7 @@ pagination_dir: page
 # Extensions
 ## Themes
 theme: landscape
+#theme: spread
 
 node_sass:
   debug: false

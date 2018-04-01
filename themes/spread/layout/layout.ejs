@@ -6,13 +6,11 @@
 
   <body>
     <div class="container">
-      <!-- left column -->
-      <div>
+      <!-- header -->
+      <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+      <!-- main column -->
+      <div class="contents">
         <%- body %>
-      </div>
-      <!-- right column -->
-      <div>
-        <p>hello right</p>
       </div>
     </div>
     <!-- footer -->
