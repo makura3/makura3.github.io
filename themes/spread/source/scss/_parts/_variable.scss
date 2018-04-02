@@ -9,6 +9,19 @@ $c_base: #FAFAFA;
 //basic colors
 $c_black: #333333;
 $c_gray: #CCCCCC;
+$c_lightGray: #EEEEEE;
 $c_white: #FFFFFF;
 
-//media queries√
+//media queries
+$breakpoints: (
+  'sm': 'screen and (max-width: 480px)',
+  'md': 'screen and (max-width: 768px)',
+  'lg': 'screen and (max-width: 1000px)',
+  'xl': 'screen and (max-width: 1200px)',
+) !default;
+
+@mixin max-mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}

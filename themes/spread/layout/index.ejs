@@ -8,11 +8,6 @@
               <h2 class="post-title">
                 <%- post.title %>
               </h2>
-              <div class="post-meta">
-                  <time class="post-date" datetime="" title="">
-                      <%- date(post.date,"YYYY年MM月DD日") %>
-                  </time>
-              </div>
           </div>
           <p class="brief">
               <% if(post.excerpt) { %>
@@ -21,10 +16,15 @@
                   <%= truncate(strip_html(post.content), {length: theme.excerptLength || 120, separator: ''}) %>
               <% } %>
           </p>
+          <div class="post-time">
+            <time class="post-date" datetime="" title="">
+              <%- date(post.date,"YYYY年MM月DD日") %>
+            </time>
+          </div>
         </a>
       </div>
     </article>
   <% }) %>
 <% } else { %>
-  <p>きじがないです</p>
+  <p>投稿された記事はありません。</p>
 <% } %>
