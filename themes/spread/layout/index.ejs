@@ -1,8 +1,7 @@
-<%# 記事が存在する場合 %>
-<% if(page.posts && page.posts.length){ %>
-  <% page.posts.forEach(function (post, i) { %>
-    <% if(i == 0) { %>
-      <%# new post %>
+<div class="article-container">
+  <%# 記事が存在する場合 %>
+  <% if(page.posts && page.posts.length){ %>
+    <% page.posts.forEach(function (post, i) { 　console.log(post);　%>
       <article class="post">
         <a href="<%- url_for(post.link) %>" class="post-link">
           <div class="post-head">
@@ -14,7 +13,11 @@
               <% if(post.excerpt) { %>
                   <%= strip_html(post.excerpt) + '…' %>
               <% } else { %>
+                <% if(i == 0) { %>
                   <%= truncate(strip_html(post.content), {length: 120, separator: ''}) %>
+                <% } else { %>
+                  <%= truncate(strip_html(post.content), {length: 60, separator: ''}) %>
+                <% } %>
               <% } %>
           </p>
           <div class="post-time">
@@ -24,89 +27,8 @@
           </div>
         </a>
       </article>
-    <% } else { %>
-      <%# 2番目以降 %>
-    <% } %>
-
-    <%#以下ダミー記事 %>
-    <div class="old-post">
-      <article class="post">
-        <div class="post-content">
-          <a href="/" class="post-link">
-            <div class="post-head">
-                <h2 class="post-title">
-                  ダミーなタイトtる
-                </h2>
-            </div>
-            <p class="post-content">
-              <% if(post.excerpt) { %>
-                  <%= strip_html(post.excerpt) + '…' %>
-              <% } else { %>
-                  <%= truncate(strip_html('これはダミーな記事ですどうぞこれはダミーな記事ですどうぞこれはダミーな記事ですどうぞこれはダミーな記事ですどうぞこれはダミーな記事です'), {length: 60, separator: ''}) %>
-              <% } %>
-            </p>
-            <div class="post-time">
-              <time class="post-date" datetime="" title="">
-                2018年03月27日
-              </time>
-            </div>
-          </a>
-        </div>
-      </article>
-      <article class="post">
-        <a href="/" class="post-link">
-          <div class="post-head">
-              <h2 class="post-title">
-                わたしはねこ
-              </h2>
-          </div>
-          <p class="post-content">
-            わたしは猫です。いつもふとんでゴロゴロしています。
-          </p>
-          <div class="post-time">
-            <time class="post-date" datetime="" title="">
-              2018年01月01日
-            </time>
-          </div>
-        </a>
-      </article>
-      <article class="post">
-        <a href="/" class="post-link">
-          <div class="post-head">
-              <h2 class="post-title">
-                4記事めです
-              </h2>
-          </div>
-          <p class="post-content">
-            二段になると嬉しいな
-          </p>
-          <div class="post-time">
-            <time class="post-date" datetime="" title="">
-              2018年01月01日
-            </time>
-          </div>
-        </a>
-      </article>
-      <article class="post">
-        <a href="/" class="post-link">
-          <div class="post-head">
-              <h2 class="post-title">
-                4記事めです
-              </h2>
-          </div>
-          <p class="post-content">
-            二段になると嬉しいな
-          </p>
-          <div class="post-time">
-            <time class="post-date" datetime="" title="">
-              2018年01月01日
-            </time>
-          </div>
-        </a>
-      </article>
-    </div>
-
-  <% }) %>
-<% } else { %>
-  <p>投稿された記事はありません。</p>
-<% } %>
+    <% }) %>
+  <% } else { %>
+    <p>投稿された記事はありません。</p>
+  <% } %>
+</div>

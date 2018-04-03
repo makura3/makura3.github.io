@@ -1,3 +1,9 @@
+.article-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .contents {
   .post {
     &:first-child {
@@ -10,7 +16,18 @@
   background-color: $c_white;
   box-shadow: 0px 10px 20px $c_gray;
   margin: 0 0 50px 0;
+  height: 215px;
   overflow: hidden;
+  width: 300px;
+
+  &:first-child {
+    margin: 0 0 50px 0;
+    width: 990px;
+  }
+
+  @include max-mq(sm) {
+    width: auto;
+  }
 
   &:hover {
     box-shadow: none;
@@ -49,29 +66,5 @@
   .post-title {
     font-size: 24px;
     letter-spacing: 0.1em;
-  }
-}
-
-.old-post {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  @include max-mq(sm) {
-    display: block;
-  }
-
-  .post {
-    margin: 0 0 50px 0;
-    height: 215px;
-    width: 300px;
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    @include max-mq(sm) {
-      width: auto;
-    }
   }
 }
