@@ -15,10 +15,19 @@
 body {
   font-family: $font;
   letter-spacing: 0.05em;
+  line-height: 1.3em;
+}
+
+.container {
+  background-color: $c_base;
 }
 
 .contents {
-  background-color: $c_base;
   height: 100%;
-  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 990px;
+  @include max-mq(sm) {
+    width: auto;
+  }
 }

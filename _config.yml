@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 'ふとんこーど'
+title: 'ふとんLog'
 subtitle:
 description:
 keywords:
@@ -73,8 +73,8 @@ pagination_dir: page
 
 # Extensions
 ## Themes
-theme: landscape
-#theme: spread
+#theme: landscape
+theme: spread
 
 node_sass:
   debug: false

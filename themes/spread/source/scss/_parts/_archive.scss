@@ -1,5 +1,4 @@
 .contents {
-  overflow: hidden;
   .post {
     &:first-child {
       margin-top: 50px;
@@ -9,18 +8,28 @@
 
 .post {
   background-color: $c_white;
-  box-shadow: 0px 10px 20px $c_lightGray;
-  margin: 0px 100px 50px 100px;
+  box-shadow: 0px 10px 20px $c_gray;
+  margin: 0 0 50px 0;
   overflow: hidden;
 
+  &:hover {
+    box-shadow: none;
+  }
+
   @include max-mq(sm) {
-    margin: 0 30px 50px 30px;
+    height: 215px;
+    margin: 0 0 50px 0;
     padding: 0 15px 20px 15px;
+
+    &:hover {
+      box-shadow: 0px 10px 20px $c_gray;
+    }
   }
 
   .post-link {
     color: $c_black;
     display: block;
+    height: 100%;
     padding: 20px;
     text-decoration: none;
     @include max-mq(sm) {
@@ -28,8 +37,41 @@
     }
   }
 
+  .post-content {
+    font-size: 14px;
+  }
+
   .post-time {
     text-align: right;
     font-size: 12px;
+  }
+
+  .post-title {
+    font-size: 24px;
+    letter-spacing: 0.1em;
+  }
+}
+
+.old-post {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @include max-mq(sm) {
+    display: block;
+  }
+
+  .post {
+    margin: 0 0 50px 0;
+    height: 215px;
+    width: 300px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    @include max-mq(sm) {
+      width: auto;
+    }
   }
 }
