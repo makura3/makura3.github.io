@@ -43,8 +43,7 @@ jobs:
             git submodule update
             ls
             npx hexo clean
-            npx hexo generate
-            npx hexo deploy
+            npx hexo deploy -g
 
 ## run jobs
 workflows:
