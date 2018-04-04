@@ -1,7 +1,7 @@
 <div class="article-container">
   <%# 記事が存在する場合 %>
   <% if(page.posts && page.posts.length){ %>
-    <% page.posts.forEach(function (post, i) { 　console.log(post);　%>
+    <% page.posts.forEach(function (post, i) {　%>
       <article class="post">
         <a href="<%- url_for(post.link) %>" class="post-link">
           <div class="post-head">
