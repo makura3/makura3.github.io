@@ -12,7 +12,6 @@ jobs:
           command: |
             npm install
             npm install hexo-cli -D
-            # npm install hexo --save
       - save_cache:
           key: makura3.github.io-blog-{{ .Branch }}
           paths:
@@ -40,13 +39,8 @@ jobs:
             git config --global user.email "makumaku300@gmail.com"
             git submodule init
             git submodule update
-            ls
             npx hexo clean
             npx hexo generate
-            ls
-            cd ./public
-            ls
-            cd ../
             npx hexo deploy
 
 ## run jobs
