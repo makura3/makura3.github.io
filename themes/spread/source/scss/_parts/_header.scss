@@ -1,20 +1,29 @@
 .page-header {
-  background-image: url('./../images/top.jpg');
+  background: url(./../images/top.jpg), linear-gradient(125deg, #61b6ff, #b5ca5f) fixed;
+  background-blend-mode: soft-light;
   background-repeat: no-repeat;
   background-size: cover;
+
   .header-list {
     background-color: $c_white;
     display: flex;
     justify-content: space-between;
     padding: 10px;
   }
+
   .header-title {
     color: $c_black;
     padding: 100px 0px;
     text-align: center;
+
     .title {
       color: $c_white;
+      font-size: 90px;
       text-decoration: none;
+
+      @include max-mq(sm) {
+        font-size: 60px;
+      }
     }
   }
 }
