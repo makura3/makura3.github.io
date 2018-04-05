@@ -1,5 +1,7 @@
 .page-header {
-  background-color: $c_gray;
+  background-image: url('./../images/top.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   .header-list {
     background-color: $c_white;
     display: flex;
