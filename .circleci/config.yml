@@ -12,7 +12,7 @@ jobs:
           command: |
             npm install
             npm install hexo-cli -D
-            npm install hexo --save
+            # npm install hexo --save
       - save_cache:
           key: makura3.github.io-blog-{{ .Branch }}
           paths:
@@ -29,7 +29,7 @@ jobs:
     docker:
       - image: circleci/node:8
     steps:
-      - checkout
+      #- checkout
       - restore_cache:
           keys:
             - makura3.github.io-blog-{{ .Branch }}
@@ -42,7 +42,12 @@ jobs:
             git submodule update
             ls
             npx hexo clean
-            npx hexo deploy -g
+            hexo generate
+            ls
+            cd ./public
+            ls
+            cd ../
+            npx hexo deploy
 
 ## run jobs
 workflows:
