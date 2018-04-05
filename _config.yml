@@ -73,7 +73,6 @@ pagination_dir: page
 
 # Extensions
 ## Themes
-#theme: landscape
 theme: spread
 
 node_sass:
