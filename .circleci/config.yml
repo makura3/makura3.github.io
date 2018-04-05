@@ -35,6 +35,7 @@ jobs:
       - run:
           name: run deploy
           command: |
+            npm install
             git config --global user.name "makura3"
             git config --global user.email "makumaku300@gmail.com"
             git submodule init
