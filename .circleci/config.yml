@@ -10,8 +10,8 @@ jobs:
       - run: 
           name: install
           command: |
-            npm install
             npm install hexo-cli -D
+            npm install
       - save_cache:
           key: makura3.github.io-blog-{{ .Branch }}
           paths:
@@ -35,7 +35,7 @@ jobs:
       - run:
           name: run deploy
           command: |
-            npm install
+            # npm install
             git config --global user.name "makura3"
             git config --global user.email "makumaku300@gmail.com"
             git submodule init
