@@ -1,9 +1,3 @@
-.article-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 .contents {
   .post {
     &:first-child {
@@ -18,12 +12,6 @@
   margin: 0 0 50px 0;
   height: 215px;
   overflow: hidden;
-  width: 300px;
-
-  &:first-child {
-    margin: 0 0 50px 0;
-    width: 990px;
-  }
 
   @include max-mq(sm) {
     width: auto;

@@ -4,7 +4,11 @@
   <% } %>
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>
+      <p>
+        <i class="fab fa-github sns-ic"></i>
+        <i class="fab fa-twitter sns-ic"></i>
+        <i class="fab fa-facebook sns-ic"></i></p>
+      <p>&copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %></p>
     </div>
   </div>
 </footer>
