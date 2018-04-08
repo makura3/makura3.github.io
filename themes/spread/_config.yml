@@ -1,21 +1,12 @@
 # Header
 menu:
-  Home: /
-  Archives: /archives
+  Home: https://makura3.github.io/
+  Archives: https://makura3.github.io/archives
 #rss: /atom.xml
 
 # Content
 #excerpt_link: Read More
 #fancybox: true
-
-# Sidebar
-#sidebar: right
-#widgets:
-#- category
-#- tag
-#- tagcloud
-#- archive
-#- recent_posts
 
 # display widgets at the bottom of index pages (pagination == 2)
 index_widgets:
@@ -36,3 +27,11 @@ twitter_url:
 facebook_url:
 instagram_url:
 github_url: https://github.com/makura3/makura3.github.io
+
+# style settings
+node_sass:
+  debug: false
+  outputStyle: compressed
+  precision: 5
+  sourceComments: false
+  includePaths: ['./node_modules/normalize-scss/sass/','./node_modules/reset-css/']

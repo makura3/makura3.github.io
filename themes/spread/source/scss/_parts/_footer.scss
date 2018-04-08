@@ -1,10 +1,21 @@
 .footer {
-  background-color: $c_base;
+  background-color: $c_main;
   color: $c_white;
+  font-size: 14px;
   padding: 40px 0;
+  position: relative;
   text-align: center;
 
   .sns-ic {
-    margin: 0 15px;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0 10px 10px 10px;
+  }
+
+  .fa-chevron-circle-up {
+    bottom: 30px;
+    color: $c_tp_black;
+    right: 30px;
+    position: fixed;
   }
 }

@@ -4,7 +4,7 @@
 
 # Site
 title: 'Log +α'
-subtitle:
+subtitle: 'フロントエンドのあれこれをじぶんのために。'
 description:
 keywords:
 author: makura3
@@ -14,10 +14,10 @@ timezone:
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 ##https://makura3.github.io/
-url: /
-root: /
+url: https://makura3.github.io/
+root: https://makura3.github.io/
 permalink: :category/:id/
-permalink_defaults:
+permalink_defaults: https://makura3.github.io/
 
 # Directory
 source_dir: source
@@ -74,13 +74,6 @@ pagination_dir: page
 # Extensions
 ## Themes
 theme: spread
-
-node_sass:
-  debug: false
-  outputStyle: compressed
-  precision: 5
-  sourceComments: false
-  includePaths: ['./node_modules/normalize-scss/sass/']
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

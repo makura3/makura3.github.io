@@ -4,7 +4,14 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+  @include max-mq(sm) {
+    background: url(./../images/top_sm.jpg), linear-gradient(125deg, #61b6ff, #b5ca5f) fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
   .header-list {
+    background-color: $c_tp_black;
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -19,13 +26,31 @@
     padding: 100px 0px;
     text-align: center;
 
-    .title {
+    .header-title-link {
+      display: inline-block;
+
+      .title {
+        color: $c_white;
+        font-size: 60px;
+        font-weight: 300;
+        text-decoration: none;
+        text-shadow: 0px 5px 20px $c_black;
+  
+        @include max-mq(sm) {
+          font-size: 60px;
+        }
+      }
+    } 
+
+    .subtitle {
       color: $c_white;
-      font-size: 90px;
-      text-decoration: none;
+      letter-spacing: 0.5em;
+      margin-top: 30px;
+      text-shadow: 0px 5px 10px $c_black;
 
       @include max-mq(sm) {
-        font-size: 60px;
+        font-size: 12px;
+        padding: 0 10px;
       }
     }
   }

@@ -2,6 +2,7 @@
 
 //import
 @import "normalize/import-now";
+@import "_reset";
 @import "./_parts/_variable.scss";
 
 //fonts
@@ -15,8 +16,13 @@
 
 body {
   font-family: $font;
-  letter-spacing: 0.05em;
+  font-size: 14px;
+  letter-spacing: 0.2em;
   line-height: 1.3em;
+}
+
+a {
+  text-decoration: none;
 }
 
 .container {
@@ -27,7 +33,12 @@ body {
   height: 100%;
   margin: 0 auto;
   overflow: hidden;
-  width: 990px;
+  width: 75%;
+
+  @include max-mq(md) {
+    width: 80%;
+  }
+
   @include max-mq(sm) {
     width: auto;
   }

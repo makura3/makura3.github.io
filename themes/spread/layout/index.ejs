@@ -4,6 +4,11 @@
     <% page.posts.forEach(function (post, i) {　%>
       <article class="post">
         <a href="<%- url_for(post.link) %>" class="post-link">
+          <% if(post.thumbnail) { %>
+            <div>
+               <%= {asset_path post.thumbnail title} %>
+            </div>
+          <% } %>
           <div class="post-head">
               <h2 class="post-title">
                 <%- post.title %>
@@ -13,11 +18,7 @@
               <% if(post.excerpt) { %>
                   <%= strip_html(post.excerpt) + '…' %>
               <% } else { %>
-                <% if(i == 0) { %>
-                  <%= truncate(strip_html(post.content), {length: 120, separator: ''}) %>
-                <% } else { %>
-                  <%= truncate(strip_html(post.content), {length: 60, separator: ''}) %>
-                <% } %>
+                  <%= truncate(strip_html(post.content), {length: 200, separator: ''}) %>
               <% } %>
           </p>
           <div class="post-time">
@@ -26,6 +27,14 @@
             </time>
           </div>
         </a>
+        <div class="post-tags">
+          <% if (post.tags && post.tags.length){ %>
+            <%- list_tags(post.tags, {
+              show_count: false,
+              class: 'article-tag'
+            }) %>
+          <% } %>
+        </div>
       </article>
     <% }) %>
   <% } else { %>

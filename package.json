@@ -23,7 +23,8 @@
     "hexo-renderer-scss": "^1.2.0",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
-    "normalize-scss": "^7.0.1"
+    "normalize-scss": "^7.0.1",
+    "reset-css": "^3.0.0"
   },
   "devDependencies": {
     "hexo-cli": "^1.1.0"
