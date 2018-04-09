@@ -3,10 +3,11 @@
   <% if(page.posts && page.posts.length){ %>
     <% page.posts.forEach(function (post, i) {　%>
       <article class="post">
-        <a href="<%- url_for(post.link) %>" class="post-link">
+        <a href="<%- url_for(post.path) %>" class="post-link">
           <% if(post.thumbnail) { %>
             <div>
                <%= post.thumbnail %>
+               <%- console.log(post.permalink); %>
             </div>
           <% } %>
           <div class="post-head">
@@ -38,6 +39,6 @@
       </article>
     <% }) %>
   <% } else { %>
-    <p>投稿された記事はありません。</p>
+    <p class="no-post">投稿された記事はありません。</p>
   <% } %>
 </div>

@@ -1,6 +1,7 @@
 ---
 title: 'これはテスト記事です。見出しがここにはいります。みだしがながいばあいはこんなかんじのひょうじになります。'
 date: 2018-04-01 22:58:27
+category: text
 tags: [tag, tag2, tag3]
 thumbnail: thumbnail.png
 ---
