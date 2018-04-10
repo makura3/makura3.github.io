@@ -13,7 +13,9 @@
 @import './_parts/_socal.scss';
 
 @import "./_parts/archive.scss";
+@import "./_parts/article.scss";
 
+html,
 body {
   font-family: $font;
   font-size: 14px;
@@ -22,11 +24,13 @@ body {
 }
 
 a {
+  color: $c_main;
   text-decoration: none;
 }
 
 .container {
   background-color: $c_back;
+  color: $c_black;
 }
 
 .contents {
