@@ -12,10 +12,10 @@
 .post {
   margin: 50px 0;
   position: relative;
-  text-shadow: 0px 0px 15px $c_gray;
+  //text-shadow: 0px 0px 15px $c_gray;
 
   @include max-mq(sm) {
-    margin: 0 0 50px 0;
+    margin: 50px 0 50px 0;
     padding: 0 15px 20px 15px;
     width: auto;
   }
@@ -44,12 +44,20 @@
     text-decoration: none;
 
     &:hover {
-      text-shadow: none;
+      .post-thumbnail {
+        box-shadow: none;
+      }
     }
 
     @include max-mq(sm) {
       padding: 0 15px 20px 15px;
     }
+  }
+
+  .post-thumbnail {
+    box-shadow: 0px 5px 15px $c_gray;
+    margin-bottom: 10px;
+    width: 100%;
   }
 
   .post-content {

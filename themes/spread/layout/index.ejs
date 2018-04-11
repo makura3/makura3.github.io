@@ -6,8 +6,7 @@
         <a href="<%- url_for(post.path) %>" class="post-link">
           <% if(post.thumbnail) { %>
             <div>
-               <%= post.thumbnail %>
-               <%- console.log(post.permalink); %>
+              <img src="<%- url_for(post.path) %><%= post.thumbnail %>" class="post-thumbnail" />
             </div>
           <% } %>
           <div class="post-head">
