@@ -5,7 +5,12 @@
   }
 
   .article-inner {
-    margin: 50px 0;
+    font-weight: 300;
+    margin: 50px 10px 50px 10px;
+
+    .article-nav {
+
+    }
   
     .article-title {
       font-size: 24px;
@@ -18,9 +23,23 @@
     }
   
     .article-entry {
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1.5em;
       margin: 20px 0 0 0;
+
+      //見出し
+      h2 {
+        font-size: 18px;
+        font-weight: 600;
+      }
     }
+  }
+
+  // 見出し
+  .toc {
+    border: 1px solid $c_gray;
+    border-radius: 4px;
+    margin: 10px;
+    padding: 10px;
   }
 }

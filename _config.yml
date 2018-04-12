@@ -71,6 +71,15 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
+## topic
+toc:
+  maxdepth: 3
+  class: toc
+  anchor:
+    position: after
+    symbol: '#'
+    style: header-anchor
+
 # Extensions
 ## Themes
 theme: spread
