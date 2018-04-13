@@ -8,13 +8,7 @@
 //fonts
 @import "https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css";
 
-@import "./_parts/_header.scss";
-@import "./_parts/_footer.scss";
-@import './_parts/_socal.scss';
-
-@import "./_parts/archive.scss";
-@import "./_parts/article.scss";
-
+// default setting
 html,
 body {
   font-family: $font;
@@ -27,6 +21,22 @@ a {
   color: $c_main;
   text-decoration: none;
 }
+
+.sm-hidden {
+  display: block;
+
+  @include max-mq(sm) {
+    display: none;
+  }
+}
+
+.sm-show {
+  display: none;
+
+  @include max-mq(sm) {
+    display: block;
+  }
+}  
 
 .container {
   background-color: $c_back;
@@ -47,3 +57,12 @@ a {
     width: auto;
   }
 }
+
+
+//import parts style
+@import "./_parts/_header.scss";
+@import "./_parts/_footer.scss";
+@import './_parts/_socal.scss';
+
+@import "./_parts/archive.scss";
+@import "./_parts/article.scss";

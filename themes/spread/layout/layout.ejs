@@ -8,6 +8,8 @@
     <div class="container">
       <!-- header -->
       <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+      <!-- nav -->
+      <%- partial('_partial/nav', null, {cache: !config.relative_link}) %>
       <!-- main column -->
       <div class="contents">
         <%- body %>
