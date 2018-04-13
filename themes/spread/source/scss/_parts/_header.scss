@@ -3,6 +3,11 @@
   background-blend-mode: soft-light;
   background-repeat: no-repeat;
   background-size: cover;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
 
   @include max-mq(sm) {
     background: url(./../images/top_sm.jpg), linear-gradient(125deg, #61b6ff, #b5ca5f) fixed;
@@ -88,18 +93,14 @@
 
 //nav
 .header-list {
-  background-color: $c_white;
-  box-shadow: 0px 3px 20px $c_gray;
   display: flex;
   justify-content: center;
+  margin-top: 280px;
   padding: 10px;
 
-  // @include max-mq(sm) {
-  //   display: none;
-  // }
-
   .header-nav-link {
+    border-bottom: 4px solid $c_main;
     color: $c_black;
-    text-decoration: underline;
+    padding: 5px 8px;
   }
 }

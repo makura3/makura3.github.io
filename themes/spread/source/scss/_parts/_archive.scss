@@ -94,7 +94,7 @@
     font-size: 22px;
     letter-spacing: 0.1em;
     line-height: 1.3em;
-    margin-bottom: 20px;
+    margin: 10px 0 20px 0;
 
     @include max-mq(sm) {
       font-size: 20px;
@@ -103,8 +103,6 @@
 
   .post-time {
     font-size: 12px;
-    margin-top: 15px;
-    text-align: right;
   }
 
   .post-tags {
