@@ -58,6 +58,22 @@ a {
   }
 }
 
+.list {
+  .list-item {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .list-title {
+    width: 80px;
+  }
+
+  .list-content {
+    flex: 1;
+    margin: 0 0 15px 20px;
+  }
+}
+
 
 //import parts style
 @import "./_parts/_header.scss";
@@ -66,3 +82,4 @@ a {
 
 @import "./_parts/archive.scss";
 @import "./_parts/article.scss";
+@import "./_parts/profile.scss";
