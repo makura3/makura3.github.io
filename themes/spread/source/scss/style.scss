@@ -41,6 +41,7 @@ a {
 .container {
   background-color: $c_back;
   color: $c_black;
+  padding-bottom: 50px;
 }
 
 .contents {
@@ -79,6 +80,7 @@ a {
 @import "./_parts/_header.scss";
 @import "./_parts/_footer.scss";
 @import './_parts/_socal.scss';
+@import './_parts/_highlight.scss';
 
 @import "./_parts/archive.scss";
 @import "./_parts/article.scss";
