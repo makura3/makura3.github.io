@@ -5,14 +5,14 @@
     <div class="article-nav">
       <%- partial('post/category') %>
     </div>
+    <div class="article-meta">
+      <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
+    </div>
     <% if( post.title ){ %>
       <header class="article-header">
         <%- partial('post/title', {class_name: 'article-title'}) %>
       </header>
     <% } %>
-    <div class="article-meta">
-      <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
-    </div>
     <div class="article-entry" itemprop="articleBody">
       <% if (post.excerpt && index){ %>
         <%- post.excerpt %>
@@ -30,7 +30,7 @@
       <% if (post.comments && config.disqus_shortname){ %>
         <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a>
       <% } %>
-      <%- partial('post/tag') %>
+      <!-- <%- partial('post/tag') %> -->
     </footer>
   </div>
   <% if (!index){ %>

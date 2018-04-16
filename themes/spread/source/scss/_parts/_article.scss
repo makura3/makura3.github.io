@@ -6,12 +6,7 @@
 
   .article-inner {
     font-weight: 300;
-    margin: 50px 10px 50px 10px;
-
-    .article-nav {
-
-    }
-  
+    margin: 50px 10px 50px 10px;  
     .article-title {
       font-size: 24px;
       line-height: 1.3em;
@@ -31,6 +26,13 @@
       h2 {
         font-size: 18px;
         font-weight: 600;
+        margin: 25px 0 10px 0;
+      }
+
+      h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 25px 0 10px 0;
       }
     }
   }
@@ -39,7 +41,63 @@
   .toc {
     border: 1px solid $c_gray;
     border-radius: 4px;
-    margin: 10px;
+    margin: 10px 0;
     padding: 10px;
+    ul {
+      margin-left: 10px;
+    }
+  }
+
+  //強調文字
+  em {
+    position: relative;
+    &::after {
+      border: 3px solid $c_tp_main;
+      bottom: 0;
+      content: '';
+      left: 0;
+      right: 0;
+      position: absolute;
+    }
+  }
+
+  //ページング
+  .paging {
+    display: flex;
+    justify-content: space-around;
+
+    .article-nav-link-wrap {
+      border: 1px solid $c_gray;
+      border-radius: 4px;
+      box-shadow: 0px 5px 15px $c_lightGray;
+      text-align: center;
+
+      @include max-mq(sm) {
+        width: 40%;
+      }
+
+      .article-nav-title {
+        font-size: 12px;
+        overflow: hidden;
+        padding: 0 10px 5px 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    .article-nav-caption {
+      color: $c_black;
+      display: inline-block;
+      padding: 10px 10px 5px 10px;
+    }
+
+    .fa-angle-left {
+      margin-right: 10px;
+    }
+
+    .fa-angle-right {
+      margin-left: 10px;
+    }
+
   }
 }

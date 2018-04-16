@@ -1,8 +1,8 @@
 <% if (post.prev || post.next){ %>
-<nav id="article-nav">
+<nav class="paging">
   <% if (post.prev){ %>
     <a href="<%- url_for(post.prev.path) %>" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><%= __('newer') %></strong>
+      <span class="article-nav-caption"><i class="fas fa-angle-left"></i><%= __('newer') %></span>
       <div class="article-nav-title">
         <% if (post.prev.title){ %>
           <%= post.prev.title %>
@@ -14,7 +14,7 @@
   <% } %>
   <% if (post.next){ %>
     <a href="<%- url_for(post.next.path) %>" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><%= __('older') %></strong>
+      <span class="article-nav-caption"><%= __('older') %><i class="fas fa-angle-right"></i></span>
       <div class="article-nav-title"><%= post.next.title %></div>
     </a>
   <% } %>
