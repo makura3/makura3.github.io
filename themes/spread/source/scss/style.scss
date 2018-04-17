@@ -60,6 +60,8 @@ a {
   }
 }
 
+
+//汎用パーツの定義
 .list {
   .list-item {
     display: flex;
@@ -73,6 +75,18 @@ a {
   .list-content {
     flex: 1;
     margin: 0 0 15px 20px;
+  }
+}
+
+table {
+  width: 100%;
+  
+  //見出し
+  th {
+    background-color: $c_main;
+    color: $c_white;
+    font-weight: 400;
+    padding: 5px 10px;
   }
 }
 
