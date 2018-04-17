@@ -11,7 +11,7 @@
 }
 
 .post {
-  margin: 50px 0;
+  margin: 80px 0;
   position: relative;
   //text-shadow: 0px 0px 15px $c_gray;
 
@@ -29,7 +29,7 @@
     margin: 0 auto;
     opacity: 0.5;
     position: absolute;
-    top: -25px;
+    top: -45px;
     width: 40%;
     z-index: 10;
   }
@@ -41,7 +41,7 @@
     height: 2px;
     margin: 0 auto;
     position: absolute;
-    top: -25px;
+    top: -45px;
     width: 100%;
   }
 
@@ -68,6 +68,16 @@
     }
   }
 
+  .post-l-panel {
+    height: 200px;
+    margin: 0px 20px 20px 0;
+    width: 300px;
+
+    @include max-mq(sm) {
+      margin: 0 auto 15px auto;
+    }
+  }
+
   .post-thumbnail {
     align-items: center;
     background-color: $c_lightGray;
@@ -77,12 +87,7 @@
     display: flex;
     height: 200px;
     justify-content: center;
-    margin: 0px 20px 10px 0;
     width: 300px;
-
-    @include max-mq(sm) {
-      margin: 0 auto 15px auto;
-    }
   }
 
   .post-content {
@@ -91,8 +96,8 @@
   }
 
   .post-title {
-    font-size: 26px;
-    font-weight: 500;
+    font-size: 28px;
+    font-weight: 400;
     letter-spacing: 0.1em;
     line-height: 1.3em;
     margin: 5px 0 20px 0;
@@ -103,11 +108,15 @@
   }
 
   .post-time {
-    font-size: 12px;
+    font-size: 14px;
+
+    @include max-mq(sm) {
+      font-size: 12px;
+    }
   }
 
   .post-tags {
-    margin-top: 10px;
+    text-align: right;
 
     .article-tag-list {
       display: inline-block;
@@ -116,9 +125,9 @@
         display: inline-block;
 
         .article-tag-list-link {
-          border: 1px solid $c_gray;
+          background-color: $c_lightGray;
           border-radius: 2px;
-          color: $c_gray;
+          color: $c_black;
           font-size: 12px;
           margin-right: 10px;
           padding: 1px 2px 1px 5px;
@@ -133,7 +142,7 @@
     }
 
     @include max-mq(sm) {
-      margin: 10px 20px 0 20px;
+      margin: 15px 20px 0 20px;
       text-align: right;
     }
   }

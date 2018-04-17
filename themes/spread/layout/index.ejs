@@ -26,7 +26,7 @@
                 <% if(post.excerpt) { %>
                     <%= strip_html(post.excerpt) + '…' %>
                 <% } else { %>
-                    <%= truncate(strip_html(post.content), {length: 200, separator: ''}) %>
+                    <%= truncate(strip_html(post.content), {length: 180, separator: ''}) %>
                 <% } %>
             </p>
           </div>

@@ -23,9 +23,9 @@
 
       //見出し
       h2 {
-        font-size: 22px;
-        font-weight: 500;
-        margin: 30px 0 20px 0;
+        font-size: 24px;
+        font-weight: 400;
+        margin: 30px 0 30px 0;
         position: relative;
 
         &::before {
@@ -36,7 +36,7 @@
           margin: 0 auto;
           opacity: 0.5;
           position: absolute;
-          bottom: -8px;
+          bottom: -15px;
           width: 40%;
           z-index: 10;
         }
@@ -48,16 +48,16 @@
           height: 2px;
           margin: 0 auto;
           position: absolute;
-          bottom: -8px;
+          bottom: -15px;
           width: 100%;
         }
       }
 
       h3 {
         background-color: $c_lightGray;
-        font-size: 20px;
-        font-weight: 500;
-        margin: 25px 0 10px 0;
+        font-size: 22px;
+        font-weight: 400;
+        margin: 30px 0 15px 0;
         padding: 10px;
       }
     }

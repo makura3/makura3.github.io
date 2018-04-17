@@ -78,15 +78,34 @@ a {
   }
 }
 
-table {
+:not(.highlight) table {
+  box-sizing: border-box;
   width: 100%;
   
   //見出し
   th {
-    background-color: $c_main;
-    color: $c_white;
+    background-color: $c_lightGray;
+    border-right: 1px solid $c_gray;
+    color: $c_black;
     font-weight: 400;
     padding: 5px 10px;
+
+    &:last-child {
+      border: none;
+    }
+  }
+
+  tr {
+    border: 1px solid $c_gray;
+
+    td {
+      border-right: 1px solid $c_gray;
+      padding: 10px;
+
+      &:last-child {
+        border: none;
+      }
+    }
   }
 }
 
