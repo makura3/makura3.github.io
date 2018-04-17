@@ -81,6 +81,11 @@
       @include max-mq(sm) {
         font-size: 12px;
         padding: 0 10px;
+
+        span {
+          display: block;
+          margin: 5px 0;
+        }
       }
     }
   }

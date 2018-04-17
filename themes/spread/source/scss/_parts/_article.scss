@@ -6,7 +6,12 @@
 
   .article-inner {
     font-weight: 300;
-    margin: 50px 10px 50px 10px;  
+    margin: 50px 10px 50px 10px;
+
+    .article-pnkz {
+      margin-bottom: 30px;
+    }
+
     .article-title {
       font-size: 24px;
       line-height: 1.3em;
@@ -71,6 +76,7 @@
       border-radius: 4px;
       box-shadow: 0px 5px 15px $c_lightGray;
       text-align: center;
+      width: 200px;
 
       @include max-mq(sm) {
         width: 40%;

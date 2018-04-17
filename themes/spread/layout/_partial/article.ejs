@@ -2,7 +2,7 @@
   <div class="article-inner">
     <!-- <%- partial('post/gallery') %> -->
     <!-- パンくず -->
-    <div class="article-nav">
+    <div class="article-pnkz">
       <%- partial('post/category') %>
     </div>
     <div class="article-meta">
@@ -10,7 +10,7 @@
     </div>
     <% if( post.title ){ %>
       <header class="article-header">
-        <%- partial('post/title', {class_name: 'article-title'}) %>
+        <%- partial('post/title', {class_name: 'post-title'}) %>
       </header>
     <% } %>
     <div class="article-entry" itemprop="articleBody">

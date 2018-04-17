@@ -32,12 +32,7 @@
           </div>
         </a>
         <div class="post-tags">
-          <% if (post.tags && post.tags.length){ %>
-            <%- list_tags(post.tags, {
-              show_count: false,
-              class: 'article-tag'
-            }) %>
-          <% } %>
+          <%- partial('_partial/post/tag', {show_count: false, class: 'article-tag', post:post}) %>
         </div>
       </article>
     <% }) %>

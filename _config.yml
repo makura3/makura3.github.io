@@ -4,7 +4,7 @@
 
 # Site
 title: 'MOJI ni.'
-subtitle: 'フロントエンドのあれこれをじぶんのために。'
+subtitle: '<span>フロントエンドのあれこれを</span><span>じぶんのために。</span>'
 description:
 keywords:
 author: makura3
@@ -77,7 +77,7 @@ toc:
   class: toc
   anchor:
     position: after
-    symbol: '#'
+    symbol: ''
     style: header-anchor
 
 # Extensions
