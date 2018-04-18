@@ -13,13 +13,13 @@ html,
 body {
   font-family: $font;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.2em;
   line-height: 1.3em;
 }
 
 a {
-  color: $c_main;
+  color: $c_link;
   text-decoration: none;
 }
 
@@ -47,7 +47,7 @@ a {
 
 .contents {
   height: 100%;
-  margin: 0 auto;
+  margin: 300px auto 0;
   overflow: hidden;
   width: 75%;
 
@@ -78,7 +78,7 @@ a {
   }
 }
 
-:not(.highlight) table {
+table {
   box-sizing: border-box;
   width: 100%;
   

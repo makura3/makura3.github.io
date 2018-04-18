@@ -92,27 +92,6 @@
 
   .post-content {
     font-size: 14px;
-    font-weight: 300;
-  }
-
-  .post-title {
-    font-size: 28px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    line-height: 1.3em;
-    margin: 5px 0 20px 0;
-
-    @include max-mq(sm) {
-      font-size: 20px;
-    }
-  }
-
-  .post-time {
-    font-size: 14px;
-
-    @include max-mq(sm) {
-      font-size: 12px;
-    }
   }
 
   .post-tags {

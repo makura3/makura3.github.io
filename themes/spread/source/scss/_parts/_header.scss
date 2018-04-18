@@ -53,8 +53,12 @@
 
   .header-title {
     color: $c_black;
-    padding: 100px 0px;
+    padding: 90px 0px 100px 0px;
     text-align: center;
+
+    @include max-mq(sm) {
+      padding: 90px 0px 100px 0px;
+    }
 
     .header-title-link {
       display: inline-block;
@@ -91,21 +95,32 @@
   }
 }
 
-.header-nav-link {
-  margin-right: 10px;
-  text-decoration: none;
-}
-
 //nav
-.header-list {
+.header-nav-wrap {
   display: flex;
   justify-content: center;
-  margin-top: 280px;
   padding: 10px;
 
   .header-nav-link {
-    border-bottom: 2px solid $c_main;
-    color: $c_black;
+    color: $c_white;
+    font-weight: 400;
+    margin-right: 15px;
     padding: 5px 8px;
+    position: relative;
+    text-decoration: none;
+
+    &::before {
+      border-left: 5px solid $c_white;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      content: '';
+      left: -5px;
+      position: absolute;
+      top: 10px;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

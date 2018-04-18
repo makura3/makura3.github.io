@@ -1,23 +1,42 @@
-$highlight-background: #444444;
+$highlight-background: #555555;
 $highlight-current-line: #393939;
 $highlight-selection: #515151;
-$highlight-foreground: #cccccc;
+$highlight-foreground: #DDDDDD;
 $highlight-comment: #999999;
-$highlight-red: #f2777a;
-$highlight-orange: #f99157;
-$highlight-yellow: #ffcc66;
-$highlight-green: #99cc99;
-$highlight-aqua: #66cccc;
-$highlight-blue: #6699cc;
-$highlight-purple: #cc99cc;
+$highlight-red: #e57373;
+$highlight-orange: #FFB74D;
+$highlight-green: #81C784;
+$highlight-aqua: #4DD0E1;
+$highlight-blue: #64B5F6;
+$highlight-purple: #9575CD;
+
+%line-numbers {
+  color: #777777;
+  font-size: 12px;
+};
 
 .article-entry {
+
+  .code {
+    background: none;
+    text-shadow: none;
+    padding: 0;
+  }
+
   .highlight {
     background: $highlight-background;
     border-radius: 8px;
     color: $highlight-foreground;
     margin: 10px 0;
     padding: 15px;
+
+    table {
+      width: auto;
+
+      tr {
+        border: none;
+      }
+    }
   }
 
   pre {
@@ -102,10 +121,13 @@ $highlight-purple: #cc99cc;
     }
   }
 
-  .gutter pre {
-    //@extend $line-numbers;
-    text-align: right;
-    padding-right: 20px;
+  .gutter {
+    border: none;
+    pre {
+      @extend %line-numbers;
+      text-align: right;
+      padding-right: 10px;
+    }
   }
 
   .line {

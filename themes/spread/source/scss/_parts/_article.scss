@@ -1,12 +1,38 @@
+.post {
+  .post-title {
+    font-size: 28px;
+    letter-spacing: 0.1em;
+    line-height: 1.3em;
+    margin: 5px 0 20px 0;
+
+    @include max-mq(sm) {
+      font-size: 24px;
+    }
+  }
+
+  .post-time {
+    font-size: 14px;
+
+    @include max-mq(sm) {
+      font-size: 12px;
+    }
+  }
+}
+
 .article {
   
   &.post {
     text-shadow: none;
+
+    @include max-mq(sm) {
+      margin: 20px 0 0 0;
+      padding: 0 0 20px 0;
+      width: auto;
+    }
   }
 
   .article-inner {
-    font-weight: 300;
-    margin: 50px 10px 50px 10px;
+    margin: 0 10px 50px 10px;
 
     .article-pnkz {
       margin-bottom: 30px;
@@ -21,12 +47,35 @@
       line-height: 1.5em;
       margin: 20px 0 0 0;
 
+      // 目次
+      .toc {
+        border-bottom: 1px solid $c_gray;
+        border-top: 1px solid $c_gray;
+        margin: 20px 0;
+        padding: 10px;
+
+        
+        ul {
+          list-style: none;
+          margin-left: 20px;
+          ul {
+            list-style: disc;
+            margin-left: 40px;
+          }
+        }
+      }
+
       //見出し
       h2 {
         font-size: 24px;
         font-weight: 400;
+        line-height: 1.2em;
         margin: 30px 0 30px 0;
         position: relative;
+
+        @include max-mq(sm) {
+          font-size: 22px;
+        }
 
         &::before {
           background-color: $c_main;
@@ -59,18 +108,21 @@
         font-weight: 400;
         margin: 30px 0 15px 0;
         padding: 10px;
-      }
-    }
-  }
 
-  // 見出し
-  .toc {
-    border: 1px solid $c_gray;
-    border-radius: 4px;
-    margin: 10px 0;
-    padding: 10px;
-    ul {
-      margin-left: 10px;
+        @include max-mq(sm) {
+          font-size: 20px;
+        }
+      }
+
+      ul {
+        list-style: disc;
+        margin-left: 20px;
+      }
+
+      ol {
+        list-style: decimal;
+        margin-left: 20px;
+      }
     }
   }
 
