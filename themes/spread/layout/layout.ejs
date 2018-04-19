@@ -9,7 +9,11 @@
       <!-- header -->
       <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
       <!-- main column -->
+      <% if ( page.layout ){ %>
+      <div class="contents header_min">
+      <% } else { %>
       <div class="contents">
+      <% } %>
         <%- body %>
       </div>
     </div>

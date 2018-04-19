@@ -51,6 +51,12 @@ a {
   overflow: hidden;
   width: 75%;
 
+  &.header_min {
+    @include max-mq(sm) {
+      margin-top: 95px;
+    }
+  }
+
   @include max-mq(md) {
     width: 80%;
   }

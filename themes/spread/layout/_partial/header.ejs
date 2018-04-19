@@ -1,23 +1,36 @@
-<header class="page-header">
-  <!-- <div class="header-list-sm jsHeader">
-    <div class="menu-icon">
-      <span></span>
-      <span></span>
-      <span></span>
+<% if ( page.layout ){ %>
+  <header class="page-header header_min">
+    <%- partial('_partial/nav', null, {cache: !config.relative_link}) %>
+    <div class="header-title">
+      <a href="<%- url_for() %>" class="header-title-link">
+        <h1 class="title">
+          <%= config.title %>
+        </h1>
+      </a>
     </div>
-  </div> -->
-  <!-- nav -->
-  <%- partial('_partial/nav', null, {cache: !config.relative_link}) %>
-  <div class="header-title">
-    <a href="<%- url_for() %>" class="header-title-link">
-      <h1 class="title">
-      <%= config.title %>
-      </h1>
-    </a>
-    <% if (config.subtitle){ %>
-      <p class="subtitle">
-        <%- config.subtitle %>
-      </p>
-    <% } %>
-  </div>
-</header>
+  </header>
+<% } else { %>
+  <header class="page-header">
+    <!-- <div class="header-list-sm jsHeader">
+      <div class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div> -->
+    <!-- nav -->
+    <%- partial('_partial/nav', null, {cache: !config.relative_link}) %>
+    <div class="header-title">
+      <a href="<%- url_for() %>" class="header-title-link">
+        <h1 class="title">
+        <%= config.title %>
+        </h1>
+      </a>
+      <% if (config.subtitle){ %>
+        <p class="subtitle">
+          <%- config.subtitle %>
+        </p>
+      <% } %>
+    </div>
+  </header>
+<% } %>

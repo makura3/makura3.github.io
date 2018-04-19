@@ -1,3 +1,20 @@
+//ページごとにヘッダーのデザインを作り分け
+.page-header {
+  &.header_min {
+    .header-title {
+      @include max-mq(sm) {
+        padding: 20px 0;
+      }
+
+      .title {
+        @include max-mq(sm) {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
+
 .page-header {
   background: url(./../images/top.jpg), linear-gradient(125deg, #61b6ff, #b5ca5f) fixed;
   background-blend-mode: soft-light;
@@ -15,44 +32,43 @@
     background-size: cover;
   }
 
-  .header-list-sm {
-    right: 0;
-    position: absolute;
+  // .header-list-sm {
+  //   right: 0;
+  //   position: absolute;
 
-    .menu-icon {
-      box-sizing: border-box;
-      display: inline-block;
-      height: 30px;
-      right: 20px;
-      top: 20px;
-      position: relative;
-      width: 30px;
+  //   .menu-icon {
+  //     box-sizing: border-box;
+  //     display: inline-block;
+  //     height: 30px;
+  //     right: 20px;
+  //     top: 20px;
+  //     position: relative;
+  //     width: 30px;
   
-      span {
-        background-color: $c_white;
-        border-radius: 2px;
-        height: 2px;
-        left: 0;
-        position: absolute;
-        width: 100%;
+  //     span {
+  //       background-color: $c_white;
+  //       border-radius: 2px;
+  //       height: 2px;
+  //       left: 0;
+  //       position: absolute;
+  //       width: 100%;
   
-        &:nth-of-type(1) {
-          top: 0px;
-        }
+  //       &:nth-of-type(1) {
+  //         top: 0px;
+  //       }
   
-        &:nth-of-type(2) {
-          top: 10px;
-        }
+  //       &:nth-of-type(2) {
+  //         top: 10px;
+  //       }
   
-        &:nth-of-type(3) {
-          top: 20px;
-        }
-      }
-    }
-  }
+  //       &:nth-of-type(3) {
+  //         top: 20px;
+  //       }
+  //     }
+  //   }
+  // }
 
   .header-title {
-    color: $c_black;
     padding: 90px 0px 100px 0px;
     text-align: center;
 
@@ -62,19 +78,19 @@
 
     .header-title-link {
       display: inline-block;
+    }
 
-      .title {
-        color: $c_white;
+    .title {
+      color: $c_white;
+      font-size: 60px;
+      font-weight: 300;
+      text-decoration: none;
+      text-shadow: 0px 5px 20px $c_black;
+
+      @include max-mq(sm) {
         font-size: 60px;
-        font-weight: 300;
-        text-decoration: none;
-        text-shadow: 0px 5px 20px $c_black;
-  
-        @include max-mq(sm) {
-          font-size: 60px;
-        }
       }
-    } 
+    }
 
     .subtitle {
       color: $c_white;
