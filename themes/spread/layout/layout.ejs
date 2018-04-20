@@ -7,8 +7,11 @@
   <body>
     <div class="container">
       <!-- header -->
-      <%= page.layout %>
-      <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+      <% if( page.layout ) { %>
+        <%- partial('_partial/header_min', null, {cache: !config.relative_link}) %>
+      <% } else { %>
+        <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+      <% } %>
       <!-- main column -->
       <% if ( page.layout ){ %>
       <div class="contents header_min">
