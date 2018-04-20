@@ -20,8 +20,13 @@
 }
 
 .article {
+
+  a {
+    text-decoration: underline;
+  }
   
   &.post {
+    margin-top: 30px;
     text-shadow: none;
 
     @include max-mq(sm) {
@@ -53,12 +58,12 @@
           bottom: 1px solid $c_gray;
           top: 1px solid $c_gray;
         }
-        margin: 40px 0;
+        margin: 60px 0;
         padding: 10px;
         position: relative;
 
         &::before {
-          background-color: $c_white;
+          background-color: $c_back;
           content: '目次';
           font: {
             size: 18px;
@@ -66,11 +71,7 @@
           }
           padding: 0 10px;
           position: absolute;
-          top: -10px;
-        }
-
-        a {
-          text-decoration: underline;
+          top: -12px;
         }
 
         ul {
@@ -91,22 +92,22 @@
       //見出し
       h2 {
         font: {
-          size: 24px;
-          weight: 400;
+          size: 26px;
+          weight: 500;
         }
         line-height: 1.2em;
-        margin: 30px 0 30px 0;
+        margin: 80px 0 30px 0;
         position: relative;
 
         @include max-mq(sm) {
-          font-size: 22px;
+          font-size: 24px;
         }
 
         &::before {
           background-color: $c_main;
           content: '';
           display: block;
-          height: 2px;
+          height: 4px;
           margin: 0 auto;
           opacity: 0.5;
           position: absolute;
@@ -119,7 +120,7 @@
           background-color: $c_lightGray;
           content: '';
           display: block;
-          height: 2px;
+          height: 4px;
           margin: 0 auto;
           position: absolute;
           bottom: -15px;

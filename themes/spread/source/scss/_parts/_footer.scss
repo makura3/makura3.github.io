@@ -1,10 +1,17 @@
 .footer {
-  background-color: $c_main;
+  background-color: $c_gray;
   color: $c_white;
   font-size: 14px;
   padding: 40px 0;
   position: relative;
   text-align: center;
+
+  .footer-icon {
+    color: $c_gray;
+    right: 10px;
+    position: absolute;
+    top: -28px;
+  }
 
   .sns-ic {
     cursor: pointer;

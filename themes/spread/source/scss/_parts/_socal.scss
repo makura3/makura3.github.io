@@ -7,13 +7,13 @@
 }
 
 .fa-twitter {
-  &:hover {
-    color: $c_twr;
-  }
+  color: $c_twr;
 }
 
 .fa-facebook {
-  &:hover {
-    color: $c_facebook;
-  }
+  color: $c_facebook;
+}
+
+.fa-rss-square {
+  color: $c_rss;
 }

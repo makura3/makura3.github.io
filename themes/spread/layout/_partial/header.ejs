@@ -14,11 +14,11 @@
       <h1 class="title">
       <%= config.title %>
       </h1>
+      <% if (config.subtitle){ %>
+        <p class="subtitle">
+          <%- config.subtitle %>
+        </p>
+      <% } %>
     </a>
-    <% if (config.subtitle){ %>
-      <p class="subtitle">
-        <%- config.subtitle %>
-      </p>
-    <% } %>
   </div>
 </header>

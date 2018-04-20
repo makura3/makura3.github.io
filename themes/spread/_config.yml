@@ -2,7 +2,8 @@
 menu:
   Home: /
   profile: /profile
-#rss: /atom.xml
+
+rss: /atom.xml
 
 # Content
 #fancybox: true

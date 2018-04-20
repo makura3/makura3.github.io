@@ -1,9 +1,10 @@
 //ページごとにヘッダーのデザインを作り分け
 .page-header {
   &.header_min {
+    height: 150px;
     .header-title {
       @include max-mq(sm) {
-        padding: 20px 0;
+        padding: 0;
       }
 
       .title {
@@ -16,18 +17,20 @@
 }
 
 .page-header {
-  background: url(./../images/top.jpg), linear-gradient(125deg, #61b6ff, #b5ca5f) fixed;
-  background-blend-mode: soft-light;
+  background: url(./../images/top.jpg), rgba(0, 0, 0, 0.2);
+  background-blend-mode: hue;
   background-repeat: no-repeat;
   background-size: cover;
   left: 0;
+  height: 300px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: -1;
 
   @include max-mq(sm) {
-    background: url(./../images/top_sm.jpg), linear-gradient(125deg, #61b6ff, #b5ca5f) fixed;
+    
+    background: url(./../images/top_sm.jpg),url(./../images/top_sm.jpg), rgba(0, 0, 0, 0.2);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -69,12 +72,11 @@
   // }
 
   .header-title {
-    padding: 90px 0px 100px 0px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
     text-align: center;
-
-    @include max-mq(sm) {
-      padding: 90px 0px 100px 0px;
-    }
 
     .header-title-link {
       display: inline-block;
@@ -83,13 +85,10 @@
     .title {
       color: $c_white;
       font-size: 60px;
-      font-weight: 300;
+      font-weight: 600;
+      line-height: 1em;
       text-decoration: none;
       text-shadow: 0px 5px 20px $c_black;
-
-      @include max-mq(sm) {
-        font-size: 60px;
-      }
     }
 
     .subtitle {
@@ -113,20 +112,24 @@
 
 //nav
 .header-nav-wrap {
-  display: flex;
-  justify-content: center;
+  background-color: $c_white;
   padding: 10px;
+  text-align: center;
 
   .header-nav-link {
-    color: $c_white;
+    color: $c_black;
     font-weight: 400;
     margin-right: 15px;
     padding: 5px 8px;
     position: relative;
     text-decoration: none;
 
+    &:last-child {
+      margin-right: 0;
+    }
+
     &::before {
-      border-left: 5px solid $c_white;
+      border-left: 5px solid $c_black;
       border-top: 5px solid transparent;
       border-bottom: 5px solid transparent;
       content: '';

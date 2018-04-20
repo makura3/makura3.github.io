@@ -2,9 +2,17 @@
   display: flex;
   justify-content: center;
   margin-top: 50px;
-}
 
-.profile-image {
-  margin-right: 30px;
-  width: 200px;
+  @include max-mq(sm) {
+    display: block;
+  }
+
+  .img-wrap {
+    text-align: center;
+    
+    .profile-image {
+      margin-right: 30px;
+      width: 200px;
+    }
+  }
 }

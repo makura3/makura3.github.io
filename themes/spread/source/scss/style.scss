@@ -52,13 +52,11 @@ a {
   width: 75%;
 
   &.header_min {
-    @include max-mq(sm) {
-      margin-top: 95px;
-    }
+    margin-top: 150px;
   }
 
   @include max-mq(md) {
-    width: 80%;
+    width: 90%;
   }
 
   @include max-mq(sm) {
@@ -69,6 +67,9 @@ a {
 
 //汎用パーツの定義
 .list {
+  @include max-mq(sm) {
+    padding: 20px;
+  }
   .list-item {
     display: flex;
     flex-direction: row;
