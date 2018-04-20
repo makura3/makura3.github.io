@@ -16,6 +16,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.2em;
   line-height: 1.3em;
+  min-height: 100vh;
 }
 
 a {
@@ -42,18 +43,15 @@ a {
 .container {
   background-color: $c_back;
   color: $c_black;
+  min-height: 90%;
   padding-bottom: 50px;
 }
 
 .contents {
   height: 100%;
-  margin: 300px auto 0;
+  margin: 0 auto 0;
   overflow: hidden;
   width: 75%;
-
-  &.header_min {
-    margin-top: 150px;
-  }
 
   @include max-mq(md) {
     width: 90%;

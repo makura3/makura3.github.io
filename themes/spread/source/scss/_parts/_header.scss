@@ -21,12 +21,8 @@
   background-blend-mode: hue;
   background-repeat: no-repeat;
   background-size: cover;
-  left: 0;
   height: 300px;
-  position: fixed;
-  top: 0;
   width: 100%;
-  z-index: -1;
 
   @include max-mq(sm) {
     
@@ -113,8 +109,12 @@
 //nav
 .header-nav-wrap {
   background-color: $c_white;
+  box-shadow: 0px 5px 10px $c_lightGray;
   padding: 10px;
+  position: fixed;
   text-align: center;
+  width: 100%;
+  z-index: 1;
 
   .header-nav-link {
     color: $c_black;
