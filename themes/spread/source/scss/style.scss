@@ -71,15 +71,33 @@ a {
   .list-item {
     display: flex;
     flex-direction: row;
+    
+    @include max-mq(sm) {
+      display: block;
+    }
   }
 
   .list-title {
     width: 80px;
+
+    @include max-mq(sm) {
+      background-color: $c_lightGray;
+      display: block;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
   }
 
   .list-content {
     flex: 1;
     margin: 0 0 15px 20px;
+
+    @include max-mq(sm) {
+      display: block;
+      margin: 0 0 15px 0;
+      padding: 10px;
+    }
   }
 }
 
