@@ -103,6 +103,7 @@ a {
 
 table {
   box-sizing: border-box;
+  margin: 20px 0;
   width: 100%;
   
   //見出し
@@ -119,7 +120,8 @@ table {
   }
 
   tr {
-    border: 1px solid $c_gray;
+    border-bottom: 1px solid $c_gray;
+    border-top: 1px solid $c_gray;
 
     td {
       border-right: 1px solid $c_gray;
