@@ -77,7 +77,7 @@ marked:
 
 ## topic
 toc:
-  maxdepth: 2
+  maxdepth: 3
   class: toc
 
 # Extensions

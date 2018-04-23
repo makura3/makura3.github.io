@@ -49,8 +49,9 @@
   
     .article-entry {
       font-size: 14px;
-      line-height: 1.5em;
+      line-height: 1.6em;
       margin: 20px 0 0 0;
+      letter-spacing: 0.1em;
 
       // 目次
       .toc {
@@ -83,7 +84,7 @@
           }
 
           ul {
-            list-style: disc;
+            list-style: decimal;
             margin-left: 40px;
           }
         }
@@ -96,11 +97,17 @@
           weight: 500;
         }
         line-height: 1.2em;
-        margin: 80px 0 30px 0;
+        margin: 100px 0 50px 0;
         position: relative;
 
         @include max-mq(sm) {
           font-size: 24px;
+        }
+
+        //jump
+        span {
+          margin-top: -50px;
+          padding-top: 50px;
         }
 
         &::before {
@@ -132,11 +139,17 @@
         background-color: $c_lightGray;
         font-size: 22px;
         font-weight: 400;
-        margin: 30px 0 15px 0;
+        margin: 60px 0 20px 0;
         padding: 10px;
 
         @include max-mq(sm) {
           font-size: 20px;
+        }
+        
+        //jump
+        span {
+          margin-top: -50px;
+          padding-top: 50px;
         }
       }
 

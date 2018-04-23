@@ -1,6 +1,7 @@
 $highlight-background: #555555;
 $highlight-current-line: #393939;
 $highlight-selection: #515151;
+$highlight-code: #E6E6E6;
 $highlight-foreground: #DDDDDD;
 $highlight-comment: #999999;
 $highlight-red: #e57373;
@@ -11,11 +12,17 @@ $highlight-blue: #64B5F6;
 $highlight-purple: #9575CD;
 
 %line-numbers {
-  color: #777777;
+  color: #999999;
   font-size: 12px;
 };
 
 .article-entry {
+
+  code {
+    background-color: $highlight-code;
+    margin: 0 2px 0 0;
+    padding: 0px 4px;
+  }
 
   .code {
     background: none;
@@ -31,6 +38,7 @@ $highlight-purple: #9575CD;
     padding: 15px;
 
     table {
+      margin: 0;
       width: auto;
 
       tr {
