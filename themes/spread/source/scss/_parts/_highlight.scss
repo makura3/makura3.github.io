@@ -3,7 +3,7 @@ $highlight-current-line: #393939;
 $highlight-selection: #515151;
 $highlight-code: #E6E6E6;
 $highlight-foreground: #DDDDDD;
-$highlight-comment: #999999;
+$highlight-comment: #80b26b;
 $highlight-red: #e57373;
 $highlight-orange: #FFB74D;
 $highlight-green: #81C784;
@@ -35,6 +35,8 @@ $highlight-purple: #9575CD;
     border-radius: 8px;
     color: $highlight-foreground;
     margin: 10px 0;
+    overflow: hidden;
+    overflow-x: scroll;
     padding: 15px;
 
     table {
@@ -53,14 +55,14 @@ $highlight-purple: #9575CD;
     padding: 0;
 
     .comment,
-    .title {
+    .title,
+    .section {
       color: $highlight-comment;
     }
 
     .variable,
     .attribute,
     .tag,
-    .regexp,
     .ruby .constant,
     .xml .tag .title,
     .xml .pi,
@@ -99,8 +101,7 @@ $highlight-purple: #9575CD;
     .css .hexcolor {
       color: $highlight-aqua;
     }
-      
-    .function,
+    
     .python .decorator,
     .python .title,
     .ruby .function .title,

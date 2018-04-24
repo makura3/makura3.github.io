@@ -22,6 +22,18 @@
   }
   %>
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+
+  <% if (page.description){ %>
+    <meta name="description" content="<%= page.description %>">
+  <% } else if(config.description){ %>
+    <meta name="description" content="<%= config.description %>">
+  <% } %>
+
+  <%# open_graph({
+    image: theme.thumbnail,
+    twitter_id: theme.open_graph.twitter_id
+  }) %>
+
   <% if (theme.favicon){ %>
     <link rel="icon" href="<%- theme.favicon %>">
   <% } %>

@@ -1,6 +1,7 @@
 ---
 title: 'Hexoでブログ構築 まとめ'
 date: 2018-04-23 19:30:00
+description: 'Hexoでブログを構築しました。descriptionなどのSEOに関する設定から新規ページの作成方法など、つまづいた部分をまとめています。'
 category: Hexo
 id: hexo-summary
 tags: [Hexo]
@@ -14,10 +15,80 @@ thumbnail: thumbnail.png
 
 ## Hexo設定関係のつまづき
 ### configが複数あるんだけども
-Hexoではブログ本体に関する設定_config.ymlと、テーマに関する_config.ymlが存在します。  
+Hexoではブログ本体に関する設定`_config.yml`と、テーマに関する`_config.yml`が存在します。  
 <br>
 使い分けですが、絶対に必要な設定(デプロイなどの設定)を前者に、  
-なくても問題ない設定（google_analyticsなど）を後者に記述するようにしています。
+なくても問題ない設定（google_analyticsなど）を後者に記述するようにしています。  
+
+### RSSの設置
+RSSの設置は、[hexo-generator-feed](https://github.com/hexojs/hexo-generator-feed)というプラグインで対応しました。  
+<br>
+sitemap導入時と同じようにnpm installし、必要に応じてconfig.ymlでオプションを変更してください。  
+デフォルト値では、[http://localhost:4000/atom.xml](http://localhost:4000/atom.xml)で生成されます。
+
+## SEOに関する設定のつまづき
+### meta descriptionの設定
+デフォルト値をconfig.ymlに記述しておき、記事ページではdescriptionが重複しないよう毎回設定しています。  
+記事の文字を抜き出して自動で設定することも可能ですが、より効果のある文章にするために意図的に手動にしています。
+```javascript
+// head.ejsに下記を記述
+
+<% if (page.description) { %>
+  <meta name="description" content="<%= page.description %>">
+<% } else if(config.description) { %>
+  <meta name="description" content="<%= config.description %>">
+<% } %>
+```
+
+```md
+# 記事.mdの設定
+
+---
+(略)
+description: 'descriptionに設定したい文章をここに'
+(略)
+---
+```
+
+### sitemapを作る
+公式のプラグインが用意されているので、そちらを使用しました。  
+[hexo-generator-sitemap](https://github.com/hexojs/hexo-generator-sitemap)  
+<br>
+npm installし、必要に応じて`_config.yml`でオプションを変更してください。  
+デフォルト値では、[http://localhost:4000/sitemap.xml](http://localhost:4000/sitemap.xml)で生成されます。
+
+<!-- ### OGPの設定
+簡単に言うと、URLを共有した際に見た目がリッチになるアレです。  
+こちらは[公式がヘルパー](https://hexo.io/docs/helpers.html#open-graph)を用意していますが、使い方が書いてない。 -->
+
+### google-analyticsの設定
+トラッキングIDを`themes/themeName/_config.yml`に設定し、ejsで出力するようにしました。
+```js
+<% if (theme.google_analytics){ %>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= theme.google_analytics %>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '<%= theme.google_analytics %>');
+  </script>
+<% } %>
+```
+
+### robots.txtの設置
+[hexo-generator-robotstxt](https://github.com/leecrossley/hexo-generator-robotstxt)というプラグインが有名そうだったのですが、1ファイル置けばいいだけなので手動で設置しました。  
+配置先は`project/source/`です。  
+<br>
+中身は下記の通り。  
+```txt
+User-Agent:*
+Disallow:
+Sitemap:https://makura3.github.io/sitemap.xml
+```
+
+Google Search Consoleのrobots.txt テスターで正しく記述されているか確認しておくと良いです。
+
 
 ## ページ作成に関するつまづき
 ### 新規でページを増やしたい
@@ -38,7 +109,11 @@ layout: testPage①
 次に、`/themes/themeName/layout`の配下にtestPage.ejs②を作成すると、  
 [/testPage](/testPage.html)でアクセスできるようになります。  
 <br>
-作成する際、①と②は同じ名前を指定するようにしてください。
+作成する際、①と②は同じ名前を指定するようにしてください。  
+<br>
+<br>
+プラグインを入れるともう少し簡単にページが作れるようですが、  
+更新が止まっている＆必須ではなかったので導入は見送りました。
 
 ### 404ページ
 404ページは自分で作成する必要があります。  
@@ -82,14 +157,13 @@ id: idname
 
 ### テーマを探す
 [公式](https://hexo.io/themes/index.html)や[Github](https://github.com/search?utf8=%E2%9C%93&q=hexo-theme&ref=simplesearch)から好みのテーマを探すことができます。  
-`themes/`にテーマフォルダを配置し、project/_config.ymlの中の`theme: themeName`の部分を変更します。  
+`themes/`にテーマフォルダを配置し、`project/_config.yml`の中の`theme: themeName`の部分を変更します。  
 <br>
 ちなみにこのブログで現在使用しているテーマは自作したものなので、ある程度形になってきたらそのうち配布する予定です。
 
 ### scssのコンパイル
 Hexoには、node-sassがくっついています。  
-`hexo-renderer-scss`をnpm installし、
-`_config.yml`に下記を記載しました。
+`hexo-renderer-scss`をnpm installし、`_config.yml`に下記を記載しました。  
 ```yml
 # style settings
 node_sass:
