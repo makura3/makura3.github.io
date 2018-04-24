@@ -96,7 +96,7 @@ Hexoでページを増やす場合は少々面倒です。
 ```console
 $ hexo new page testPage
 ```
-上記を実行すると`/source/testPage/index.md`が作成され、これがページの元になります。  
+実行すると`/source/testPage/index.md`が作成されます。  
 <br> 
 index.mdの中身は、
 ```md
@@ -117,7 +117,7 @@ layout: testPage①
 
 ### 404ページ
 404ページは自分で作成する必要があります。  
-新規ページ作成と同様に`$ hexo new page 404`とし、index.mdに
+`$ hexo new page 404`とし、index.mdに
 ```md
 ---
 permalink: /404.html
