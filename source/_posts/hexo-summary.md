@@ -4,7 +4,7 @@ date: 2018-04-23 19:30:00
 category: Hexo
 id: hexo-summary
 tags: [Hexo]
-# thumbnail: thumbnail.jpg
+thumbnail: thumbnail.png
 ---
 
 先日[Hexo](https://hexo.io/)を使って、Github pagesでブログを公開しました。   
