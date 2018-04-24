@@ -17,3 +17,56 @@
 .fa-rss-square {
   color: $c_rss;
 }
+
+.fa-line {
+  color: $c_line;
+}
+
+.article-share-link {
+  display: flex;
+  justify-content: flex-end;
+
+  @include max-mq(sm) {
+    justify-content: center;
+  }
+
+  .article-share {
+    border-radius: 4px;
+    box-shadow: 0px 4px 10px $c_gray;
+    margin-left: 12px;
+
+    &._hatebu {
+      background-color: $c_hatebu;
+    }
+
+    &._twitter {
+      background-color: $c_twr;
+    }
+  
+    &._facebook {
+      background-color: $c_facebook;
+    }
+  
+    &._google {
+      background-color: $c_google;
+    }
+  
+    &._line {
+      background-color: $c_line;
+    }
+  }
+
+  .fa-hatebu {
+    vertical-align: middle;
+    width: 40px;
+  }
+  .fa-twitter,
+  .fa-facebook,
+  .fa-google-plus-g,
+  .fa-line {
+    color: $c_white;
+    height: 100%;
+    padding: 0 8px;
+    width: 24px;
+  }
+}

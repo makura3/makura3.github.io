@@ -17,7 +17,13 @@
         <%- post.content %>
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%= __('share') %></a> -->
+      <div class="article-share-link">
+        <a href="http://b.hatena.ne.jp/entry/<%- post.permalink %>" class="article-share _hatebu" target="_blank" title="Hatebu"><img src="/images/hatenabookmark-logomark.svg" alt="はてなブログ" class="fa-hatebu"></a>        
+        <a href="https://twitter.com/intent/tweet?url=<%- post.permalink %>" class="article-share _twitter" target="_blank" title="Twitter"><i class="fab fa-twitter sns-ic"></i></a>
+        <a href="https://www.facebook.com/sharer.php?u=<%- post.permalink %>" class="article-share _facebook" target="_blank" title="Facebook"><i class="fab fa-facebook sns-ic"></i></a>
+        <a href="https://plus.google.com/share?url=<%- post.permalink %>" class="article-share _google" target="_blank" title="Google+"><i class="fab fa-google-plus-g sns-ic"></i></a>
+        <a href="https://social-plugins.line.me/lineit/share?url=<%- post.permalink %>" class="article-share _line" target="_blank" title="LINE"><i class="fab fa-line sns-ic"></i></a>
+      </div>
       <!-- <%- partial('post/tag') %> -->
     </footer>
   </div>
