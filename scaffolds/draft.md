@@ -1,4 +1,11 @@
 ---
 title: {{ title }}
-tags:
+date: {{ date }}
+description: 
+category: 
+id: 
+tags: 
+thumbnail: thumbnail.png
 ---
+
+<!-- toc -->

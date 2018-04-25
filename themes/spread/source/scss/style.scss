@@ -11,6 +11,7 @@
 // default setting
 html,
 body {
+  background-color: $c_back;
   font-family: $font;
   font-size: 14px;
   font-weight: 400;
@@ -47,7 +48,6 @@ a {
 }  
 
 .container {
-  background-color: $c_back;
   color: $c_black;
   min-height: 90%;
   padding-bottom: 50px;
