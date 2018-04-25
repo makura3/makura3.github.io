@@ -16,10 +16,9 @@ thumbnail: thumbnail.png
 ## はじめに
 本記事はwebpack初心者向けの記事となっています。  
 <br>
-webpackってなんなの？一体何ができるの？といった  
-基本的な疑問を解決することが目的です。  
+webpackってなんなの？一体何ができるの？といった基本的な疑問を解決することが目的です。  
 <br>
-webpackのバージョンは4系(現時点でv4.6.0)となっています。
+前提として、webpackのバージョンは4系(現時点でv4.6.0)です。
 
 
 ## webpackとは
@@ -30,8 +29,8 @@ webpackはその機能ごとに分割したファイルを、いい感じに1つ
 
 <!-- webpackがサポートしている言語は[こちら](https://webpack.js.org/concepts/modules/#supported-module-types)に記載されています。 -->
 
-### 4つのコアコンセプト
-webpackを扱う上で、4つのコアコンセプトを理解しておく必要があります。 
+### コアコンセプト
+webpackを扱う上で、コアコンセプトを理解しておく必要があります。 
 <br>
 
 #### Entry
@@ -42,9 +41,17 @@ webpackを扱う上で、4つのコアコンセプトを理解しておく必要
 バンドルしたファイルをどこに、どんな名前で出力するか[Output](https://webpack.js.org/concepts/#output)で設定することができます。
 
 #### Loaders
-webpackではデフォルトでJavaScriptのバンドルを行いますが、[ローダー](https://webpack.js.org/concepts/#loaders)を追加することでCSSやIMGファイルのバンドルが可能になります。
+webpackではデフォルトでJavaScriptが扱えますが、[ローダー](https://webpack.js.org/concepts/#loaders)を追加することでCSSやIMGなどJavaScript以外のものが扱えるようになります。
 
-####Plugins
+#### Plugins
 
-## webpackを導入してみる
-では実際に導入し、セットアップします。
+wip
+
+#### Mode
+`development`, `production(デフォルト)`、`、none`が設定可能。  
+指定した値によって、各環境に対応した最適化をwebpackが行ってくれます。
+
+modeの変更による詳しい説明は[こちら](https://webpack.js.org/concepts/mode/)。  
+
+wip
+
