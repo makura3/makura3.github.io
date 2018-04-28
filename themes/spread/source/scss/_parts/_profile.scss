@@ -15,4 +15,17 @@
       width: 200px;
     }
   }
+
+  //削除予定
+  .dmImg {
+    align-items: center;
+    background-color: $c_main;
+    border-radius: 50px;
+    color: $c_white;
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    margin-right: 30px;
+    width: 100px;
+  }
 }
