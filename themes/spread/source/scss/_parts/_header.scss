@@ -17,7 +17,7 @@
 }
 
 .page-header {
-  background: url(./../images/top.jpg), rgba(173, 112, 2, 0.2);
+  background: url(./../images/top.JPG), rgba(173, 112, 2, 0.2);
   background-blend-mode: hue;
   background-repeat: no-repeat;
   background-size: cover;
@@ -25,9 +25,9 @@
   width: 100%;
 
   @include max-mq(sm) {
-    background: url(./../images/top_sm.jpg),url(./../images/top_sm.jpg), rgba(173, 112, 2, 0.2);
-    background-repeat: no-repeat;
-    background-size: cover;
+    // background: url(./../images/top_sm.JPG),url(./../images/top_sm.JPG), rgba(173, 112, 2, 0.2);
+    // background-repeat: no-repeat;
+    // background-size: cover;
     height: 300px;
   }
 

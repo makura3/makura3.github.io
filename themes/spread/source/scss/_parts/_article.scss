@@ -81,7 +81,16 @@
 
           li {
             margin: 10px 0;
+          }
 
+          ul {
+            list-style: decimal;
+            margin-left: 40px;
+          }
+        }
+
+        > ul {
+          > li {
             &:first-child {
               margin-top: 20px;
             }
@@ -89,11 +98,6 @@
             &:last-child {
               margin-bottom: 20px;
             }
-          }
-
-          ul {
-            list-style: decimal;
-            margin-left: 40px;
           }
         }
       }
