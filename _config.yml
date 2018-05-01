@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 'MOJI ni.'
-subtitle: '<span>フロントエンドのあれこれを</span><span>じぶんのために。</span>'
+title: 'MOJIの本棚'
+subtitle: '<span>フロントエンドのあれこれを</span><span>じぶんのために</span>'
 description: 'HTML、CSS、JavaScriptやフレームワークなど、フロントエンドに関する情報をお届けします。'
 keywords:
 author: makura3
