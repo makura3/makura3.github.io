@@ -1,5 +1,5 @@
 .footer {
-  background-color: $c_gray;
+  background-color: $c_footer;
   color: $c_white;
   font-size: 14px;
   margin-top: auto;
@@ -8,7 +8,7 @@
   text-align: center;
 
   .footer-icon {
-    color: $c_gray;
+    color: $c_footer;
     right: 10px;
     position: absolute;
     top: -28px;
