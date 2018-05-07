@@ -1,6 +1,6 @@
 ---
 title: webpack4-intro
-thumbnail: thumbnail.png
+# thumbnail: thumbnail.png
 date: 2018-05-06 17:05:38
 description:
 category:
