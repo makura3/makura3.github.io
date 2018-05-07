@@ -29,8 +29,8 @@
     <meta name="description" content="<%= config.description %>">
   <% } %>
 
-  <%# open_graph({
-    image: theme.thumbnail,
+  <%- open_graph({
+    url:  page.permalink,
     twitter_id: theme.open_graph.twitter_id
   }) %>
 
