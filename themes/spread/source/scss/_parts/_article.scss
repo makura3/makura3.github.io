@@ -1,20 +1,20 @@
 .post {
   .post-title {
-    font-size: 28px;
+    font-size: 24px;
     letter-spacing: 0.1em;
     line-height: 1.3em;
     margin: 5px 0 15px 0;
 
-    @include max-mq(sm) {
-      font-size: 24px;
+    @include min-mq(md) {
+      font-size: 28px;
     }
   }
 
   .post-time {
-    font-size: 14px;
+    font-size: 12px;
 
-    @include max-mq(sm) {
-      font-size: 12px;
+    @include min-mq(md) {
+      font-size: 14px;
     }
   }
 }
@@ -26,13 +26,13 @@
   }
   
   &.post {
-    margin-top: 30px;
+    margin: 20px 0 0 0;
+    padding: 0 0 20px 0;
     text-shadow: none;
+    width: auto;
 
-    @include max-mq(sm) {
-      margin: 20px 0 0 0;
-      padding: 0 0 20px 0;
-      width: auto;
+    @include min-mq(md) {
+      margin-top: 30px;
     }
   }
 
@@ -109,15 +109,15 @@
       //見出し
       h2 {
         font: {
-          size: 26px;
+          size: 24px;
           weight: 500;
         }
         line-height: 1.2em;
         margin: 100px 0 50px 0;
         position: relative;
 
-        @include max-mq(sm) {
-          font-size: 24px;
+        @include min-mq(md) {
+          font-size: 26px;
         }
 
         //jump
@@ -153,13 +153,13 @@
 
       h3 {
         background-color: $c_lightGray;
-        font-size: 22px;
+        font-size: 20px;
         font-weight: 400;
         margin: 60px 0 20px 0;
         padding: 10px;
 
-        @include max-mq(sm) {
-          font-size: 20px;
+        @include min-mq(md) {
+          font-size: 22px;
         }
         
         //jump
@@ -212,10 +212,10 @@
       border-radius: 4px;
       box-shadow: 0px 5px 15px $c_lightGray;
       text-align: center;
-      width: 200px;
+      width: 40%;
 
-      @include max-mq(sm) {
-        width: 40%;
+      @include min-mq(md) {
+        width: 200px;
       }
 
       .article-nav-title {

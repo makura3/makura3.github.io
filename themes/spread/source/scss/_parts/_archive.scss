@@ -11,14 +11,13 @@
 }
 
 .post {
-  margin: 80px 0;
+  margin: 50px 0;
+  padding: 0 0 20px 0;
   position: relative;
-  //text-shadow: 0px 0px 15px $c_gray;
+  width: auto;
 
-  @include max-mq(sm) {
-    margin: 50px 0 50px 0;
-    padding: 0 0 20px 0;
-    width: auto;
+  @include min-mq(md) {
+    margin: 80px 0;
   }
 
   &::before {
@@ -47,7 +46,7 @@
 
   .post-link {
     color: $c_black;
-    display: flex;
+    display: block;
     height: 100%;
     text-decoration: none;
 
@@ -57,24 +56,26 @@
       }
     }
 
-    @include max-mq(sm) {
-      display: block;
+    @include min-mq(md) {
+      display: flex;
     }
   }
 
   .post-r-panel {
-    @include max-mq(sm) {
-      padding: 0 20px;
+    padding: 0 20px;
+
+    @include min-mq(md) {
+      padding: 0;
     }
   }
 
   .post-l-panel {
     height: 150px;
-    margin: 0px 20px 20px 0;
+    margin: 0 auto 15px auto;
     width: 300px;
 
-    @include max-mq(sm) {
-      margin: 0 auto 15px auto;
+    @include min-mq(md) {
+      margin: 0px 20px 20px 0;
     }
   }
 
@@ -119,11 +120,6 @@
           }
         }
       }
-    }
-
-    @include max-mq(sm) {
-      margin: 15px 20px 0 20px;
-      text-align: right;
     }
   }
 }

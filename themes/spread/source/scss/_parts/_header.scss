@@ -7,6 +7,10 @@
         padding: 0;
       }
 
+      .header-title-link {
+        margin-top: 30px;
+      }
+
       .title-logo {
         fill: $c_white;
         height: auto;
@@ -22,14 +26,11 @@
   background-blend-mode: hue;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 400px;
+  height: 300px;
   width: 100%;
 
-  @include max-mq(sm) {
-    // background: url(./../images/top_sm.JPG),url(./../images/top_sm.JPG), rgba(173, 112, 2, 0.2);
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    height: 300px;
+  @include min-mq(md) {
+    height: 400px;
   }
 
   // .header-list-sm {
@@ -76,16 +77,20 @@
     text-align: center;
 
     .header-title-link {
+      color: $c_white;
       display: inline-block;
+      font-size: 50px;
+      font-weight: 100;
     }
 
     .title-logo {
       fill: $c_white;
       height: auto;
+      margin-top: 50px;
       width: 300px;
 
-      @include max-mq(sm) {
-      margin-top: 50px;
+      @include min-mq(md) {
+        margin-top: 0;
       }
     }
 
@@ -95,17 +100,23 @@
 
     .subtitle {
       color: $c_white;
+      font-size: 12px;
       letter-spacing: 0.5em;
       margin-top: 30px;
-      //text-shadow: 0px 5px 10px $c_black;
+      padding: 0 10px;
 
-      @include max-mq(sm) {
-        font-size: 12px;
-        padding: 0 10px;
+      span {
+        display: block;
+        margin: 5px 0;
+      }
+
+      @include min-mq(md) {
+        font-size: 14px;
+        padding: 0;
 
         span {
-          display: block;
-          margin: 5px 0;
+          display: inline-block;
+          margin: 0;
         }
       }
     }

@@ -29,6 +29,10 @@ body {
 a {
   color: $c_link;
   text-decoration: none;
+
+  &:hover {
+    color: $c_link_tp;
+  }
 }
 
 .sm-hidden {

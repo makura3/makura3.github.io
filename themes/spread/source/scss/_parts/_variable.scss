@@ -5,6 +5,7 @@ $font: "Rounded Mplus 1c", "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro"
 $c_main: #c86f6f;
 $c_tp_main: rgba(0, 0, 0, 0.1);
 $c_link: #c86f6f;
+$c_link_tp: rgba(200, 111, 111, 0.7);
 
 //base colors
 $c_back: #FAFAFA;
@@ -30,12 +31,25 @@ $c_rss: #f26522;
 $c_line: #5ae628;
 
 //media queries
+$breakpointList: (
+  'sm': 'screen and (min-width: 480px)',
+  'md': 'screen and (min-width: 768px)',
+  'lg': 'screen and (min-width: 1000px)'
+//  'xl': 'screen and (min-width: 1200px)',
+) !default;
+
 $breakpoints: (
   'sm': 'screen and (max-width: 480px)',
   'md': 'screen and (max-width: 768px)',
   'lg': 'screen and (max-width: 1000px)',
   'xl': 'screen and (max-width: 1200px)',
 ) !default;
+
+@mixin min-mq($breakpoint: md) {
+  @media #{map-get($breakpointList, $breakpoint)} {
+    @content;
+  }
+}
 
 @mixin max-mq($breakpoint: md) {
   @media #{map-get($breakpoints, $breakpoint)} {
