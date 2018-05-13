@@ -31,3 +31,9 @@ node_sass:
   precision: 5
   sourceComments: false
   includePaths: ['./node_modules/normalize-scss/sass/','./node_modules/reset-css/']
+
+autoprefixer:
+  exclude:
+    - '*.css'
+  browsers:
+    - 'last 3 versions'
