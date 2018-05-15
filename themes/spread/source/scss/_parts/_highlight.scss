@@ -18,6 +18,15 @@ $highlight-purple: #9575CD;
 
 .article-entry {
 
+  //引用
+  blockquote {
+    p {
+      border-left: 5px solid $highlight-foreground;
+      margin: 10px;
+      padding: 5px 10px;
+    }
+  }
+
   code {
     background-color: $highlight-code;
     margin: 0 2px 0 0;
