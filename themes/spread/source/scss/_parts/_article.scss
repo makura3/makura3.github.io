@@ -191,15 +191,7 @@
 
   //強調文字
   em {
-    position: relative;
-    &::after {
-      border: 3px solid $c_em;
-      bottom: 0;
-      content: '';
-      left: 0;
-      right: 0;
-      position: absolute;
-    }
+    font-weight: 600;
   }
 
   //ページング
