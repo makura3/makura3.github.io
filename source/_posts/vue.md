@@ -1,7 +1,7 @@
 ---
-title: Vue.jsの導入方法からテンプレート構文、コンパイルについてのまとめ
-# thumbnail: thumbnail.png
-date: 2018-05-14 19:50:19
+title: Vue.jsのテンプレート構文とコンパイルについてのまとめ
+thumbnail: thumbnail.png
+date: 2018-05-23 00:00:00
 description: 初心者向けにVue.jsの導入方法からテンプレート構文、コンパイル(コンパイラとビルドの種類)についてまとめました。完全ビルドとランタイム限定ビルドの動作確認用サンプルソースも用意しています。
 category: Vue
 id: vue-summary
