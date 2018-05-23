@@ -29,9 +29,18 @@
     <meta name="description" content="<%= config.description %>">
   <% } %>
 
-  <%- open_graph({
+  <% 
+  let img_path = '';
+  if (  page.path != 'index.html' ) {
+    img_path = page.thumbnail;
+  }
+  %>
+  
+  <%- 
+  open_graph({
     url:  page.permalink,
-    twitter_id: theme.open_graph.twitter_id
+    twitter_id: theme.open_graph.twitter_id,
+    image: img_path
   }) %>
 
   <% if (theme.favicon){ %>
