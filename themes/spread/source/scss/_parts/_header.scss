@@ -99,10 +99,11 @@
     }
 
     .subtitle {
+      border-top: 1px solid $c_white;
       color: $c_white;
       font-size: 12px;
       letter-spacing: 0.5em;
-      margin-top: 30px;
+      margin-top: 25px;
       padding: 0 10px;
 
       span {
@@ -112,7 +113,7 @@
 
       @include min-mq(md) {
         font-size: 14px;
-        padding: 0;
+        padding: 10px 0 0 0;
 
         span {
           display: inline-block;
@@ -125,8 +126,8 @@
 
 //nav
 .header-nav-wrap {
-  background-color: $c_back;
-  box-shadow: 0px 5px 15px $c_tp_main;
+  background-color: $c_tp_main;
+  //box-shadow: 0px 5px 15px $c_tp_main;
   padding: 10px;
   position: fixed;
   text-align: center;
@@ -144,7 +145,7 @@
   }
 
   .header-nav-link {
-    color: $c_black;
+    color: $c_white;
     font-weight: 400;
     margin-right: 15px;
     padding: 5px 8px;
@@ -156,7 +157,7 @@
     }
 
     &::before {
-      border-left: 5px solid $c_black;
+      border-left: 5px solid $c_white;
       border-top: 5px solid transparent;
       border-bottom: 5px solid transparent;
       content: '';
