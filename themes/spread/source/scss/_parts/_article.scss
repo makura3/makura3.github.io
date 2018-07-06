@@ -1,6 +1,9 @@
 .post {
   .post-title {
-    font-size: 24px;
+    font: {
+      size: 24px;
+      weight: 400;
+    }
     letter-spacing: 0.1em;
     line-height: 1.3em;
     margin: 5px 0 15px 0;
