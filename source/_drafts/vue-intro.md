@@ -123,3 +123,94 @@ export default {
   projectId: ''
 }
 ```
+
+そして、先程作成したプラグインが使えるように`nuxt.config.js`に設定を追記します。  
+```js
+// /nuxt.config.js
+module.exports = {
+  srcDir: 'src/',
+  plugins: [{ src: '~/plugins/firebaseInit' }]
+}
+```
+
+storeの設定をしておきます。
+```js
+// /src/store/index.jsを作成し、下記を追記
+import Vuex from 'vuex'
+import {
+  INIT
+} from './types'
+import db from '~/plugins/firebaseInit'
+
+const itemRef = db.collection('items')
+
+const myPlugin = store => store.dispatch(INIT)
+
+const store = () =>
+  new Vuex.Store({
+    state: {
+      itemList: []
+    },
+    mutations: {
+      [INIT](state, data) {
+        state.itemList = data
+      }
+    },
+    actions: {
+      [INIT]({ commit }) {
+        // commit('LOADING', true)
+        itemRef.get().then(res => {
+          let list = []
+          res.forEach(doc => {
+            let data = {
+              id: doc.id,
+              url: doc.data().url,
+              name: doc.data().name,
+              description: doc.data().description
+            }
+            list.push(data)
+          })
+          commit('INIT', list)
+        })
+      }
+    },
+    getters: {
+      getItems: state => {
+        return state.itemList
+      }
+    },
+    plugins: [myPlugin]
+  })
+
+export default store
+```
+
+```js
+// /src/store/types.jsを作成し、下記を追記
+export const INIT = 'INIT'
+```
+
+そして最後に、vueファイルを変更していきます。
+```vue
+<template>
+  <div>
+    <p v-for="(item, index) in init" :key="index">{{item.name}}</p>
+  </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex'
+export default {
+  computed: {
+    ...mapGetters({
+      init: 'getItems'
+    })
+  }
+}
+</script>
+```
+
+設定は以上です。  
+`npm run dev`で確認してみます。  
+
+このように登録した分だけデータが表示されていれば正しく設定出来ています。
