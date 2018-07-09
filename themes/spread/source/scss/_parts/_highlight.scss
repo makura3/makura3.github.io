@@ -142,10 +142,20 @@ $highlight-purple: #9575CD;
 
   .gutter {
     border: none;
+    padding: 5px;
+
+    @include min-mq(md) {
+      padding: 10px;
+    }
+
     pre {
       @extend %line-numbers;
       text-align: right;
-      padding-right: 10px;
+      padding-right: 5px;
+
+      @include min-mq(md) {
+        padding-right: 10px;
+      }
     }
   }
 
