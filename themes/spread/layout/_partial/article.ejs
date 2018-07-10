@@ -16,7 +16,9 @@
     <div class="article-entry" itemprop="articleBody">
         <%- post.content %>
     </div>
-    <footer class="article-footer">
+  </div>
+  <% if (!index){ %>
+    <div class="article-footer">
       <div class="article-share-link">
         <a href="http://b.hatena.ne.jp/entry/<%- post.permalink %>" class="article-share _hatebu" target="_blank" title="Hatebu"><img src="/images/hatenabookmark-logomark.svg" alt="はてなブログ" class="fa-hatebu"></a>        
         <a href="https://twitter.com/intent/tweet?url=<%- post.permalink %>" class="article-share _twitter" target="_blank" title="Twitter"><i class="fab fa-twitter sns-ic"></i></a>
@@ -25,9 +27,7 @@
         <a href="https://social-plugins.line.me/lineit/share?url=<%- post.permalink %>" class="article-share _line" target="_blank" title="LINE"><i class="fab fa-line sns-ic"></i></a>
       </div>
       <!-- <%- partial('post/tag') %> -->
-    </footer>
-  </div>
-  <% if (!index){ %>
+    </div>
     <%- partial('post/nav') %>
   <% } %>
 </article>

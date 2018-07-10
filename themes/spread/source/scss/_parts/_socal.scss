@@ -21,6 +21,7 @@
 .article-share-link {
   display: flex;
   justify-content: flex-end;
+  margin: 20px 0;
 
   @include max-mq(sm) {
     justify-content: center;
