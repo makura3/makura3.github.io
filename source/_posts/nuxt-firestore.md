@@ -2,7 +2,7 @@
 title: Nuxt.jsとfirestoreを組み合わせて簡単なサイトを作った話
 #thumbnail: thumbnail.png
 date: 2018-07-10 18:30:00
-description:
+description: Vue.jsのフレームワークであるNuxt.jsとfirebaseのサービスであるfirestoreを組み合わせて、小さなサイトを作りました。その際の導入手順をまとめました。
 category: vue
 id: nuxt-intro
 tags: [firestore, Nuxt, Vue]
