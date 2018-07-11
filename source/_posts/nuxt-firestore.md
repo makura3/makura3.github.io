@@ -10,6 +10,8 @@ tags: [firestore, Nuxt, Vue]
 
 今回はVue.jsのフレームワーク、Nuxt.jsと、firebase各種を用いて小さなサイトの構築を行いました。  
 各種導入の際に詰まることが多かったので、手順をまとめました。  
+<br>
+今回のサンプルソースは[こちら](https://github.com/makura3/Nuxt-test)です。  
 
 <!-- toc -->
 
