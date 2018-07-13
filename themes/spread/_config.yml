@@ -10,7 +10,7 @@ rss: /atom.xml
 
 # Miscellaneous
 google_analytics: UA-117837032-1
-favicon: /favicon.png
+favicon: /images/favicon.png
 open_graph:
   thumbnail:
   fb_app_id:
