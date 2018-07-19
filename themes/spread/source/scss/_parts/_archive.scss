@@ -50,10 +50,17 @@
     height: 100%;
     text-decoration: none;
 
+    &::before {
+      bottom: 0;
+      content: '';
+      left: 0;
+      right: 0;
+      position: absolute;
+      top: 0;
+    }
+
     &:hover {
-      .post-thumbnail {
-        box-shadow: none;
-      }
+      color: $c_link;
     }
 
     @include min-mq(md) {
@@ -63,6 +70,7 @@
 
   .post-r-panel {
     padding: 0 20px;
+    position: relative;
 
     @include min-mq(md) {
       padding: 0;
