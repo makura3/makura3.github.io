@@ -1,9 +1,9 @@
 # makura3.github.io
-技術ブログを作りました。→https://makura3.github.io/
+技術ブログを作りました。→https://makura3.github.io/  
 CIで自動デプロイしています。
 
 ## localhost
-npx hexo server
+npx hexo server  
 http://localhost:4000/
 
 ## new post
