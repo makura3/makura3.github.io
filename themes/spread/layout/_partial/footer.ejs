@@ -4,7 +4,7 @@
   <% } %>
   <div class="outer">
     <div id="footer-info" class="inner">
-      <p>
+      <div>
         <a href="<%- theme.github_url %>" class="ic-github" target="_blank"><i class="fab fa-github sns-ic"></i></a>
         <a href="<%- theme.twitter_url %>" target="_blank"><i class="fab fa-twitter sns-ic"></i></a>
         <!-- <i class="fab fa-facebook sns-ic"></i></p> -->
@@ -13,8 +13,8 @@
             <i class="fas fa-rss-square sns-ic"></i>
           </a>
         <% } %>
+      </div>
       <p>&copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %></p>
-    </div>
     <!-- <div>
       <a href="#top"><i class="fas fa-3x fa-chevron-circle-up"></i></a>
     </div> -->
