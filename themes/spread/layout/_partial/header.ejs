@@ -8,7 +8,6 @@
     </div>
   </div> -->
   <!-- nav -->
-  <%- partial('_partial/nav', null, {cache: !config.relative_link}) %>
   <div class="header-title">
     <a href="<%- url_for() %>" class="header-title-link">
       <span class="border-b">MOJIの本棚</span>
@@ -29,3 +28,4 @@
     </a>
   </div>
 </header>
+<%- partial('_partial/nav', null, {cache: !config.relative_link}) %>

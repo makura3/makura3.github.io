@@ -100,13 +100,15 @@ a {
   }
 
   .list-content {
+    display: block;
     flex: 1;
-    margin: 0 0 15px 20px;
+    margin: 0 0 15px 0;
+    padding: 10px;
 
-    @include max-mq(sm) {
-      display: block;
-      margin: 0 0 15px 0;
-      padding: 10px;
+    @include min-mq(md) {
+      margin: 0 0 15px 20px;
+      max-width: 400px;
+      padding: 0;
     }
   }
 }
