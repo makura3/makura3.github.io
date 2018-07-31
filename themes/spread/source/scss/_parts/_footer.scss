@@ -1,3 +1,53 @@
+.footer-tag-List {
+  border-bottom: 1px solid $c_footer;
+  border-top: 1px solid $c_footer;
+  padding: 30px 10px;
+
+  .title {
+    margin-bottom: 10px;
+  }
+
+  .tag-list {
+
+    .tag-list-item {
+      border: 1px solid $c_footer;
+      border-radius: 15px;
+      display: inline-block;
+      margin: 5px;
+      min-width: 50px;
+      padding: 5px 5px 5px 10px;
+      position: relative;
+      text-align: center;
+
+      &:hover {
+        background-color: $c_main;
+
+        .tag-list-link {
+          color: $c_white;
+        }
+      }
+
+      .tag-list-link {
+        border-radius: 2px;
+        color: $c_black;
+        font-size: 12px;
+        margin-right: 10px;
+        padding: 3px 2px 3px 5px;
+        text-shadow: none;
+
+        &::before {
+          bottom: 0;
+          content: '';
+          left: 0;
+          right: 0;
+          position: absolute;
+          top: 0
+        }
+      }
+    }
+  }
+}
+
 .footer {
   background-color: $c_footer;
   color: $c_white;
