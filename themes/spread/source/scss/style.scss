@@ -157,3 +157,13 @@ table {
 @import "./_parts/archive.scss";
 @import "./_parts/article.scss";
 @import "./_parts/profile.scss";
+
+
+/* 各パーツを上書きしたい時用 */
+.mg10 {
+  margin: 10px;
+}
+
+.ta_c {
+  text-align: center;
+}

@@ -1,7 +1,7 @@
 # Header
 menu:
   Home: /
-  profile: /profile
+  about: /profile
 
 rss: /atom.xml
 

@@ -126,7 +126,8 @@
 
 //nav
 .header-nav-wrap {
-  background-color: $c_nav;
+  border-top: 1px solid $c_nav;
+  border-bottom: 1px solid $c_nav;
   line-height: 50px;
   min-height: 50px;
   text-align: center;
@@ -144,7 +145,7 @@
   }
 
   .header-nav-link {
-    color: $c_white;
+    color: $c_nav;
     font-weight: 400;
     margin-right: 15px;
     padding: 5px 8px;
@@ -156,7 +157,7 @@
     }
 
     &::before {
-      border-left: 5px solid $c_white;
+      border-left: 5px solid $c_nav;
       border-top: 5px solid transparent;
       border-bottom: 5px solid transparent;
       content: '';
