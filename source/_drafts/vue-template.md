@@ -1,5 +1,5 @@
 ---
-title: Vue-cli3の導入手順まとめとテンプレートの作成
+title: Vue-cli3の導入手順まとめ
 thumbnail: thumbnail.png
 date: 2018-08-15 16:13:55
 description:
@@ -9,13 +9,8 @@ tags: Vue
 ---
 
 Vue-cli3を導入してWebアプリを作成したときの手順をまとめました。  
-おまけで、導入後思ったよりカスタムが必要だったのでそれらをまとめてテンプレート化しました。  
 
 <!-- toc -->
-
-## 作成したテンプレート
-自分で導入する手間を省きたい方向けにテンプレートを作成しました。
-リポジトリはこちら。
 
 ## Vue-cli3の導入
 まず現時点でnodeは`v8.11.2`、npmは`5.6.0`です。  
@@ -42,16 +37,56 @@ vue ui
 ```
 <br>
 すると`Vueプロジェクトマネージャ`が開くので、`作成`を選択します。  
+<br>
 フォルダを選択し、プロジェクト名などを決めていきます。  
 ![Vueプロジェクトマネージャ](create.png "Vueプロジェクトマネージャ")
 <br>
 次に、必要なプラグインの設定をしていきます。  
-これは人の好みによりけりですが、今回は手動で`Babel`、`Router`、`Vuex`、`CSS Pre-processors`、`Linter`、`設定ファイルを使用する`を選びました。  
+これは人の好みによりけりですが、今回は`Babel`、`Router`、`Vuex`、`CSS Pre-processors`、`Linter`、`設定ファイルを使用する`を選びました。  
 次の画面では、CSS Pre-processorsはSCSS/SASS、LinterはESLint+Prettier + Lint on saveを選択しています。  
 <br>
 最後にプロジェクトを作成ボタンを押すとインストールが始まります。  
-(nodeのバージョンがよろしくないとこの時にエラーが起こります)  
+※nodeのバージョンがよろしくないとこの時にエラーが起こります  
 
 ### プロジェクトの実行
-インストール完了後、プロジェクトタスク画面からプロジェクトを起動します。
-このようにステータスが成功になれば導入は終了です。　　
+インストール完了後、プロジェクトタスク画面からプロジェクトを起動します。  
+このようにステータスが成功になれば導入は終了です。  
+![プロジェクトタスク画面](success.png "プロジェクトタスク画面")  
+<br>
+出力タブに記載されているURLにアクセス出来るか確認してみてください。
+```console
+  App running at:
+  - Local:   http://localhost:xxxx/
+  - Network: http://......./
+```
+<br>
+デフォルトでホットリロード対応しているので、ストレスなく実装出来ると思います。  
+
+## vue.config.jsについて
+vue-cliでは、vue.config.jsに設定
+プロジェクトルート(package.jsonの隣)においておくと、特に設定しなくても勝手に読み込まれます。  
+
+### vueファイル内にscssファイルをimportする
+vueファイルで毎回共通化したscss(例えば_variables.scss)をimportすると、何度もimportされてしまうことになります。  
+その場合は、下記のように設定することで
+```js
+module.exports = {
+  css: {
+    loaderOptions: {
+      sass: {
+        data: '@import "@/assets/scss/_global.scss";'
+      }
+    }
+  }
+}
+```
+
+### portを変える
+
+```js
+module.exports = {
+  devServer: {
+    port: xxxx
+  }
+}
+```
