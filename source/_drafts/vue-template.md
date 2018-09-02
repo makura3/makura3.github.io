@@ -62,7 +62,7 @@ vue ui
 <br>
 デフォルトでホットリロード対応しているので、ストレスなく実装出来ると思います。  
 
-## vue.config.jsについて
+## vue.config.jsで設定をカスタムする
 vue-cliでは、vue.config.jsに設定
 プロジェクトルート(package.jsonの隣)においておくと、特に設定しなくても勝手に読み込まれます。  
 

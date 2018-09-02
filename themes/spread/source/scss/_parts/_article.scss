@@ -192,7 +192,13 @@
     }
 
     img {
+      margin: 5px 0;
       width: 100%;
+
+      @include min-mq(md) {
+        width: 70%;
+      }
+
     }
   }
 
