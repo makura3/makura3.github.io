@@ -1,5 +1,5 @@
 ---
-title: Vue-cli3の導入手順まとめ
+title: Vue CLI 3の導入手順まとめ
 thumbnail: thumbnail.png
 date: 2018-08-15 16:13:55
 description:
@@ -8,21 +8,22 @@ id: vue-template
 tags: Vue
 ---
 
-Vue-cli3を導入してWebアプリを作成したときの手順をまとめました。  
+Vue-cli3を導入した時の手順をまとめました。  
 
 <!-- toc -->
 
-## Vue-cli3の導入
+## Vue-cli3のインストール
 まず現時点でnodeは`v8.11.2`、npmは`5.6.0`です。  
 <br>
 導入は[公式の手順通り](https://cli.vuejs.org/guide/installation.html)にすすめます。  
+グローバルインストールしたくない方は適時変更してください。  
 ```md
 npm install -g @vue/cli
 # OR
 yarn global add @vue/cli
 ```
 <br>
-一応バージョンを確認しておきます。  
+バージョンを確認しておきます。  
 ```console
 vue --version
 3.0.0-rc.11
@@ -32,11 +33,12 @@ vue --version
 ## プロジェクトの作成
 では次にプロジェクトの作成をします。  
 v3ではGUIを使用しての作成が出来るようになっているので、実際に使用していきます。  
+(もちろん、従来どおりターミナルからの作成も可能です。)  
 ```console
 vue ui
 ```
 <br>
-すると`Vueプロジェクトマネージャ`が開くので、`作成`を選択します。  
+適当な場所で上記を実行すると`Vueプロジェクトマネージャ`が開くので`作成`を選択します。  
 <br>
 フォルダを選択し、プロジェクト名などを決めていきます。  
 ![Vueプロジェクトマネージャ](create.png "Vueプロジェクトマネージャ")
@@ -63,12 +65,12 @@ vue ui
 デフォルトでホットリロード対応しているので、ストレスなく実装出来ると思います。  
 
 ## vue.config.jsで設定をカスタムする
-vue-cliでは、vue.config.jsに設定
+vue-cliではvue.config.jsに設定を記述し、
 プロジェクトルート(package.jsonの隣)においておくと、特に設定しなくても勝手に読み込まれます。  
 
 ### vueファイル内にscssファイルをimportする
-vueファイルで毎回共通化したscss(例えば_variables.scss)をimportすると、何度もimportされてしまうことになります。  
-その場合は、下記のように設定することで
+共通化したいscss(例えば_variables.scssなど)をプロジェクト内で一度だけimportしたい場合、  
+下記のように設定します。  
 ```js
 module.exports = {
   css: {
@@ -80,6 +82,7 @@ module.exports = {
   }
 }
 ```
+これでvueファイルで定義した変数が使えるようになっていると思います。  
 
 ### portを変える
 
