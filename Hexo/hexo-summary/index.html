@@ -1,0 +1,289 @@
+<!-- ページ全体のレイアウトを設定します -->
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- Head tag -->
+  <head>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117837032-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-117837032-1');
+  </script>
+  <!-- End Google Analytics -->
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  
+  <title>Hexoでブログ構築 まとめ | MOJIの本棚</title>
+
+  
+    <meta name="description" content="Hexoでブログを構築しました。descriptionなどのSEOに関する設定から新規ページの作成方法など、つまづいた部分をまとめています。">
+  
+
+  
+  
+  <meta name="description" content="Hexoでブログを構築しました。descriptionなどのSEOに関する設定から新規ページの作成方法など、つまづいた部分をまとめています。">
+<meta name="keywords" content="Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexoでブログ構築 まとめ">
+<meta property="og:url" content="https://makura3.github.io/Hexo/hexo-summary/">
+<meta property="og:site_name" content="MOJIの本棚">
+<meta property="og:description" content="Hexoでブログを構築しました。descriptionなどのSEOに関する設定から新規ページの作成方法など、つまづいた部分をまとめています。">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://makura3.github.io/Hexo/hexo-summary/thumbnail.png">
+<meta property="og:updated_time" content="2018-09-17T14:49:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexoでブログ構築 まとめ">
+<meta name="twitter:description" content="Hexoでブログを構築しました。descriptionなどのSEOに関する設定から新規ページの作成方法など、つまづいた部分をまとめています。">
+<meta name="twitter:image" content="https://makura3.github.io/Hexo/hexo-summary/thumbnail.png">
+<meta name="twitter:creator" content="@_makura3">
+
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+  <link rel="stylesheet" href="/scss/style.css">
+</head>
+
+
+  <body>
+    <div class="container">
+      <!-- header -->
+      
+        <header class="page-header header_min">
+  <div class="header-title">
+    <a href="/" class="header-title-link">
+      MOJIの本棚
+      <!-- <svg width="552px" height="161px" viewBox="0 0 552 161" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="title-logo">
+        <path d="M74.664,12.6 L92.52,112.536 L80.856,112.536 L66.456,22.68 L52.056,57.096 L52.056,112.536 L40.536,112.536 L40.536,57.24 L26.136,22.968 L11.88,112.536 L0.216,112.536 L17.928,12.6 L33.768,12.6 L46.152,42.12 L58.536,12.6 L74.664,12.6 Z M159.192,13.32 L170.856,40.824 L170.856,112.536 L111.672,112.536 L111.672,13.32 L159.192,13.32 Z M159.048,101.304 L159.048,42.408 L151.56,24.552 L123.336,24.552 L123.336,101.304 L159.048,101.304 Z M206.264,12.6 L218.216,12.6 L218.216,124.312 L185.672,159.980825 L172.856,159.980825 L206.264,122.44 L206.264,12.6 Z M251.472,112.536 L239.088,112.536 L239.088,13.32 L251.472,13.32 L251.472,112.536 Z" id="MOJI"></path>
+        <polygon id="の" points="310.5 64.5 330 73 330 133.4 314.3 133.4 310.3 125.9 321.8 125.9 321.8 78.2 309.1 72.7 290.4 72.7 290.4 120.7 309.5 76.1 316.8 80 293.9 133.4 282.1 133.4 282.1 64.5"></polygon>
+        <polygon id="本" points="438.783899 100.296 406.048 54.504 406.048 88.488 425.92 88.488 425.92 100.008 406.048 100.008 406.048 120.168 393.952 120.168 393.952 100.008 374.08 100.008 374.08 88.488 393.952 88.488 393.952 54.648 362.96702 96.9852352 360.544 100.296 352.570272 103.079238 393.952 34.488 393.952 29.16 355.792 29.16 355.792 17.208 393.952 17.208 393.952 4.392 406.048 4.392 406.048 17.208 444.208 17.208 444.208 29.16 406.048 29.16 406.048 33.912 446.091162 103.079238"></polygon>
+        <path d="M496.981635,2.552 L518.92,2.552 L518.92,114.8976 L510.168631,114.8976 L510.168631,61.4405333 L505.613123,61.4405333 L505.613123,104.463467 L499.379271,118.328 L494.584,107.465067 L496.981635,102.176533 L496.981635,2.552 Z M510.304,11.192 L504.832,11.192 L504.832,26.168 L510.304,26.168 L510.304,11.192 Z M504.832,51.08 L510.304,51.08 L510.304,36.104 L504.832,36.104 L504.832,51.08 Z M540.552,160.02372 L540.552,61.016 L532.776,61.016 L532.776,107.24 L526.872,118.04 L521.112,107.096 L522.408,104.936 L522.408,1.688 L551.064,1.688 L551.064,160.02372 L540.552,160.02372 Z M540.552,11.192 L532.776,11.192 L532.776,26.168 L540.552,26.168 L540.552,11.192 Z M532.776,51.08 L540.552,51.08 L540.552,36.104 L532.776,36.104 L532.776,51.08 Z M496.024,61.16 L490.84,70.952 L487.96,66.92 L487.96,116.168 L477.016,116.168 L477.016,78.152 L471.256,88.664 L464.92,76.856 L477.016,54.68 L477.016,30.056 L466.216,30.056 L466.216,19.256 L477.016,19.256 L477.016,0.392 L487.96,0.392 L487.96,19.256 L495.592,19.256 L495.592,30.056 L487.96,30.056 L487.96,49.784 L496.024,61.16 Z" id="棚"></path>
+      </svg> -->
+      <h1 class="title">
+        MOJIの本棚
+      </h1>
+    </a>
+  </div>
+</header>
+<div class="header-nav-wrap">
+  <!-- <a href="/" class="logo-wrap">
+    <svg class="logo" width="151px" height="104px" viewBox="0 0 151 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g>
+        <rect id="Rectangle" fill="#C0D9DD" x="0" y="1" width="46" height="103"></rect>
+        <rect id="Rectangle" fill="#E3DB9D" x="53" y="1" width="46" height="103"></rect>
+        <path d="M105,1 C105,1 125.282295,-0.527821459 137.595703,6.78271484 C141.3913,9.03618118 145.078671,15.4791031 145.889648,19.1708984 C149.331543,34.8393555 150.379883,104 150.379883,104 L105,104 L105,1 Z" id="Rectangle" fill="#AFD5B9"></path>
+      </g>
+    </svg>
+  </a> -->
+  <nav class="header-nav">
+    <!-- <a id="main-nav-toggle" class="nav-icon"></a> -->
+    
+      <a class="header-nav-link" href="/">Home</a>
+    
+      <a class="header-nav-link" href="/profile">about</a>
+    
+  </nav>
+  <nav class="header-nav">
+    
+      <a class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+    
+    <a class="nav-icon" title="検索"></a>
+  </nav>
+  <!-- <div id="search-form-wrap">
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://makura3.github.io"></form>
+  </div> -->
+  </div>
+      
+      <!-- main column -->
+      
+      <div class="contents header_min">
+      
+        <article id="post-hexo-summary" class="article post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    <!--  -->
+    <!-- パンくず -->
+    <div class="article-pnkz">
+      
+  <div class="article-category">
+    <a href="/"><i class="fas fa-home"></i></a> > 
+    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+  </div>
+
+    </div>
+    <div class="article-meta">
+      <div class="article-date post-time">
+  <i class="far fa-calendar-alt"></i>
+  <time datetime="2018-04-23T19:30:00.000Z" itemprop="datePublished">2018-04-23</time>
+</div>
+    </div>
+    
+      <header class="article-header">
+        
+  <h2 class="post-title" itemprop="name">
+    Hexoでブログ構築 まとめ
+  </h2>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+        <p>先日<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>を使って、Github pagesでブログを公開しました。<br>公開まで簡単に出来る！とよく紹介されているのですが、なんだかんだで引っかかったところが多々あったのでまとめてみました。  </p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#hexo設定関係のつまづき">Hexo設定関係のつまづき</a><ul>
+<li><a href="#configが複数あるんだけども">configが複数あるんだけども</a></li>
+<li><a href="#rssの設置">RSSの設置</a></li>
+</ul>
+</li>
+<li><a href="#seoに関する設定のつまづき">SEOに関する設定のつまづき</a><ul>
+<li><a href="#meta-descriptionの設定">meta descriptionの設定</a></li>
+<li><a href="#sitemapを作る">sitemapを作る</a></li>
+<li><a href="#google-analyticsの設定">google-analyticsの設定</a></li>
+<li><a href="#robotstxtの設置">robots.txtの設置</a></li>
+</ul>
+</li>
+<li><a href="#ページ作成に関するつまづき">ページ作成に関するつまづき</a><ul>
+<li><a href="#新規でページを増やしたい">新規でページを増やしたい</a></li>
+<li><a href="#404ページ">404ページ</a></li>
+</ul>
+</li>
+<li><a href="#記事作成に関するつまづき">記事作成に関するつまづき</a><ul>
+<li><a href="#記事の途中に目次を入れたい">記事の途中に目次を入れたい</a></li>
+<li><a href="#パーマリンクの設定">パーマリンクの設定</a></li>
+</ul>
+</li>
+<li><a href="#テーマに関するつまづき">テーマに関するつまづき</a><ul>
+<li><a href="#テーマを探す">テーマを探す</a></li>
+<li><a href="#scssのコンパイル">scssのコンパイル</a></li>
+<li><a href="#ページ毎にヘッダーを出しわけたい">ページ毎にヘッダーを出しわけたい</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h2><span id="hexo設定関係のつまづき">Hexo設定関係のつまづき</span></h2><h3><span id="configが複数あるんだけども">configが複数あるんだけども</span></h3><p>Hexoではブログ本体に関する設定<code>_config.yml</code>と、テーマに関する<code>_config.yml</code>が存在します。<br><br>
+使い分けですが、絶対に必要な設定(デプロイなどの設定)を前者に、<br>なくても問題ない設定（google_analyticsなど）を後者に記述するようにしています。  </p>
+<h3><span id="rssの設置">RSSの設置</span></h3><p>RSSの設置は、<a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="noopener">hexo-generator-feed</a>というプラグインで対応しました。<br><br>
+sitemap導入時と同じようにnpm installし、必要に応じてconfig.ymlでオプションを変更してください。<br>デフォルト値では、<a href="http://localhost:4000/atom.xml" target="_blank" rel="noopener">http://localhost:4000/atom.xml</a>で生成されます。</p>
+<h2><span id="seoに関する設定のつまづき">SEOに関する設定のつまづき</span></h2><h3><span id="meta-descriptionの設定">meta descriptionの設定</span></h3><p>デフォルト値をconfig.ymlに記述しておき、記事ページではdescriptionが重複しないよう毎回設定しています。<br>記事の文字を抜き出して自動で設定することも可能ですが、より効果のある文章にするために意図的に手動にしています。
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// head.ejsに下記を記述</span></span><br><span class="line"></span><br><span class="line">&lt;% <span class="keyword">if</span> (page.description) &#123; %&gt;</span><br><span class="line">  &lt;meta name=<span class="string">"description"</span> content=<span class="string">"&lt;%= page.description %&gt;"</span>&gt;</span><br><span class="line">&lt;% &#125; <span class="keyword">else</span> <span class="keyword">if</span>(config.description) &#123; %&gt;</span><br><span class="line">  &lt;meta name=<span class="string">"description"</span> content=<span class="string">"&lt;%= config.description %&gt;"</span>&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 記事.mdの設定</span></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">(略)</span><br><span class="line">description: 'descriptionに設定したい文章をここに'</span><br><span class="line">(略)</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h3><span id="sitemapを作る">sitemapを作る</span></h3><p>公式のプラグインが用意されているので、そちらを使用しました。<br><a href="https://github.com/hexojs/hexo-generator-sitemap" target="_blank" rel="noopener">hexo-generator-sitemap</a><br><br>
+npm installし、必要に応じて<code>_config.yml</code>でオプションを変更してください。<br>デフォルト値では、<a href="http://localhost:4000/sitemap.xml" target="_blank" rel="noopener">http://localhost:4000/sitemap.xml</a>で生成されます。</p>
+<!-- ### OGPの設定
+簡単に言うと、URLを共有した際に見た目がリッチになるアレです。  
+こちらは[公式がヘルパー](https://hexo.io/docs/helpers.html#open-graph)を用意していますが、使い方が書いてない。 -->
+<h3><span id="google-analyticsの設定">google-analyticsの設定</span></h3><p>トラッキングIDを<code>themes/themeName/_config.yml</code>に設定し、ejsで出力するようにしました。
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (theme.google_analytics)&#123; %&gt;</span><br><span class="line">  &lt;script <span class="keyword">async</span> src=<span class="string">"https://www.googletagmanager.com/gtag/js?id=&lt;%= theme.google_analytics %&gt;"</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    <span class="built_in">window</span>.dataLayer = <span class="built_in">window</span>.dataLayer || [];</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">gtag</span>(<span class="params"></span>)</span>&#123;dataLayer.push(<span class="built_in">arguments</span>);&#125;</span><br><span class="line">    gtag(<span class="string">'js'</span>, <span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line"></span><br><span class="line">    gtag(<span class="string">'config'</span>, <span class="string">'&lt;%= theme.google_analytics %&gt;'</span>);</span><br><span class="line">  &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;% &#125; %&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3><span id="robotstxtの設置">robots.txtの設置</span></h3><p><a href="https://github.com/leecrossley/hexo-generator-robotstxt" target="_blank" rel="noopener">hexo-generator-robotstxt</a>というプラグインが有名そうだったのですが、1ファイル置けばいいだけなので手動で設置しました。<br>配置先は<code>project/source/</code>です。<br><br>
+中身は下記の通り。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">User-Agent:*</span><br><span class="line">Disallow:</span><br><span class="line">Sitemap:https://makura3.github.io/sitemap.xml</span><br></pre></td></tr></table></figure></p>
+<p>Google Search Consoleのrobots.txt テスターで正しく記述されているか確認しておくと良いです。</p>
+<h2><span id="ページ作成に関するつまづき">ページ作成に関するつまづき</span></h2><h3><span id="新規でページを増やしたい">新規でページを増やしたい</span></h3><p>Hexoでページを増やす場合は少々面倒です。
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> hexo new page testPage</span><br></pre></td></tr></table></figure></p>
+<p>実行すると<code>/source/testPage/index.md</code>が作成されます。<br><br> 
+index.mdの中身は、
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: testPage①</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<p>とします。 
+<br><br>次に、<code>/themes/themeName/layout</code>の配下にtestPage.ejs②を作成すると、<br><a href="/testPage.html">/testPage</a>でアクセスできるようになります。<br><br>
+作成する際、①と②は同じ名前を指定するようにしてください。<br><br>
+<br>
+プラグインを入れるともう少し簡単にページが作れるようですが、<br>更新が止まっている＆必須ではなかったので導入は見送りました。</p>
+<h3><span id="404ページ">404ページ</span></h3><p>404ページは自分で作成する必要があります。<br><code>$ hexo new page 404</code>とし、index.mdに
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">permalink: /404.html</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<p>と記載してください。<br><a href="/404.html">/404.html</a>でアクセスが可能になります。<br><br>
+通常ページと同じく、layoutの設定も可能なのでオリジナルの404ページが作れます。</p>
+<h2><span id="記事作成に関するつまづき">記事作成に関するつまづき</span></h2><h3><span id="記事の途中に目次を入れたい">記事の途中に目次を入れたい</span></h3><p><a href="https://hexo.io/docs/helpers.html#toc" target="_blank" rel="noopener">目次生成のヘルパー</a>が公式で用意されていますが、記事の途中に挿入することはできません。<br>目次の前にまえがきを設置しておきたかったので、<code>hexo-toc</code>というプラグインを導入しました。<br>設定方法は<a href="https://github.com/bubkoo/hexo-toc" target="_blank" rel="noopener">github</a>をご覧ください。</p>
+<h3><span id="パーマリンクの設定">パーマリンクの設定</span></h3><p>SEOの観点から、非常に大切な部分です。
+<code>project/_config.yml</code>に設定を記述します。
+散々迷った結果、
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: :category/:id/</span><br></pre></td></tr></table></figure></p>
+<p>とし、カテゴリー+記事ID(スラッグ)の形としました。<br>記事投稿後にカテゴリーを変える可能性がある場合は、categoryがはいっているとURLが変わってしまうため記事IDのみでいいのではないでしょうか。<br><br>
+記事ごとに記事IDを設定する場合は、.mdの上部で設定をする必要があります。
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">id: idname</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<h2><span id="テーマに関するつまづき">テーマに関するつまづき</span></h2><h3><span id="テーマを探す">テーマを探す</span></h3><p><a href="https://hexo.io/themes/index.html" target="_blank" rel="noopener">公式</a>や<a href="https://github.com/search?utf8=%E2%9C%93&amp;q=hexo-theme&amp;ref=simplesearch" target="_blank" rel="noopener">Github</a>から好みのテーマを探すことができます。<br><code>themes/</code>にテーマフォルダを配置し、<code>project/_config.yml</code>の中の<code>theme: themeName</code>の部分を変更します。<br><br>
+ちなみにこのブログで現在使用しているテーマは自作したものなので、ある程度形になってきたらそのうち配布する予定です。</p>
+<h3><span id="scssのコンパイル">scssのコンパイル</span></h3><p>Hexoには、node-sassがくっついています。<br><code>hexo-renderer-scss</code>をnpm installし、<code>_config.yml</code>に下記を記載しました。<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># style settings</span></span><br><span class="line"><span class="attr">node_sass:</span></span><br><span class="line"><span class="attr">  debug:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  outputStyle:</span> <span class="string">compressed</span></span><br><span class="line"><span class="attr">  precision:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">  sourceComments:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  includePaths:</span> <span class="string">['./node_modules/normalize-scss/sass/','./node_modules/reset-css/']</span></span><br></pre></td></tr></table></figure></p>
+<p>個人的にnormalize.cssとreset.cssを追加でimportできるようにしています。(npm install必須)  </p>
+<h3><span id="ページ毎にヘッダーを出しわけたい">ページ毎にヘッダーを出しわけたい</span></h3><p><a href="https://hexo.io/docs/variables.html#Page-Variables" target="_blank" rel="noopener">公式の変数一覧</a>の中に<code>page.layout</code>という変数があるので、ページ毎にejs内で分岐することが可能です。<br><br>
+<br>
+<br>
+その他にもcircleCIで自動デプロイまで行なってみたりしているので<br>そのうち紹介できたらいいなと思ってます。</p>
+
+    </div>
+  </div>
+  
+    <div class="article-footer">
+      <div class="article-share-link">
+        <a href="http://b.hatena.ne.jp/entry/https://makura3.github.io/Hexo/hexo-summary/" class="article-share _hatebu" target="_blank" title="Hatebu"><img src="/images/hatenabookmark-logomark.svg" alt="はてなブログ" class="fa-hatebu"></a>        
+        <a href="https://twitter.com/intent/tweet?url=https://makura3.github.io/Hexo/hexo-summary/" class="article-share _twitter" target="_blank" title="Twitter"><i class="fab fa-twitter sns-ic"></i></a>
+        <a href="https://www.facebook.com/sharer.php?u=https://makura3.github.io/Hexo/hexo-summary/" class="article-share _facebook" target="_blank" title="Facebook"><i class="fab fa-facebook sns-ic"></i></a>
+        <a href="https://plus.google.com/share?url=https://makura3.github.io/Hexo/hexo-summary/" class="article-share _google" target="_blank" title="Google+"><i class="fab fa-google-plus-g sns-ic"></i></a>
+        <a href="https://social-plugins.line.me/lineit/share?url=https://makura3.github.io/Hexo/hexo-summary/" class="article-share _line" target="_blank" title="LINE"><i class="fab fa-line sns-ic"></i></a>
+      </div>
+      <!-- 
+  <i class="fas fa-tag"></i>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+ -->
+    </div>
+    
+<nav class="paging">
+  
+    <a href="/Vue/vue-summary/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption"><i class="fas fa-angle-left"></i>次の記事</span>
+      <div class="article-nav-title">
+        
+          Vue.jsのテンプレート構文とコンパイルについてのまとめ
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+      </div>
+    </div>
+    <!-- tagList -->
+    
+      <div class="footer-tag-List">
+  <div class="contents">
+    <p class="title">タグから気になる記事を探す</p>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESLint/">ESLint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuxt/">Nuxt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prettier/">Prettier</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firestore/">firestore</a></li></ul>
+  </div>
+</div>
+    
+    <!-- footer -->
+    <footer class="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <div>
+        <a href="https://github.com/makura3/makura3.github.io" class="ic-github" target="_blank"><i class="fab fa-github sns-ic"></i></a>
+        <a href="https://twitter.com/_makura3" target="_blank"><i class="fab fa-twitter sns-ic"></i></a>
+        <!-- <i class="fab fa-facebook sns-ic"></i></p> -->
+        
+          <a href="/atom.xml" title="RSSフィード" target="_blank">
+            <i class="fas fa-rss-square sns-ic"></i>
+          </a>
+        
+      </div>
+      <p>&copy; 2018 makura3</p>
+    <!-- <div>
+      <a href="#top"><i class="fas fa-3x fa-chevron-circle-up"></i></a>
+    </div> -->
+  </div>
+</footer>
+    <!-- load js -->
+    <script src="/js/fontawesome-all.min.js" async></script>
+  </body>
+
+</html>

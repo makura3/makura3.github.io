@@ -1,0 +1,256 @@
+<!-- ページ全体のレイアウトを設定します -->
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- Head tag -->
+  <head>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117837032-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-117837032-1');
+  </script>
+  <!-- End Google Analytics -->
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  
+  <title>ESLintとPrettierとVSCodeでお手軽コードチェックするまで | MOJIの本棚</title>
+
+  
+    <meta name="description" content="ESLintとPrettierを使って、保存時にフォーマットとコード検証する手順をまとめました。">
+  
+
+  
+  
+  <meta name="description" content="ESLintとPrettierを使って、保存時にフォーマットとコード検証する手順をまとめました。">
+<meta name="keywords" content="ESLint,Prettier">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ESLintとPrettierとVSCodeでお手軽コードチェックするまで">
+<meta property="og:url" content="https://makura3.github.io/Lint/eslint-Prettier/">
+<meta property="og:site_name" content="MOJIの本棚">
+<meta property="og:description" content="ESLintとPrettierを使って、保存時にフォーマットとコード検証する手順をまとめました。">
+<meta property="og:locale" content="ja">
+<meta property="og:updated_time" content="2018-09-17T14:49:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ESLintとPrettierとVSCodeでお手軽コードチェックするまで">
+<meta name="twitter:description" content="ESLintとPrettierを使って、保存時にフォーマットとコード検証する手順をまとめました。">
+<meta name="twitter:creator" content="@_makura3">
+
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+  <link rel="stylesheet" href="/scss/style.css">
+</head>
+
+
+  <body>
+    <div class="container">
+      <!-- header -->
+      
+        <header class="page-header header_min">
+  <div class="header-title">
+    <a href="/" class="header-title-link">
+      MOJIの本棚
+      <!-- <svg width="552px" height="161px" viewBox="0 0 552 161" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="title-logo">
+        <path d="M74.664,12.6 L92.52,112.536 L80.856,112.536 L66.456,22.68 L52.056,57.096 L52.056,112.536 L40.536,112.536 L40.536,57.24 L26.136,22.968 L11.88,112.536 L0.216,112.536 L17.928,12.6 L33.768,12.6 L46.152,42.12 L58.536,12.6 L74.664,12.6 Z M159.192,13.32 L170.856,40.824 L170.856,112.536 L111.672,112.536 L111.672,13.32 L159.192,13.32 Z M159.048,101.304 L159.048,42.408 L151.56,24.552 L123.336,24.552 L123.336,101.304 L159.048,101.304 Z M206.264,12.6 L218.216,12.6 L218.216,124.312 L185.672,159.980825 L172.856,159.980825 L206.264,122.44 L206.264,12.6 Z M251.472,112.536 L239.088,112.536 L239.088,13.32 L251.472,13.32 L251.472,112.536 Z" id="MOJI"></path>
+        <polygon id="の" points="310.5 64.5 330 73 330 133.4 314.3 133.4 310.3 125.9 321.8 125.9 321.8 78.2 309.1 72.7 290.4 72.7 290.4 120.7 309.5 76.1 316.8 80 293.9 133.4 282.1 133.4 282.1 64.5"></polygon>
+        <polygon id="本" points="438.783899 100.296 406.048 54.504 406.048 88.488 425.92 88.488 425.92 100.008 406.048 100.008 406.048 120.168 393.952 120.168 393.952 100.008 374.08 100.008 374.08 88.488 393.952 88.488 393.952 54.648 362.96702 96.9852352 360.544 100.296 352.570272 103.079238 393.952 34.488 393.952 29.16 355.792 29.16 355.792 17.208 393.952 17.208 393.952 4.392 406.048 4.392 406.048 17.208 444.208 17.208 444.208 29.16 406.048 29.16 406.048 33.912 446.091162 103.079238"></polygon>
+        <path d="M496.981635,2.552 L518.92,2.552 L518.92,114.8976 L510.168631,114.8976 L510.168631,61.4405333 L505.613123,61.4405333 L505.613123,104.463467 L499.379271,118.328 L494.584,107.465067 L496.981635,102.176533 L496.981635,2.552 Z M510.304,11.192 L504.832,11.192 L504.832,26.168 L510.304,26.168 L510.304,11.192 Z M504.832,51.08 L510.304,51.08 L510.304,36.104 L504.832,36.104 L504.832,51.08 Z M540.552,160.02372 L540.552,61.016 L532.776,61.016 L532.776,107.24 L526.872,118.04 L521.112,107.096 L522.408,104.936 L522.408,1.688 L551.064,1.688 L551.064,160.02372 L540.552,160.02372 Z M540.552,11.192 L532.776,11.192 L532.776,26.168 L540.552,26.168 L540.552,11.192 Z M532.776,51.08 L540.552,51.08 L540.552,36.104 L532.776,36.104 L532.776,51.08 Z M496.024,61.16 L490.84,70.952 L487.96,66.92 L487.96,116.168 L477.016,116.168 L477.016,78.152 L471.256,88.664 L464.92,76.856 L477.016,54.68 L477.016,30.056 L466.216,30.056 L466.216,19.256 L477.016,19.256 L477.016,0.392 L487.96,0.392 L487.96,19.256 L495.592,19.256 L495.592,30.056 L487.96,30.056 L487.96,49.784 L496.024,61.16 Z" id="棚"></path>
+      </svg> -->
+      <h1 class="title">
+        MOJIの本棚
+      </h1>
+    </a>
+  </div>
+</header>
+<div class="header-nav-wrap">
+  <!-- <a href="/" class="logo-wrap">
+    <svg class="logo" width="151px" height="104px" viewBox="0 0 151 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g>
+        <rect id="Rectangle" fill="#C0D9DD" x="0" y="1" width="46" height="103"></rect>
+        <rect id="Rectangle" fill="#E3DB9D" x="53" y="1" width="46" height="103"></rect>
+        <path d="M105,1 C105,1 125.282295,-0.527821459 137.595703,6.78271484 C141.3913,9.03618118 145.078671,15.4791031 145.889648,19.1708984 C149.331543,34.8393555 150.379883,104 150.379883,104 L105,104 L105,1 Z" id="Rectangle" fill="#AFD5B9"></path>
+      </g>
+    </svg>
+  </a> -->
+  <nav class="header-nav">
+    <!-- <a id="main-nav-toggle" class="nav-icon"></a> -->
+    
+      <a class="header-nav-link" href="/">Home</a>
+    
+      <a class="header-nav-link" href="/profile">about</a>
+    
+  </nav>
+  <nav class="header-nav">
+    
+      <a class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+    
+    <a class="nav-icon" title="検索"></a>
+  </nav>
+  <!-- <div id="search-form-wrap">
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://makura3.github.io"></form>
+  </div> -->
+  </div>
+      
+      <!-- main column -->
+      
+      <div class="contents header_min">
+      
+        <article id="post-eslint" class="article post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    <!--  -->
+    <!-- パンくず -->
+    <div class="article-pnkz">
+      
+  <div class="article-category">
+    <a href="/"><i class="fas fa-home"></i></a> > 
+    <a class="article-category-link" href="/categories/Lint/">Lint</a>
+  </div>
+
+    </div>
+    <div class="article-meta">
+      <div class="article-date post-time">
+  <i class="far fa-calendar-alt"></i>
+  <time datetime="2018-07-31T23:00:00.000Z" itemprop="datePublished">2018-07-31</time>
+</div>
+    </div>
+    
+      <header class="article-header">
+        
+  <h2 class="post-title" itemprop="name">
+    ESLintとPrettierとVSCodeでお手軽コードチェックするまで
+  </h2>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+        <p>色々な人が参画/離任を繰り返した結果、手がつけられないぐらいの量になった負の遺産(みたいなソースコード)。<br>自分がいるうちに少しでも綺麗にしておきたいと思い、ESLintとPrettierについて調べたので記事にしました。</p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#現状の問題点を考える">現状の問題点を考える</a></li>
+<li><a href="#ツールの説明">ツールの説明</a></li>
+<li><a href="#導入方法">導入方法</a><ul>
+<li><a href="#必要なパッケージをインストール">必要なパッケージをインストール</a></li>
+<li><a href="#eslintrcjsの作成">.eslintrc.jsの作成</a></li>
+<li><a href="#eslintだけ使ってみる">ESLintだけ使ってみる</a></li>
+</ul>
+</li>
+<li><a href="#エディタvscodeと連携して保存時にフォーマット構文チェックする">エディタ(VSCode)と連携して保存時にフォーマット&amp;構文チェックする</a></li>
+<li><a href="#あとがき">あとがき</a></li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h2><span id="現状の問題点を考える">現状の問題点を考える</span></h2><p>まず、現在私が扱っているコードは古く、そして歴代のフロントエンドエンジニアによって何年もの月日をかけて熟成されたものです。<br>コーディング規約はあるものの、インデントはタブだったり半角スペース2つだったり、文字列はダブルクォーテーションだったりシングルクォーテーションだったり…<br>挙げきれないのですが、こんなカオスな感じになっています。<br><br>
+諸事情でこれら小さい粒だけを直すことができないので、案件ついでにチビチビと直していましたが
+数が多すぎるが故に全てを一度で直しきれずに所々に残ってしまっています。<br>こんな状態ではレビューコストもかかるし、何よりパッと見ただけで汚い。<br>今後新しく参画してくるであろうエンジニア(もちろん自分も含みますが)によって更に熟成が進んでしまうことが予想されます。<br><br>
+なるべく工数がかからないような方法を用いて常日頃からコードを綺麗にしておき、熟成するスピードを遅らせる必要がありそうです。  </p>
+<h2><span id="ツールの説明">ツールの説明</span></h2><p>今回使用するツールの説明です。<br><br></p>
+<ul>
+<li>ESLint<br>　→コード検証ツール。コードのフォーマットも可能です。  </li>
+<li>Prettier<br>　→コードフォーマッター。  </li>
+</ul>
+<p><br>
+ESLint1本でコードの検証とフォーマットをしてしまいたいところですが、これだけでは対応しきれないことがあるらしいので、<br>今回はフォーマットに特化したPrettierを併用していきます。</p>
+<h2><span id="導入方法">導入方法</span></h2><h3><span id="必要なパッケージをインストール">必要なパッケージをインストール</span></h3><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D babel-eslint eslint eslint-config-prettier eslint-loader eslint-plugin-prettier prettier</span><br></pre></td></tr></table></figure>
+<p><br>
+各パッケージの説明です。<br><br></p>
+<ul>
+<li><em>babel-eslint</em><br>→ESLint標準のパーサーで対応しきれなさそうな場合に必要。</li>
+<li><em>eslint</em><br>→ESLint本体</li>
+<li><em>eslint-config-prettier</em><br>→ESLintのフォーマットに対するルールを無効</li>
+<li><em>eslint-loader</em><br>→webpack用のloader</li>
+<li><em>eslint-plugin-prettier</em><br>→ESLint上でPrettierを動かす</li>
+<li><em>prettier</em><br>→Prettier本体</li>
+</ul>
+<h3><span id="eslintrcjsの作成">.eslintrc.jsの作成</span></h3><p>プロジェクトルートに.eslintrc.jsを置き、設定とルールを書いていきます。<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">module.exports</span> <span class="string">=</span> <span class="string">&#123;</span></span><br><span class="line"><span class="attr">  root:</span> <span class="literal">true</span><span class="string">,</span></span><br><span class="line"><span class="attr">  env:</span> <span class="string">&#123;</span></span><br><span class="line"><span class="attr">    browser:</span> <span class="literal">true</span><span class="string">,</span></span><br><span class="line"><span class="attr">    node:</span> <span class="literal">true</span></span><br><span class="line">  <span class="string">&#125;,</span></span><br><span class="line"><span class="attr">  parserOptions:</span> <span class="string">&#123;</span></span><br><span class="line"><span class="attr">    parser:</span> <span class="string">'babel-eslint'</span><span class="string">,</span></span><br><span class="line"><span class="attr">    ecmaVersion:</span> <span class="number">6</span></span><br><span class="line">  <span class="string">&#125;,</span></span><br><span class="line"><span class="attr">  extends:</span> <span class="string">[</span></span><br><span class="line">    <span class="string">"eslint:recommended"</span><span class="string">,</span> <span class="string">//ESLintで基本的なルールチェック(更に細かく個別指定可)</span></span><br><span class="line">    <span class="string">"plugin:prettier/recommended"</span>  <span class="string">//一番下に書かないとうまく動かない場合も</span></span><br><span class="line">  <span class="string">],</span></span><br><span class="line"><span class="attr">  plugins:</span> <span class="string">[],</span></span><br><span class="line">  <span class="string">//</span> <span class="string">ここにカスタムルールを追加します。</span></span><br><span class="line"><span class="attr">  rules:</span> <span class="string">&#123;</span></span><br><span class="line">    <span class="string">"prettier/prettier"</span><span class="string">:</span> <span class="string">[</span></span><br><span class="line">      <span class="string">"error"</span><span class="string">,</span></span><br><span class="line">      <span class="string">&#123;</span></span><br><span class="line"><span class="attr">        "singleQuote":</span> <span class="literal">true</span><span class="string">,</span> <span class="string">//シングルクォーテーションのフォーマット</span> <span class="string">参考）https://prettier.io/docs/en/options.html#quotes</span></span><br><span class="line"><span class="attr">        "semi":</span> <span class="literal">false</span> <span class="string">//セミコロンのフォーマット</span> <span class="string">参考）https://prettier.io/docs/en/options.html#semicolons</span></span><br><span class="line">      <span class="string">&#125;</span></span><br><span class="line">    <span class="string">],</span></span><br><span class="line">  <span class="string">&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h3><span id="eslintだけ使ってみる">ESLintだけ使ってみる</span></h3><p>ちゃんと動くかチェックします。<br>簡単に実行できるよう、npm scriptsに以下のように追記しておきましょう。  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"lint"</span>: <span class="string">"eslint --ext .js --ignore-path .gitignore ."</span></span><br></pre></td></tr></table></figure>
+<p>実行する際は、<code>npm run lint</code>です。<br>カスタムルールを追加していないので、eslint:recommendedの基本的なルールチェックが走ります。<br><br>
+ちなみに<code>--fix</code>をつけるとエラー個所をルールにそってESLintがフォーマットしてくれます。（Prettierではないです。）<br><br>
+<br>
+たま〜にPrettierで一括フォーマット怖い！みたいな場合があるので、その時は上記のようにESLintだけ使います。  </p>
+<h2><span id="エディタvscodeと連携して保存時にフォーマットamp構文チェックする">エディタ(VSCode)と連携して保存時にフォーマット&amp;構文チェックする</span></h2><p>VSCodeと連携して、ファイルを保存した時にフォーマット&amp;構文チェックされるようにします。<br>手が止まらずゴリゴリ実装できるのでとても便利です。  </p>
+<p><br>
+まず、VSCode上で<a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank" rel="noopener">ESLint</a>と<a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" target="_blank" rel="noopener">Prettier</a>のインストール/有効化をしておいてください。<br><br></p>
+<p>VSCodeの設定ファイルはこんな感じになります。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"prettier.eslintIntegration"</span>: <span class="literal">true</span>, <span class="comment">//prettier-eslintを使うようになる</span></span><br><span class="line">  <span class="string">"eslint.enable"</span>: <span class="literal">true</span>, <span class="comment">// ESLint有効化</span></span><br><span class="line">  <span class="comment">// 適応するファイルタイプを決定</span></span><br><span class="line">  <span class="string">"eslint.validate"</span>: [</span><br><span class="line">    <span class="string">"javascript"</span>,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"language"</span>: <span class="string">"vue"</span>,</span><br><span class="line">      <span class="string">"autoFix"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="comment">// プロジェクト配下のeslintrc.jsを読み込み</span></span><br><span class="line">  <span class="string">"eslint.options"</span>: &#123;</span><br><span class="line">    <span class="string">"configFile"</span>: <span class="string">".eslintrc.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 保存時にESLint--fixで自動フォーマット どちらかで良い</span></span><br><span class="line">  <span class="string">"editor.formatOnSave"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">"eslint.autoFixOnSave"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><br>
+これで設定は終わりです！<br>あとは保存してちゃんと動くか確認し、快適な実装ライフを楽しんでください。<br><br>
+こんなにすぐ導入できるなんて嬉しいですね。  </p>
+<h2><span id="あとがき">あとがき</span></h2><p>試しに大型案件の無法地帯だったソースを検証してみたところ、とんでもない量のエラーが出ました。<br>古いシステムの場合でも環境作るのがめんどくさいとか思ってないで、早いタイミングで導入した方が良いですね。<br><br>
+JSの他にもstylelint＋Prettierでもう少し快適な実装ライフが送れそうなのでそのうち調べて導入しようと思ってます。</p>
+
+    </div>
+  </div>
+  
+    <div class="article-footer">
+      <div class="article-share-link">
+        <a href="http://b.hatena.ne.jp/entry/https://makura3.github.io/Lint/eslint-Prettier/" class="article-share _hatebu" target="_blank" title="Hatebu"><img src="/images/hatenabookmark-logomark.svg" alt="はてなブログ" class="fa-hatebu"></a>        
+        <a href="https://twitter.com/intent/tweet?url=https://makura3.github.io/Lint/eslint-Prettier/" class="article-share _twitter" target="_blank" title="Twitter"><i class="fab fa-twitter sns-ic"></i></a>
+        <a href="https://www.facebook.com/sharer.php?u=https://makura3.github.io/Lint/eslint-Prettier/" class="article-share _facebook" target="_blank" title="Facebook"><i class="fab fa-facebook sns-ic"></i></a>
+        <a href="https://plus.google.com/share?url=https://makura3.github.io/Lint/eslint-Prettier/" class="article-share _google" target="_blank" title="Google+"><i class="fab fa-google-plus-g sns-ic"></i></a>
+        <a href="https://social-plugins.line.me/lineit/share?url=https://makura3.github.io/Lint/eslint-Prettier/" class="article-share _line" target="_blank" title="LINE"><i class="fab fa-line sns-ic"></i></a>
+      </div>
+      <!-- 
+  <i class="fas fa-tag"></i>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ESLint/">ESLint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prettier/">Prettier</a></li></ul>
+ -->
+    </div>
+    
+<nav class="paging">
+  
+  
+    <a href="/vue/nuxt-intro/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">前の記事<i class="fas fa-angle-right"></i></span>
+      <div class="article-nav-title">Nuxt.jsとfirestoreを組み合わせて簡単なサイトを作った話</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+      </div>
+    </div>
+    <!-- tagList -->
+    
+      <div class="footer-tag-List">
+  <div class="contents">
+    <p class="title">タグから気になる記事を探す</p>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESLint/">ESLint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuxt/">Nuxt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prettier/">Prettier</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firestore/">firestore</a></li></ul>
+  </div>
+</div>
+    
+    <!-- footer -->
+    <footer class="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <div>
+        <a href="https://github.com/makura3/makura3.github.io" class="ic-github" target="_blank"><i class="fab fa-github sns-ic"></i></a>
+        <a href="https://twitter.com/_makura3" target="_blank"><i class="fab fa-twitter sns-ic"></i></a>
+        <!-- <i class="fab fa-facebook sns-ic"></i></p> -->
+        
+          <a href="/atom.xml" title="RSSフィード" target="_blank">
+            <i class="fas fa-rss-square sns-ic"></i>
+          </a>
+        
+      </div>
+      <p>&copy; 2018 makura3</p>
+    <!-- <div>
+      <a href="#top"><i class="fas fa-3x fa-chevron-circle-up"></i></a>
+    </div> -->
+  </div>
+</footer>
+    <!-- load js -->
+    <script src="/js/fontawesome-all.min.js" async></script>
+  </body>
+
+</html>

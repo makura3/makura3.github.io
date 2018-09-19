@@ -1,0 +1,194 @@
+<!-- ページ全体のレイアウトを設定します -->
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- Head tag -->
+  <head>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117837032-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-117837032-1');
+  </script>
+  <!-- End Google Analytics -->
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  
+  <title>タグ: firestore | MOJIの本棚</title>
+
+  
+    <meta name="description" content="HTML、CSS、JavaScriptやフレームワークなど、フロントエンドに関する情報をお届けします。">
+  
+
+  
+  
+  <meta name="description" content="HTML、CSS、JavaScriptやフレームワークなど、フロントエンドに関する情報をお届けします。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MOJIの本棚">
+<meta property="og:url" content="https://makura3.github.io/tags/firestore/index.html">
+<meta property="og:site_name" content="MOJIの本棚">
+<meta property="og:description" content="HTML、CSS、JavaScriptやフレームワークなど、フロントエンドに関する情報をお届けします。">
+<meta property="og:locale" content="ja">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MOJIの本棚">
+<meta name="twitter:description" content="HTML、CSS、JavaScriptやフレームワークなど、フロントエンドに関する情報をお届けします。">
+<meta name="twitter:creator" content="@_makura3">
+
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+  <link rel="stylesheet" href="/scss/style.css">
+</head>
+
+
+  <body>
+    <div class="container">
+      <!-- header -->
+      
+        
+<header class="page-header">
+  <!-- <div class="header-list-sm jsHeader">
+    <div class="menu-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div> -->
+  <!-- nav -->
+  <div class="header-title">
+    <a href="/" class="header-title-link">
+      <span class="border-b">MOJIの本棚</span>
+      <!-- <svg width="552px" height="161px" viewBox="0 0 552 161" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="title-logo">
+        <path d="M74.664,12.6 L92.52,112.536 L80.856,112.536 L66.456,22.68 L52.056,57.096 L52.056,112.536 L40.536,112.536 L40.536,57.24 L26.136,22.968 L11.88,112.536 L0.216,112.536 L17.928,12.6 L33.768,12.6 L46.152,42.12 L58.536,12.6 L74.664,12.6 Z M159.192,13.32 L170.856,40.824 L170.856,112.536 L111.672,112.536 L111.672,13.32 L159.192,13.32 Z M159.048,101.304 L159.048,42.408 L151.56,24.552 L123.336,24.552 L123.336,101.304 L159.048,101.304 Z M206.264,12.6 L218.216,12.6 L218.216,124.312 L185.672,159.980825 L172.856,159.980825 L206.264,122.44 L206.264,12.6 Z M251.472,112.536 L239.088,112.536 L239.088,13.32 L251.472,13.32 L251.472,112.536 Z" id="MOJI"></path>
+        <polygon id="の" points="310.5 64.5 330 73 330 133.4 314.3 133.4 310.3 125.9 321.8 125.9 321.8 78.2 309.1 72.7 290.4 72.7 290.4 120.7 309.5 76.1 316.8 80 293.9 133.4 282.1 133.4 282.1 64.5"></polygon>
+        <polygon id="本" points="411.761238 76.6313767 411.761238 29.16 405.986272 29.16 406.048 88.488 425.92 88.488 425.92 100.008 406.048 100.008 406.048 120.168 393.952 120.168 393.952 100.008 374.08 100.008 374.08 88.488 393.952 88.488 393.993428 29.16 388.109218 29.16 388.109218 76.6313767 345.067115 76.6313767 346.726533 65.768414 377.906244 65.768414 377.906244 29.16 355.792 29.16 355.792 17.208 393.952 17.208 393.952 4.392 406.048 4.392 406.048 17.208 444.208 17.208 444.208 29.16 421.30406 29.16 421.30406 65.768414 452.157382 65.768414 452.157382 78.1808857"></polygon>
+        <path d="M496.981635,2.552 L518.92,2.552 L518.92,114.8976 L510.168631,114.8976 L510.168631,61.4405333 L505.613123,61.4405333 L505.613123,104.463467 L499.379271,118.328 L494.584,107.465067 L496.981635,102.176533 L496.981635,2.552 Z M510.304,11.192 L504.832,11.192 L504.832,26.168 L510.304,26.168 L510.304,11.192 Z M504.832,51.08 L510.304,51.08 L510.304,36.104 L504.832,36.104 L504.832,51.08 Z M540.552,160.02372 L540.552,61.016 L532.776,61.016 L532.776,107.24 L526.872,118.04 L521.112,107.096 L522.408,104.936 L522.408,1.688 L551.064,1.688 L551.064,160.02372 L540.552,160.02372 Z M540.552,11.192 L532.776,11.192 L532.776,26.168 L540.552,26.168 L540.552,11.192 Z M532.776,51.08 L540.552,51.08 L540.552,36.104 L532.776,36.104 L532.776,51.08 Z M496.024,61.16 L490.84,70.952 L487.96,66.92 L487.96,116.168 L477.016,116.168 L477.016,78.152 L471.256,88.664 L464.92,76.856 L477.016,54.68 L477.016,30.056 L466.216,30.056 L466.216,19.256 L477.016,19.256 L477.016,0.392 L487.96,0.392 L487.96,19.256 L495.592,19.256 L495.592,30.056 L487.96,30.056 L487.96,49.784 L496.024,61.16 Z" id="棚"></path>
+      </svg> -->
+      <h1 class="title">
+      MOJIの本棚
+      </h1>
+      
+        <p class="subtitle">
+          <span>フロントエンドのあれこれを</span><span>じぶんのために</span>
+        </p>
+      
+    </a>
+  </div>
+</header>
+<div class="header-nav-wrap">
+  <!-- <a href="/" class="logo-wrap">
+    <svg class="logo" width="151px" height="104px" viewBox="0 0 151 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g>
+        <rect id="Rectangle" fill="#C0D9DD" x="0" y="1" width="46" height="103"></rect>
+        <rect id="Rectangle" fill="#E3DB9D" x="53" y="1" width="46" height="103"></rect>
+        <path d="M105,1 C105,1 125.282295,-0.527821459 137.595703,6.78271484 C141.3913,9.03618118 145.078671,15.4791031 145.889648,19.1708984 C149.331543,34.8393555 150.379883,104 150.379883,104 L105,104 L105,1 Z" id="Rectangle" fill="#AFD5B9"></path>
+      </g>
+    </svg>
+  </a> -->
+  <nav class="header-nav">
+    <!-- <a id="main-nav-toggle" class="nav-icon"></a> -->
+    
+      <a class="header-nav-link" href="/">Home</a>
+    
+      <a class="header-nav-link" href="/profile">about</a>
+    
+  </nav>
+  <nav class="header-nav">
+    
+      <a class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+    
+    <a class="nav-icon" title="検索"></a>
+  </nav>
+  <!-- <div id="search-form-wrap">
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://makura3.github.io"></form>
+  </div> -->
+  </div>
+      
+      <!-- main column -->
+      
+      <div class="contents">
+      
+        <div>
+  
+  
+    
+      <article class="post">
+        <!-- 
+          <div class="post-l-panel">
+            <div class="post-thumbnail">NO IMAGE</div>
+          </div>
+         -->
+        <div class="post-r-panel">
+          <div class="post-time">
+            <div class="article-date post-time">
+  <i class="far fa-calendar-alt"></i>
+  <time datetime="2018-07-10T18:30:00.000Z" itemprop="datePublished">2018-07-10</time>
+</div>
+          </div>
+          <div class="post-head">
+              <h2 class="post-title">
+                <a href="/vue/nuxt-intro/" class="post-link">
+                  Nuxt.jsとfirestoreを組み合わせて簡単なサイトを作った話
+                </a>
+              </h2>
+          </div>
+          <p class="post-content">
+              
+                  今回はVue.jsのフレームワーク、Nuxt.jsと、firebase各種を用いて小さなサイトの構築を行いました。各種導入の際に詰まることが多かったので、手順をまとめました。
+今回のサンプルソー...
+              
+          </p>
+        </div>
+        <div class="post-tags">
+          
+  <i class="fas fa-tag"></i>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nuxt/">Nuxt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/firestore/">firestore</a></li></ul>
+
+        </div>
+      </article>
+    
+  
+</div>
+      </div>
+    </div>
+    <!-- tagList -->
+    
+      <div class="footer-tag-List">
+  <div class="contents">
+    <p class="title">タグから気になる記事を探す</p>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESLint/">ESLint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuxt/">Nuxt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prettier/">Prettier</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firestore/">firestore</a></li></ul>
+  </div>
+</div>
+    
+    <!-- footer -->
+    <footer class="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <div>
+        <a href="https://github.com/makura3/makura3.github.io" class="ic-github" target="_blank"><i class="fab fa-github sns-ic"></i></a>
+        <a href="https://twitter.com/_makura3" target="_blank"><i class="fab fa-twitter sns-ic"></i></a>
+        <!-- <i class="fab fa-facebook sns-ic"></i></p> -->
+        
+          <a href="/atom.xml" title="RSSフィード" target="_blank">
+            <i class="fas fa-rss-square sns-ic"></i>
+          </a>
+        
+      </div>
+      <p>&copy; 2018 makura3</p>
+    <!-- <div>
+      <a href="#top"><i class="fas fa-3x fa-chevron-circle-up"></i></a>
+    </div> -->
+  </div>
+</footer>
+    <!-- load js -->
+    <script src="/js/fontawesome-all.min.js" async></script>
+  </body>
+
+</html>

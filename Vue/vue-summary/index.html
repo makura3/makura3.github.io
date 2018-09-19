@@ -1,0 +1,296 @@
+<!-- ページ全体のレイアウトを設定します -->
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- Head tag -->
+  <head>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117837032-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-117837032-1');
+  </script>
+  <!-- End Google Analytics -->
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  
+  <title>Vue.jsのテンプレート構文とコンパイルについてのまとめ | MOJIの本棚</title>
+
+  
+    <meta name="description" content="初心者向けにVue.jsの導入方法からテンプレート構文、コンパイル(コンパイラとビルドの種類)についてまとめました。完全ビルドとランタイム限定ビルドの動作確認用サンプルソースも用意しています。">
+  
+
+  
+  
+  <meta name="description" content="初心者向けにVue.jsの導入方法からテンプレート構文、コンパイル(コンパイラとビルドの種類)についてまとめました。完全ビルドとランタイム限定ビルドの動作確認用サンプルソースも用意しています。">
+<meta name="keywords" content="Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue.jsのテンプレート構文とコンパイルについてのまとめ">
+<meta property="og:url" content="https://makura3.github.io/Vue/vue-summary/">
+<meta property="og:site_name" content="MOJIの本棚">
+<meta property="og:description" content="初心者向けにVue.jsの導入方法からテンプレート構文、コンパイル(コンパイラとビルドの種類)についてまとめました。完全ビルドとランタイム限定ビルドの動作確認用サンプルソースも用意しています。">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://makura3.github.io/Vue/vue-summary/thumbnail.png">
+<meta property="og:updated_time" content="2018-09-17T14:49:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue.jsのテンプレート構文とコンパイルについてのまとめ">
+<meta name="twitter:description" content="初心者向けにVue.jsの導入方法からテンプレート構文、コンパイル(コンパイラとビルドの種類)についてまとめました。完全ビルドとランタイム限定ビルドの動作確認用サンプルソースも用意しています。">
+<meta name="twitter:image" content="https://makura3.github.io/Vue/vue-summary/thumbnail.png">
+<meta name="twitter:creator" content="@_makura3">
+
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+  <link rel="stylesheet" href="/scss/style.css">
+</head>
+
+
+  <body>
+    <div class="container">
+      <!-- header -->
+      
+        <header class="page-header header_min">
+  <div class="header-title">
+    <a href="/" class="header-title-link">
+      MOJIの本棚
+      <!-- <svg width="552px" height="161px" viewBox="0 0 552 161" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="title-logo">
+        <path d="M74.664,12.6 L92.52,112.536 L80.856,112.536 L66.456,22.68 L52.056,57.096 L52.056,112.536 L40.536,112.536 L40.536,57.24 L26.136,22.968 L11.88,112.536 L0.216,112.536 L17.928,12.6 L33.768,12.6 L46.152,42.12 L58.536,12.6 L74.664,12.6 Z M159.192,13.32 L170.856,40.824 L170.856,112.536 L111.672,112.536 L111.672,13.32 L159.192,13.32 Z M159.048,101.304 L159.048,42.408 L151.56,24.552 L123.336,24.552 L123.336,101.304 L159.048,101.304 Z M206.264,12.6 L218.216,12.6 L218.216,124.312 L185.672,159.980825 L172.856,159.980825 L206.264,122.44 L206.264,12.6 Z M251.472,112.536 L239.088,112.536 L239.088,13.32 L251.472,13.32 L251.472,112.536 Z" id="MOJI"></path>
+        <polygon id="の" points="310.5 64.5 330 73 330 133.4 314.3 133.4 310.3 125.9 321.8 125.9 321.8 78.2 309.1 72.7 290.4 72.7 290.4 120.7 309.5 76.1 316.8 80 293.9 133.4 282.1 133.4 282.1 64.5"></polygon>
+        <polygon id="本" points="438.783899 100.296 406.048 54.504 406.048 88.488 425.92 88.488 425.92 100.008 406.048 100.008 406.048 120.168 393.952 120.168 393.952 100.008 374.08 100.008 374.08 88.488 393.952 88.488 393.952 54.648 362.96702 96.9852352 360.544 100.296 352.570272 103.079238 393.952 34.488 393.952 29.16 355.792 29.16 355.792 17.208 393.952 17.208 393.952 4.392 406.048 4.392 406.048 17.208 444.208 17.208 444.208 29.16 406.048 29.16 406.048 33.912 446.091162 103.079238"></polygon>
+        <path d="M496.981635,2.552 L518.92,2.552 L518.92,114.8976 L510.168631,114.8976 L510.168631,61.4405333 L505.613123,61.4405333 L505.613123,104.463467 L499.379271,118.328 L494.584,107.465067 L496.981635,102.176533 L496.981635,2.552 Z M510.304,11.192 L504.832,11.192 L504.832,26.168 L510.304,26.168 L510.304,11.192 Z M504.832,51.08 L510.304,51.08 L510.304,36.104 L504.832,36.104 L504.832,51.08 Z M540.552,160.02372 L540.552,61.016 L532.776,61.016 L532.776,107.24 L526.872,118.04 L521.112,107.096 L522.408,104.936 L522.408,1.688 L551.064,1.688 L551.064,160.02372 L540.552,160.02372 Z M540.552,11.192 L532.776,11.192 L532.776,26.168 L540.552,26.168 L540.552,11.192 Z M532.776,51.08 L540.552,51.08 L540.552,36.104 L532.776,36.104 L532.776,51.08 Z M496.024,61.16 L490.84,70.952 L487.96,66.92 L487.96,116.168 L477.016,116.168 L477.016,78.152 L471.256,88.664 L464.92,76.856 L477.016,54.68 L477.016,30.056 L466.216,30.056 L466.216,19.256 L477.016,19.256 L477.016,0.392 L487.96,0.392 L487.96,19.256 L495.592,19.256 L495.592,30.056 L487.96,30.056 L487.96,49.784 L496.024,61.16 Z" id="棚"></path>
+      </svg> -->
+      <h1 class="title">
+        MOJIの本棚
+      </h1>
+    </a>
+  </div>
+</header>
+<div class="header-nav-wrap">
+  <!-- <a href="/" class="logo-wrap">
+    <svg class="logo" width="151px" height="104px" viewBox="0 0 151 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g>
+        <rect id="Rectangle" fill="#C0D9DD" x="0" y="1" width="46" height="103"></rect>
+        <rect id="Rectangle" fill="#E3DB9D" x="53" y="1" width="46" height="103"></rect>
+        <path d="M105,1 C105,1 125.282295,-0.527821459 137.595703,6.78271484 C141.3913,9.03618118 145.078671,15.4791031 145.889648,19.1708984 C149.331543,34.8393555 150.379883,104 150.379883,104 L105,104 L105,1 Z" id="Rectangle" fill="#AFD5B9"></path>
+      </g>
+    </svg>
+  </a> -->
+  <nav class="header-nav">
+    <!-- <a id="main-nav-toggle" class="nav-icon"></a> -->
+    
+      <a class="header-nav-link" href="/">Home</a>
+    
+      <a class="header-nav-link" href="/profile">about</a>
+    
+  </nav>
+  <nav class="header-nav">
+    
+      <a class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+    
+    <a class="nav-icon" title="検索"></a>
+  </nav>
+  <!-- <div id="search-form-wrap">
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://makura3.github.io"></form>
+  </div> -->
+  </div>
+      
+      <!-- main column -->
+      
+      <div class="contents header_min">
+      
+        <article id="post-vue" class="article post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    <!--  -->
+    <!-- パンくず -->
+    <div class="article-pnkz">
+      
+  <div class="article-category">
+    <a href="/"><i class="fas fa-home"></i></a> > 
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+    </div>
+    <div class="article-meta">
+      <div class="article-date post-time">
+  <i class="far fa-calendar-alt"></i>
+  <time datetime="2018-05-23T00:00:00.000Z" itemprop="datePublished">2018-05-23</time>
+</div>
+    </div>
+    
+      <header class="article-header">
+        
+  <h2 class="post-title" itemprop="name">
+    Vue.jsのテンプレート構文とコンパイルについてのまとめ
+  </h2>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+        <p>諸事情でVue.jsを触ることになったのでまずはドキュメントの読み込みからはじめました。<br>完全に理解出来ているのかどうかを確認するため、内容を忘れないためにも記事としてまとめました。<br><br>
+ちなみに<code>今のVue熟練度は1</code>(過去にチュートリアルレベルの作品を途中で投げ出したことがある)です。  </p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#はじめに">はじめに</a></li>
+<li><a href="#vuejsとは">Vue.jsとは</a><ul>
+<li><a href="#プログレッシブフレームワーク">プログレッシブフレームワーク</a></li>
+<li><a href="#導入方法">導入方法</a></li>
+</ul>
+</li>
+<li><a href="#vueのコンパイルについて知る">Vueのコンパイルについて知る</a><ul>
+<li><a href="#テンプレート構文">テンプレート構文</a></li>
+<li><a href="#テンプレートのコンパイルとレンダリング">テンプレートのコンパイルとレンダリング</a></li>
+<li><a href="#ビルドのつかいわけ">ビルドのつかいわけ</a></li>
+</ul>
+</li>
+<li><a href="#vueのコンパイルのタイミング">Vueのコンパイルのタイミング</a><ul>
+<li><a href="#事前にコンパイルする方法">事前にコンパイルする方法</a></li>
+</ul>
+</li>
+<li><a href="#まとめ">まとめ</a></li>
+<li><a href="#おわりに">おわりに</a></li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h2><span id="はじめに">はじめに</span></h2><p>この記事は<code>超初心者向け</code>の記事となっています。<br><br>
+ドキュメントの中の、<a href="https://jp.vuejs.org/v2/guide/installation.html" target="_blank" rel="noopener">インストールページ</a>の解説で、対応バージョンはv2.xです。  </p>
+<h2><span id="vuejsとは">Vue.jsとは</span></h2><p>公式のガイドに大きく、  </p>
+<blockquote>
+<p>ユーザーインターフェイスを構築するためのプログレッシブフレームワークです。  </p>
+</blockquote>
+<p>と記載がありました。ふむふむ。<br>プログレッシブフレームワークとはなんだろう？  </p>
+<h3><span id="プログレッシブフレームワーク">プログレッシブフレームワーク</span></h3><p>仕様変更や機能追加を繰り返すアプリケーションの変化に柔軟に対応できるのが、プログレッシブフレームワークと呼ばれるものです。  </p>
+<p>Vue自体はview層だけに焦点を当てたライブラリですが<a href="https://github.com/vuejs/awesome-vue#components--libraries" target="_blank" rel="noopener">サポートライブラリ</a>などの導入により、アプリケーション規模に合わせた機能を提供できるようになっています。<br><br> 
+必要な機能を必要な時に足していき、無駄なものは省く。そんなイメージでしょうか。<br>なんだかワクワクしてきましたね！</p>
+<h3><span id="導入方法">導入方法</span></h3><p>まずVueを使うための<a href="https://jp.vuejs.org/v2/guide/installation.html" target="_blank" rel="noopener">3種類の利用方法</a>を確認しておきます。<br><br></p>
+<h4><span id="scriptタグで直接組み込む">scriptタグで直接組み込む</span></h4><p>開発モード/本番モードでファイルが分かれているので、状況に応じて<a href="https://jp.vuejs.org/v2/guide/installation.html#lt-script-gt-%E7%9B%B4%E6%8E%A5%E7%B5%84%E3%81%BF%E8%BE%BC%E3%81%BF" target="_blank" rel="noopener">公式サイト</a>からダウンロードし読み込んで下さい。<br>開発モードでは<code>警告出力とデバッグモード</code>がありますが、本番モードでは<code>警告出力なしかつ圧縮</code>されています。<br><br>
+もしくは<a href="https://jp.vuejs.org/v2/guide/installation.html#CDN" target="_blank" rel="noopener">CDN</a>を使用することでVueのソースが参照可能になります。 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 略 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 略 --&gt;</span></span><br></pre></td></tr></table></figure>
+<h4><span id="cli">CLI</span></h4><p>Vueでは<a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">オフィシャルCLI</a>が用意されています。<br>すぐに環境構築ができるので楽なのですが、右も左も分からない初心者さん(私)にはオススメしていないのでこんなのもあるよぐらいにしておきます。  </p>
+<h4><span id="npm">NPM</span></h4><p>公式サイトでも推奨されている方法で、私もこの方法を使用しています。<br>Vueのみのインストールは公式に記述されている通りで問題ないですが、加えて使用するモジュールバンドラにそったloaderなどをインストールする必要があります。
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vueだけインストール</span></span><br><span class="line">npm i -S vue</span><br><span class="line"></span><br><span class="line"><span class="comment">// webpackを使う場合</span></span><br><span class="line">npm i -D vue-loader</span><br></pre></td></tr></table></figure></p>
+<h2><span id="vueのコンパイルについて知る">Vueのコンパイルについて知る</span></h2><p>コンパイルについて詳しく解説する前に、まずVueのテンプレート構文3種類について説明します。<br>事前にどのような記述方法があるのかを知っておくことで、後述するコンパイルについて理解し易くなると思います。</p>
+<h3><span id="テンプレート構文">テンプレート構文</span></h3><h4><span id="1文字列テンプレート">1.文字列テンプレート</span></h4><p><a href="https://jp.vuejs.org/v2/guide/#%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%AB%E3%82%88%E3%82%8B%E6%A7%8B%E6%88%90" target="_blank" rel="noopener">公式の一番最初</a>にスッと出てくる記述で、文字列でコンポーネントを定義します。<br>下記の例は一行ですが、複数行で書くことも出来ます。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'todo-item'</span>, &#123;</span><br><span class="line">  template: <span class="string">'&lt;li&gt;This is a todo&lt;/li&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4><span id="2直接render関数で書く">2.直接render関数で書く</span></h4><p>こちらはrender関数に直接定義しています。<br>あ、ちょっと読みにくい…。  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'anchored-heading'</span>, &#123;</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> createElement( <span class="string">'h'</span> + <span class="keyword">this</span>.level )</span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    <span class="comment">//省略</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4><span id="3単一ファイルコンポーネント">3.単一ファイルコンポーネント</span></h4><p>一つのファイルにtemplate、script、styleをまとめています。<br>一番よく見る書き方です。<br><br>
+単一ファイルコンポーネントを扱う場合は、webpackやBrowserifyなどのビルドツールが必要です。  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>Hello world!!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="comment">// 省略</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- 省略 --&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3><span id="テンプレートのコンパイルとレンダリング">テンプレートのコンパイルとレンダリング</span></h3><p>Vueはrendar関数(描画関数)に表示したい内容を渡すことでレンダリングするしくみのようです。<br>そのためtemplateを使用した場合は、定義したtemplateをrendar関数が読み取れるように変換(コンパイル)を行う必要があります。<br><br>
+直接render関数で書いた場合は描画したいものをすでにrendar関数に渡しているので、コンパイルする必要はありません。<br><br>
+<br> </p>
+<h3><span id="ビルドのつかいわけ">ビルドのつかいわけ</span></h3><p><code>templateを使用</code>した場合コンパイルが必要なので、<code>完全ビルド</code>が必要となります。<br>文字列テンプレートや、単一ファイルコンポーネントの構文がこれにあたります。</p>
+<h4><span id="完全ビルドとは">完全ビルドとは？</span></h4><p>コンパイルに必要なコンパイラとランタイム※の両方が含まれたビルドになります。<br>※ランタイムとは、Vueインスタンスの作成やレンダリングなどコンパイラ以外の機能のことを言います。  </p>
+<p><br>
+<br>
+<br></p>
+<p><code>rendar関数に直接書いた場合</code>は、コンパイルは必要ないので<code>ランタイム限定ビルド</code>で十分です。</p>
+<h4><span id="ランタイム限定ビルドとは">ランタイム限定ビルドとは？</span></h4><p>ランタイムのみが含まれています。<br><em>完全ビルドに比べておよそ30%ほど軽量</em>です。<br><br>
+ちなみにCDNからVueを導入した場合は、完全ビルド用のvue.jsが読み込まれます。 </p>
+<h2><span id="vueのコンパイルのタイミング">Vueのコンパイルのタイミング</span></h2><p>次にこの公式ドキュメントを読んでみてください。<br><br></p>
+<blockquote>
+<p>DOM内のテンプレートまたはJavaScript内のテンプレート文字列を使用する場合、テンプレートから描画関数へのコンパイルはその場 (on the fly) で実行されます。<br><br>
+通常、ほとんどの場合、これは十分高速ですが、アプリケーションのパフォーマンスが重要な場合は避けるのが最善です。  </p>
+</blockquote>
+<p><br></p>
+<p>簡単に説明すると、テンプレートをコンパイルするタイミングは<code>ブラウザ上で実行した瞬間だよ</code>と言っているのです。<br>続けて、パフォーマンスが重要な場面では避けたほうがいいよと言っています。<br><br>
+そこで、Vueでは事前にコンパイルを行うしくみが用意されています。<br><br></p>
+<h3><span id="事前にコンパイルする方法">事前にコンパイルする方法</span></h3><p>webpackやBrowserifyなどのビルドツールにより実現された<code>vue</code>拡張子の単一ファイルコンポーネントを使用するときは、vue-loaderなどを通して事前コンパイルが可能です。<br><br>
+これにより、事前にコンパイルしておけば実行時はランタイム限定ビルドで事足りるのです。<br><br>
+<br>
+つらつら文字で説明しましたが、実際にソースを見た方が分かりやすいと思います。<br>私のgithubに<a href="https://github.com/makura3/Vue-helloWorld" target="_blank" rel="noopener">リポジトリ</a>を作りましたので、興味があれば読んでみてください。<br><br></p>
+<p>それぞれのパターンでファイルを分けています。</p>
+<ul>
+<li>文字列テンプレート＋完全ビルド</li>
+<li>render関数＋ランタイム限定ビルド</li>
+<li>単一ファイルコンポーネント＋ランタイム限定ビルド</li>
+</ul>
+<h2><span id="まとめ">まとめ</span></h2><ul>
+<li>Vueはサポートライブラリが豊富で、どんな規模のアプリケーションにも対応しやすい</li>
+<li>webpackなどのビルドツールを用いることで、単一ファイルコンポーネントが使えるようになるかつ軽量化されたVueを使うことができる</li>
+</ul>
+<h2><span id="おわりに">おわりに</span></h2><p>Vueは珍しく日本語ドキュメントが用意されているものの、読んでいるとどういう意味だろう？と思う点が何度もありました。<br>特にコンパイル云々の話は苦手な部分だったので、今回で大分理解が深まりました。</p>
+
+    </div>
+  </div>
+  
+    <div class="article-footer">
+      <div class="article-share-link">
+        <a href="http://b.hatena.ne.jp/entry/https://makura3.github.io/Vue/vue-summary/" class="article-share _hatebu" target="_blank" title="Hatebu"><img src="/images/hatenabookmark-logomark.svg" alt="はてなブログ" class="fa-hatebu"></a>        
+        <a href="https://twitter.com/intent/tweet?url=https://makura3.github.io/Vue/vue-summary/" class="article-share _twitter" target="_blank" title="Twitter"><i class="fab fa-twitter sns-ic"></i></a>
+        <a href="https://www.facebook.com/sharer.php?u=https://makura3.github.io/Vue/vue-summary/" class="article-share _facebook" target="_blank" title="Facebook"><i class="fab fa-facebook sns-ic"></i></a>
+        <a href="https://plus.google.com/share?url=https://makura3.github.io/Vue/vue-summary/" class="article-share _google" target="_blank" title="Google+"><i class="fab fa-google-plus-g sns-ic"></i></a>
+        <a href="https://social-plugins.line.me/lineit/share?url=https://makura3.github.io/Vue/vue-summary/" class="article-share _line" target="_blank" title="LINE"><i class="fab fa-line sns-ic"></i></a>
+      </div>
+      <!-- 
+  <i class="fas fa-tag"></i>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li></ul>
+ -->
+    </div>
+    
+<nav class="paging">
+  
+    <a href="/vue/nuxt-intro/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption"><i class="fas fa-angle-left"></i>次の記事</span>
+      <div class="article-nav-title">
+        
+          Nuxt.jsとfirestoreを組み合わせて簡単なサイトを作った話
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Hexo/hexo-summary/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">前の記事<i class="fas fa-angle-right"></i></span>
+      <div class="article-nav-title">Hexoでブログ構築 まとめ</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+      </div>
+    </div>
+    <!-- tagList -->
+    
+      <div class="footer-tag-List">
+  <div class="contents">
+    <p class="title">タグから気になる記事を探す</p>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESLint/">ESLint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuxt/">Nuxt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prettier/">Prettier</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firestore/">firestore</a></li></ul>
+  </div>
+</div>
+    
+    <!-- footer -->
+    <footer class="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <div>
+        <a href="https://github.com/makura3/makura3.github.io" class="ic-github" target="_blank"><i class="fab fa-github sns-ic"></i></a>
+        <a href="https://twitter.com/_makura3" target="_blank"><i class="fab fa-twitter sns-ic"></i></a>
+        <!-- <i class="fab fa-facebook sns-ic"></i></p> -->
+        
+          <a href="/atom.xml" title="RSSフィード" target="_blank">
+            <i class="fas fa-rss-square sns-ic"></i>
+          </a>
+        
+      </div>
+      <p>&copy; 2018 makura3</p>
+    <!-- <div>
+      <a href="#top"><i class="fas fa-3x fa-chevron-circle-up"></i></a>
+    </div> -->
+  </div>
+</footer>
+    <!-- load js -->
+    <script src="/js/fontawesome-all.min.js" async></script>
+  </body>
+
+</html>

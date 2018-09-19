@@ -1,0 +1,3 @@
+User-Agent:*
+Disallow:
+Sitemap:https://makura3.github.io/sitemap.xml

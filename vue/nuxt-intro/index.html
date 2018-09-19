@@ -1,0 +1,302 @@
+<!-- ページ全体のレイアウトを設定します -->
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- Head tag -->
+  <head>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117837032-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-117837032-1');
+  </script>
+  <!-- End Google Analytics -->
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  
+  <title>Nuxt.jsとfirestoreを組み合わせて簡単なサイトを作った話 | MOJIの本棚</title>
+
+  
+    <meta name="description" content="Vue.jsのフレームワークであるNuxt.jsとfirebaseのサービスであるfirestoreを組み合わせて、小さなサイトを作りました。その際の導入手順をまとめました。">
+  
+
+  
+  
+  <meta name="description" content="Vue.jsのフレームワークであるNuxt.jsとfirebaseのサービスであるfirestoreを組み合わせて、小さなサイトを作りました。その際の導入手順をまとめました。">
+<meta name="keywords" content="Vue,firestore,Nuxt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nuxt.jsとfirestoreを組み合わせて簡単なサイトを作った話">
+<meta property="og:url" content="https://makura3.github.io/vue/nuxt-intro/">
+<meta property="og:site_name" content="MOJIの本棚">
+<meta property="og:description" content="Vue.jsのフレームワークであるNuxt.jsとfirebaseのサービスであるfirestoreを組み合わせて、小さなサイトを作りました。その際の導入手順をまとめました。">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://makura3.github.io/vue/nuxt-intro/firebase.jpg">
+<meta property="og:image" content="https://makura3.github.io/vue/nuxt-intro/APIKey.jpg">
+<meta property="og:image" content="https://makura3.github.io/vue/nuxt-intro/firestore.jpg">
+<meta property="og:image" content="https://makura3.github.io/vue/nuxt-intro/col.png">
+<meta property="og:updated_time" content="2018-09-17T14:49:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nuxt.jsとfirestoreを組み合わせて簡単なサイトを作った話">
+<meta name="twitter:description" content="Vue.jsのフレームワークであるNuxt.jsとfirebaseのサービスであるfirestoreを組み合わせて、小さなサイトを作りました。その際の導入手順をまとめました。">
+<meta name="twitter:image" content="https://makura3.github.io/vue/nuxt-intro/firebase.jpg">
+<meta name="twitter:creator" content="@_makura3">
+
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+  <link rel="stylesheet" href="/scss/style.css">
+</head>
+
+
+  <body>
+    <div class="container">
+      <!-- header -->
+      
+        <header class="page-header header_min">
+  <div class="header-title">
+    <a href="/" class="header-title-link">
+      MOJIの本棚
+      <!-- <svg width="552px" height="161px" viewBox="0 0 552 161" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="title-logo">
+        <path d="M74.664,12.6 L92.52,112.536 L80.856,112.536 L66.456,22.68 L52.056,57.096 L52.056,112.536 L40.536,112.536 L40.536,57.24 L26.136,22.968 L11.88,112.536 L0.216,112.536 L17.928,12.6 L33.768,12.6 L46.152,42.12 L58.536,12.6 L74.664,12.6 Z M159.192,13.32 L170.856,40.824 L170.856,112.536 L111.672,112.536 L111.672,13.32 L159.192,13.32 Z M159.048,101.304 L159.048,42.408 L151.56,24.552 L123.336,24.552 L123.336,101.304 L159.048,101.304 Z M206.264,12.6 L218.216,12.6 L218.216,124.312 L185.672,159.980825 L172.856,159.980825 L206.264,122.44 L206.264,12.6 Z M251.472,112.536 L239.088,112.536 L239.088,13.32 L251.472,13.32 L251.472,112.536 Z" id="MOJI"></path>
+        <polygon id="の" points="310.5 64.5 330 73 330 133.4 314.3 133.4 310.3 125.9 321.8 125.9 321.8 78.2 309.1 72.7 290.4 72.7 290.4 120.7 309.5 76.1 316.8 80 293.9 133.4 282.1 133.4 282.1 64.5"></polygon>
+        <polygon id="本" points="438.783899 100.296 406.048 54.504 406.048 88.488 425.92 88.488 425.92 100.008 406.048 100.008 406.048 120.168 393.952 120.168 393.952 100.008 374.08 100.008 374.08 88.488 393.952 88.488 393.952 54.648 362.96702 96.9852352 360.544 100.296 352.570272 103.079238 393.952 34.488 393.952 29.16 355.792 29.16 355.792 17.208 393.952 17.208 393.952 4.392 406.048 4.392 406.048 17.208 444.208 17.208 444.208 29.16 406.048 29.16 406.048 33.912 446.091162 103.079238"></polygon>
+        <path d="M496.981635,2.552 L518.92,2.552 L518.92,114.8976 L510.168631,114.8976 L510.168631,61.4405333 L505.613123,61.4405333 L505.613123,104.463467 L499.379271,118.328 L494.584,107.465067 L496.981635,102.176533 L496.981635,2.552 Z M510.304,11.192 L504.832,11.192 L504.832,26.168 L510.304,26.168 L510.304,11.192 Z M504.832,51.08 L510.304,51.08 L510.304,36.104 L504.832,36.104 L504.832,51.08 Z M540.552,160.02372 L540.552,61.016 L532.776,61.016 L532.776,107.24 L526.872,118.04 L521.112,107.096 L522.408,104.936 L522.408,1.688 L551.064,1.688 L551.064,160.02372 L540.552,160.02372 Z M540.552,11.192 L532.776,11.192 L532.776,26.168 L540.552,26.168 L540.552,11.192 Z M532.776,51.08 L540.552,51.08 L540.552,36.104 L532.776,36.104 L532.776,51.08 Z M496.024,61.16 L490.84,70.952 L487.96,66.92 L487.96,116.168 L477.016,116.168 L477.016,78.152 L471.256,88.664 L464.92,76.856 L477.016,54.68 L477.016,30.056 L466.216,30.056 L466.216,19.256 L477.016,19.256 L477.016,0.392 L487.96,0.392 L487.96,19.256 L495.592,19.256 L495.592,30.056 L487.96,30.056 L487.96,49.784 L496.024,61.16 Z" id="棚"></path>
+      </svg> -->
+      <h1 class="title">
+        MOJIの本棚
+      </h1>
+    </a>
+  </div>
+</header>
+<div class="header-nav-wrap">
+  <!-- <a href="/" class="logo-wrap">
+    <svg class="logo" width="151px" height="104px" viewBox="0 0 151 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g>
+        <rect id="Rectangle" fill="#C0D9DD" x="0" y="1" width="46" height="103"></rect>
+        <rect id="Rectangle" fill="#E3DB9D" x="53" y="1" width="46" height="103"></rect>
+        <path d="M105,1 C105,1 125.282295,-0.527821459 137.595703,6.78271484 C141.3913,9.03618118 145.078671,15.4791031 145.889648,19.1708984 C149.331543,34.8393555 150.379883,104 150.379883,104 L105,104 L105,1 Z" id="Rectangle" fill="#AFD5B9"></path>
+      </g>
+    </svg>
+  </a> -->
+  <nav class="header-nav">
+    <!-- <a id="main-nav-toggle" class="nav-icon"></a> -->
+    
+      <a class="header-nav-link" href="/">Home</a>
+    
+      <a class="header-nav-link" href="/profile">about</a>
+    
+  </nav>
+  <nav class="header-nav">
+    
+      <a class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+    
+    <a class="nav-icon" title="検索"></a>
+  </nav>
+  <!-- <div id="search-form-wrap">
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://makura3.github.io"></form>
+  </div> -->
+  </div>
+      
+      <!-- main column -->
+      
+      <div class="contents header_min">
+      
+        <article id="post-nuxt-firestore" class="article post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    <!--  -->
+    <!-- パンくず -->
+    <div class="article-pnkz">
+      
+  <div class="article-category">
+    <a href="/"><i class="fas fa-home"></i></a> > 
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+    </div>
+    <div class="article-meta">
+      <div class="article-date post-time">
+  <i class="far fa-calendar-alt"></i>
+  <time datetime="2018-07-10T18:30:00.000Z" itemprop="datePublished">2018-07-10</time>
+</div>
+    </div>
+    
+      <header class="article-header">
+        
+  <h2 class="post-title" itemprop="name">
+    Nuxt.jsとfirestoreを組み合わせて簡単なサイトを作った話
+  </h2>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+        <p>今回はVue.jsのフレームワーク、Nuxt.jsと、firebase各種を用いて小さなサイトの構築を行いました。<br>各種導入の際に詰まることが多かったので、手順をまとめました。<br><br>
+今回のサンプルソースは<a href="https://github.com/makura3/Nuxt-test" target="_blank" rel="noopener">こちら</a>です。  </p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#nuxtjsの導入表示確認まで">Nuxt.jsの導入・表示確認まで</a></li>
+<li><a href="#firebase側の設定">firebase側の設定</a><ul>
+<li><a href="#firebaseのapikeyを取得する">firebaseのAPIKeyを取得する</a></li>
+<li><a href="#firestoreにデータを登録する">firestoreにデータを登録する</a></li>
+<li><a href="#firestoreの導入">firestoreの導入</a></li>
+</ul>
+</li>
+<li><a href="#storeの設定">storeの設定</a></li>
+<li><a href="#vueファイルの設定">vueファイルの設定</a></li>
+<li><a href="#実際に作業してみた所感">実際に作業してみた所感</a></li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h2><span id="nuxtjsの導入表示確認まで">Nuxt.jsの導入・表示確認まで</span></h2><p>ローカルホストでHelloWorldするまでの手順になるので、<em>Nuxt.jsを導入したことがある方は読み飛ばして構いません。</em><br><br>
+公式の<a href="https://ja.nuxtjs.org/guide/installation#%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%83%E3%83%81%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8B" target="_blank" rel="noopener">スクラッチから始める</a>を参考に導入していきます。<br><code>package.json</code>が作成されていることが前提です。  </p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -S nuxt</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p>次に<code>/src/pages/index.vue</code>を作成し、下記を記述します。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;Hello world!&lt;/h1&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>そして、/src配下が認識されるよう<code>nuxt.config.js</code> を作成し、下記を記述します。<br>（ルートにディレクトリを掘る場合はこの設定はしなくても問題ありません。）
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//nuxt.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  srcDir: <span class="string">'src/'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p><code>package.json</code>には
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"dev": "nuxt"</span><br></pre></td></tr></table></figure></p>
+<p>を追加しておきます。<br><br>
+そして、<code>npm run dev</code>で起動します。</p>
+<p><a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a> にアクセスすると「Hello world!」 が表示されたかと思います。<br><br>
+Nuxt.jsの導入確認は以上です。  </p>
+<h2><span id="firebase側の設定">firebase側の設定</span></h2><h3><span id="firebaseのapikeyを取得する">firebaseのAPIKeyを取得する</span></h3><p>firestore導入作業を始める前に、<em>firebaseでプロジェクトを新規作成し、APIKeyを入手</em>しておいてください。<br><br>
+左側青色の<em>「プロジェクトを追加」</em>でプロジェクトを作成し、
+<img src="firebase.jpg" alt="firebase" title="firebase"></p>
+<p><br>
+<br>
+APIKeyは、コンソール画面の<em>「ウェブアプリにfirebaseを追加」</em> から取得できます。<br><br>
+<img src="APIKey.jpg" alt="APIKeyの取得" title="APIKeyの取得"></p>
+<p><br>
+<br>
+更に、<em>firestoreを有効</em>にしておきます。<br><br>
+<img src="firestore.jpg" alt="firestoreの有効化" title="firestoreの有効化"></p>
+<h3><span id="firestoreにデータを登録する">firestoreにデータを登録する</span></h3><p>作成したfirebaseのプロジェクトにデータを登録します。<br>今回は分かりやすいようにitemコレクションの中に、nameフィールドを持ったドキュメントを3つ登録しました。<br><br>
+<img src="col.png" alt="firestoreにデータを登録" title="firestoreにデータを登録">
+データの登録方法については今回省きます。  </p>
+<h3><span id="firestoreの導入">firestoreの導入</span></h3><p>次にfiresotreの導入をしていきます。  </p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -S firebase</span><br></pre></td></tr></table></figure>
+<p><br>
+<br></p>
+<p>firestoreの設定ファイルを追加します。<br>複数ファイル必要なので、一つずつ。<br><br>
+<code>firestore.rules</code>を作成し、下記を記述します。<br>これはFirestoreのデータにアクセスできるかどうかのルールを記述するものですが、今回はただのサンプルなので全てのデータに対して読み書きが自由にできるようになっています。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /firestore.rules</span></span><br><span class="line">service cloud.firestore &#123;</span><br><span class="line">  match /databases/&#123;database&#125;/documents &#123;</span><br><span class="line">    match /&#123;<span class="built_in">document</span>=**&#125; &#123;</span><br><span class="line">      allow read, write;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><br>
+<br>
+<code>firestore.indexes.json</code>を作成し、下記を記述します。<br>これはfirestoreのインデックスを管理するものですが、今回は指定なしのまま進めます。
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// /firestore.indexes.json</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"indexes"</span>: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><br>
+<br>
+そして、前手順で作った２つの設定ファイルをを読み込ませるための<code>firebase.json</code>を作成し、下記を記述します。<br>とはいえ今回それぞれの設定内容が簡単になっているのであまり考えなくても良いのですが。  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /firebase.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"firestore"</span>: &#123;</span><br><span class="line">    <span class="string">"rules"</span>: <span class="string">"firestore.rules"</span>,</span><br><span class="line">    <span class="string">"indexes"</span>: <span class="string">"firestore.indexes.json"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br>
+<br>
+そして、jsとの結合部分を記述します。<br>plugins配下に<code>firebaseInit.js</code>を作成し、下記を記述します。(ファイル名は自由です)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /src/plugins/firebaseInit.js</span></span><br><span class="line"><span class="keyword">import</span> firebase <span class="keyword">from</span> <span class="string">'firebase'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'firebase/firestore'</span></span><br><span class="line"><span class="keyword">import</span> config <span class="keyword">from</span> <span class="string">'./../util/firebaseConfig'</span></span><br><span class="line"><span class="keyword">const</span> firebaseApp = firebase.initializeApp(config)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> settings = &#123; <span class="attr">timestampsInSnapshots</span>: <span class="literal">true</span> &#125;</span><br><span class="line"><span class="keyword">const</span> firestore = firebaseApp.firestore()</span><br><span class="line">firestore.settings(settings)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (!firebase.apps.length ? firebase.app() : firestore)</span><br></pre></td></tr></table></figure></p>
+<p><br>
+<br>
+APIKeyなどは<code>firebaseConfig.js</code>を作成し、別ファイルで管理するようにしました。<br>ディレクトリ・ファイル名は自由ですし、気にならない方はfirebaseInit.jsに書いても動作的には問題ないです。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /src/util/firebaseConfig.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  apiKey: <span class="string">''</span>,</span><br><span class="line">  authDomain: <span class="string">''</span>,</span><br><span class="line">  databaseURL: <span class="string">''</span>,</span><br><span class="line">  projectId: <span class="string">''</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>事前に用意しておいたAPIKeyはここに貼り付けておきます。<br>プッシュしないように気をつけて下さい。<br><br>
+<br>
+そして、先程作成したプラグインが使えるように<code>nuxt.config.js</code>に設定を追記します。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /nuxt.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  srcDir: <span class="string">'src/'</span>,</span><br><span class="line">  plugins: [&#123; <span class="attr">src</span>: <span class="string">'~/plugins/firebaseInit'</span> &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2><span id="storeの設定">storeの設定</span></h2><p>store配下にindex.jsを作成し、処理を記述していきます。<br><br>
+Nuxt.jsではstoreを作成する時に<em>クラシックモード</em>(index.jsのみ)と<em>モジュールモード</em>(store配下のjsがモジュールに変換される)がありますが、今回は記述量が少ないのでクラシックモードを選択しています。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /src/store/index.js</span></span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  INIT</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'./types'</span></span><br><span class="line"><span class="keyword">import</span> db <span class="keyword">from</span> <span class="string">'~/plugins/firebaseInit'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> itemRef = db.collection(<span class="string">'items'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> initPlugin = <span class="function"><span class="params">store</span> =&gt;</span> store.dispatch(INIT)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="function"><span class="params">()</span> =&gt;</span></span><br><span class="line">  <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state: &#123;</span><br><span class="line">      itemList: []</span><br><span class="line">    &#125;,</span><br><span class="line">    mutations: &#123;</span><br><span class="line">      INIT(state, data) &#123;</span><br><span class="line">        state.itemList = data</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    actions: &#123;</span><br><span class="line">      INIT(&#123; commit &#125;) &#123;</span><br><span class="line">        itemRef.get().then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">let</span> list = []</span><br><span class="line">          res.forEach(<span class="function"><span class="params">doc</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> data = &#123;</span><br><span class="line">              id: doc.id,</span><br><span class="line">              name: doc.data().name,</span><br><span class="line">            &#125;</span><br><span class="line">            list.push(data)</span><br><span class="line">          &#125;)</span><br><span class="line">          commit(<span class="string">'INIT'</span>, list)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    getters: &#123;</span><br><span class="line">      getItems: <span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> state.itemList</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [initPlugin]</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br></pre></td></tr></table></figure></p>
+<p><br>
+<br>
+タイプもindex.jsの中に入れても良かったのですが、癖で別ファイル化してます。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /src/store/types.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> INIT = <span class="string">'INIT'</span></span><br></pre></td></tr></table></figure></p>
+<p><br>
+<br>
+pluginsにinitPluginを設定することで、store初期化時にINITアクションが呼ばれるようになっています。<br>データの取得は、<code>db.collection</code>でコレクションを指定して、get()で出来ます。<br>更新するときはupdate()だったり、非常に分かりやすいです。  </p>
+<h2><span id="vueファイルの設定">vueファイルの設定</span></h2><p>Nuxt.jsの導入のHelloWorld表示で使用したvueファイルを変更していきます。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &lt;li v-for=&quot;(item,index) in init&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">      &#123;&#123; item.id &#125;&#125;：&#123;&#123; item.name &#125;&#125;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">  &lt;/ul&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; mapGetters &#125; from &apos;vuex&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  computed: &#123;</span><br><span class="line">    ...mapGetters(&#123;</span><br><span class="line">      init: &apos;getItems&apos;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>mapGettersでgetItemsというgetterをinitという名前でマッピングしています。<br>今回は入れてないのですが、最初はItemsの中身がないので真っ白になってしまいます。<br>そのため、データの取得が終わるまではローディング画像を出すなりした方が良さそうです。<br><br>
+<br>
+設定は以上になります。<br>さっそく<code>npm run dev</code>で確認してみます。<br><br>
+ローカルでも<a href="https://makuraswork.firebaseapp.com" target="_blank" rel="noopener">サンプルページ</a>のように、登録したデータが表示されていれば正しく設定出来ています。<br>今回はfirebase Hostingを使ってデプロイしてみました。  </p>
+<h2><span id="実際に作業してみた所感">実際に作業してみた所感</span></h2><p>vueの経験が足りなかったが故に導入が終わるまでは苦労しましたが、記事にして振り返ってみると割と簡単に連携できるのかなという印象でした。<br>storeの部分を分割して綺麗にしておけばより良さそう。<br>他には設定ファイルの多さが若干気になりますが、小さいプロジェクトなら問題ないのかなぁ…。<br><br>
+とはいえfirestore＋Hostingの組み合わせがプライベートで勉強するにはとても楽ちんなので、今後どんどん使っていきたいです。<br><br>
+おしまい。</p>
+
+    </div>
+  </div>
+  
+    <div class="article-footer">
+      <div class="article-share-link">
+        <a href="http://b.hatena.ne.jp/entry/https://makura3.github.io/vue/nuxt-intro/" class="article-share _hatebu" target="_blank" title="Hatebu"><img src="/images/hatenabookmark-logomark.svg" alt="はてなブログ" class="fa-hatebu"></a>        
+        <a href="https://twitter.com/intent/tweet?url=https://makura3.github.io/vue/nuxt-intro/" class="article-share _twitter" target="_blank" title="Twitter"><i class="fab fa-twitter sns-ic"></i></a>
+        <a href="https://www.facebook.com/sharer.php?u=https://makura3.github.io/vue/nuxt-intro/" class="article-share _facebook" target="_blank" title="Facebook"><i class="fab fa-facebook sns-ic"></i></a>
+        <a href="https://plus.google.com/share?url=https://makura3.github.io/vue/nuxt-intro/" class="article-share _google" target="_blank" title="Google+"><i class="fab fa-google-plus-g sns-ic"></i></a>
+        <a href="https://social-plugins.line.me/lineit/share?url=https://makura3.github.io/vue/nuxt-intro/" class="article-share _line" target="_blank" title="LINE"><i class="fab fa-line sns-ic"></i></a>
+      </div>
+      <!-- 
+  <i class="fas fa-tag"></i>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nuxt/">Nuxt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/firestore/">firestore</a></li></ul>
+ -->
+    </div>
+    
+<nav class="paging">
+  
+    <a href="/Lint/eslint-Prettier/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption"><i class="fas fa-angle-left"></i>次の記事</span>
+      <div class="article-nav-title">
+        
+          ESLintとPrettierとVSCodeでお手軽コードチェックするまで
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Vue/vue-summary/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">前の記事<i class="fas fa-angle-right"></i></span>
+      <div class="article-nav-title">Vue.jsのテンプレート構文とコンパイルについてのまとめ</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+      </div>
+    </div>
+    <!-- tagList -->
+    
+      <div class="footer-tag-List">
+  <div class="contents">
+    <p class="title">タグから気になる記事を探す</p>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESLint/">ESLint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuxt/">Nuxt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prettier/">Prettier</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firestore/">firestore</a></li></ul>
+  </div>
+</div>
+    
+    <!-- footer -->
+    <footer class="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <div>
+        <a href="https://github.com/makura3/makura3.github.io" class="ic-github" target="_blank"><i class="fab fa-github sns-ic"></i></a>
+        <a href="https://twitter.com/_makura3" target="_blank"><i class="fab fa-twitter sns-ic"></i></a>
+        <!-- <i class="fab fa-facebook sns-ic"></i></p> -->
+        
+          <a href="/atom.xml" title="RSSフィード" target="_blank">
+            <i class="fas fa-rss-square sns-ic"></i>
+          </a>
+        
+      </div>
+      <p>&copy; 2018 makura3</p>
+    <!-- <div>
+      <a href="#top"><i class="fas fa-3x fa-chevron-circle-up"></i></a>
+    </div> -->
+  </div>
+</footer>
+    <!-- load js -->
+    <script src="/js/fontawesome-all.min.js" async></script>
+  </body>
+
+</html>
