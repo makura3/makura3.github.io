@@ -30,6 +30,10 @@ git checkout <branch>
 ・
 
 ### pull
+普段何気なく、選択したブランチのソースをローカルのブランチにpullしていますが、ドキュメントを読んでみると  
+*git pull runs git fetch with the given parameters and calls git merge to merge the retrieved branch heads into the current branch*
+とあり、  
+git pull hoge とは、git fetchしたあとhogeブランチを検索し、ローカルブランチにhogeブランチをマージします。
 
 ### commit
 
